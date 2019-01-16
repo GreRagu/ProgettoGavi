@@ -27,7 +27,8 @@ public class CreateIndexPath {
 		Boolean append = null;
 		BufferedReader in;
 		in = new BufferedReader(new InputStreamReader(System.in, "UTF-8"));
-
+		final String OS = System.getProperty("os.name").toLowerCase();
+		System.out.println(OS);
 		file = "./dataset/clinical_dataset/IndexPath.txt";
 		System.out.println("Insert the path to root folder: ");
 
