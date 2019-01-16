@@ -2,5 +2,4 @@
 /dataset/clinical_dataset/pmc-text-00/*
 /bin/*
 /src/*.class
-/src/plot/*.class
 .classpath
