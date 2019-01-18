@@ -1,20 +1,16 @@
 import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JMenuBar;
-import javax.swing.JMenu;
-import javax.swing.JMenuItem;
-import javax.swing.JTextField;
-import java.awt.BorderLayout;
-import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
-import java.awt.GridBagConstraints;
+
 import javax.swing.JButton;
-import javax.swing.JTable;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.ImageIcon;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 public class ProgettoGaviMain implements ActionListener {
@@ -115,7 +111,7 @@ public class ProgettoGaviMain implements ActionListener {
 		if ( e.getSource() == mntmCreateIndexpath ) {
 					
 			try {
-				CreateIndexPath CIP = new CreateIndexPath();
+				CreateIndexPath CIP = new CreateIndexPath(frmHegregio);
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();

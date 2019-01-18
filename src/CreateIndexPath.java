@@ -7,11 +7,14 @@ import java.io.PrintStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
+import javax.swing.BorderFactory;
+import javax.swing.JDialog;
 import javax.swing.JFileChooser;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 public class CreateIndexPath {
-	public CreateIndexPath() throws IOException {
+	public CreateIndexPath(JFrame Parent) throws IOException {
 		String docsPath = "";
 		String file = "";
 		String ext = "";
@@ -50,19 +53,32 @@ public class CreateIndexPath {
 			
 		}
 		
-	    writeDocPath(docsPath, ext, file, append);
+		JDialog dlgProgress = new JDialog(Parent, "Please wait...", false);
+		dlgProgress.getContentPane();
+	    BorderFactory.createTitledBorder("Loading file...");
+	    dlgProgress.setSize(300, 100);
+	    dlgProgress.setVisible(true);
+	    Parent.setEnabled(false);	    
+
+		writeDocPath(docsPath, ext, file, append);
+		
+		dlgProgress.dispose();
+	    Parent.setEnabled(true);
+	    JOptionPane.showMessageDialog(Parent, "Caricamento completato", "Completato", JOptionPane.INFORMATION_MESSAGE);
+		
 	}
 
 	// Write on IndexPath.txt the path of each document that is going to add at the
 	// index
 	private void writeDocPath(String docsPath, String ext, String file, Boolean append) throws FileNotFoundException {
-		
+
 	    PrintStream write = new PrintStream(new FileOutputStream(file, append));
-	    try {
+		try {
 			Files.walk(Paths.get(docsPath)).filter(p -> p.toString().endsWith(ext)).forEach(write::println);
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
 		write.close();
 	}
+
 }
