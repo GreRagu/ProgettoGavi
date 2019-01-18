@@ -7,6 +7,9 @@ import javax.swing.JMenuItem;
 import javax.swing.JTextField;
 import java.awt.BorderLayout;
 import java.awt.GridBagLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.awt.GridBagConstraints;
 import javax.swing.JButton;
 import javax.swing.JTable;
@@ -14,11 +17,12 @@ import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
 
-public class ProgettoGaviMain {
+public class ProgettoGaviMain implements ActionListener {
 
 	private JFrame frmHegregio;
 	private JTextField txtSearch;
 	private JTable table;
+	private JMenuItem mntmCreateIndexpath;
 
 	/**
 	 * Launch the application.
@@ -58,8 +62,9 @@ public class ProgettoGaviMain {
 		JMenu mnIndexpath = new JMenu("IndexPath");
 		menuBar.add(mnIndexpath);
 		
-		JMenuItem mntmCreateIndexpath = new JMenuItem("Create Indexpath");
+		mntmCreateIndexpath = new JMenuItem("Create Indexpath");
 		mnIndexpath.add(mntmCreateIndexpath);
+		mntmCreateIndexpath.addActionListener(this);
 		
 		JMenuItem mntmLoadFiles = new JMenuItem("Load files");
 		mnIndexpath.add(mntmLoadFiles);
@@ -101,5 +106,23 @@ public class ProgettoGaviMain {
 		lblRicercaSuN.setHorizontalAlignment(SwingConstants.CENTER);
 		lblRicercaSuN.setBounds(61, 54, 301, 14);
 		frmHegregio.getContentPane().add(lblRicercaSuN);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+		if ( e.getSource() == mntmCreateIndexpath ) {
+					
+			try {
+				CreateIndexPath CIP = new CreateIndexPath();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			
+		}
+		
+		
 	}
 }
