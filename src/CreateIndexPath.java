@@ -35,7 +35,6 @@ public class CreateIndexPath {
 			System.out.println("docPath :"+ docsPath);
 			
 		}
-		
 
 		//docsPath = "./dataset/clinical_dataset/pmc-text-00/";
 		// docsPath = in.readLine();
@@ -49,18 +48,13 @@ public class CreateIndexPath {
 				System.out.println("Wrong extension, reinsert: ");
 		}
 		
-		String app;
-		System.out.println("Do you want to append on file " + file + " [y/n]: ");
-		app = (String)JOptionPane.showInputDialog("Do you want to append on file " + file + " [y/n]:" );
-		while ( app != null ) {
-			if (app.equals("y")) {
-				append = true;
-				break;
-			} else if (app.equals("n")) {
-				append = false;
-				break;
-			} else
-				System.out.println("Wrong answer, reinsert [y/n]: ");
+		int dialogResult = JOptionPane.showConfirmDialog (null, "Would You Like to append on file" + file + " ? ","",JOptionPane.YES_NO_OPTION);
+		if(dialogResult == JOptionPane.YES_OPTION){
+			append = true;
+		}
+		else {
+			append = false;
+			
 		}
 
 		writeDocPath(docsPath, ext, file, append);
