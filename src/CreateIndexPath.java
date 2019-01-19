@@ -2,7 +2,9 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
+import java.io.LineNumberReader;
 import java.io.PrintStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -14,11 +16,15 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 public class CreateIndexPath {
-	public CreateIndexPath(JFrame Parent) throws IOException {
-		String docsPath = "";
-		String file = "";
-		String ext = "";
-		Boolean append = null;
+	private String docsPath = "";
+	private String file = "";
+	private String ext = "";
+	private Boolean append = null;
+	private Integer FileNumber = 0;
+	
+	public CreateIndexPath() {}
+	
+	public int CreateFile(JFrame Parent) throws IOException {
 
 		file = "./dataset/clinical_dataset/IndexPath.txt";
 		
@@ -60,17 +66,18 @@ public class CreateIndexPath {
 	    dlgProgress.setVisible(true);
 	    Parent.setEnabled(false);	    
 
-		writeDocPath(docsPath, ext, file, append);
+		FileNumber = writeDocPath(docsPath, ext, file, append);
 		
 		dlgProgress.dispose();
 	    Parent.setEnabled(true);
 	    JOptionPane.showMessageDialog(Parent, "Caricamento completato", "Completato", JOptionPane.INFORMATION_MESSAGE);
-		
+		return FileNumber;
+	    
 	}
 
 	// Write on IndexPath.txt the path of each document that is going to add at the
 	// index
-	private void writeDocPath(String docsPath, String ext, String file, Boolean append) throws FileNotFoundException {
+	private int writeDocPath(String docsPath, String ext, String file, Boolean append) throws FileNotFoundException {
 
 	    PrintStream write = new PrintStream(new FileOutputStream(file, append));
 		try {
@@ -79,6 +86,21 @@ public class CreateIndexPath {
 			e1.printStackTrace();
 		}
 		write.close();
+		FileReader fr = new FileReader(file);
+		LineNumberReader lnr = new LineNumberReader(fr);
+	    
+	    int linenumber = 0;
+	    
+        try {
+			while (lnr.readLine() != null){
+					linenumber++;
+			}
+			lnr.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+        
+        return linenumber;
 	}
 
 }

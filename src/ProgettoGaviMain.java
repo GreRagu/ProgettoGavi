@@ -19,6 +19,8 @@ public class ProgettoGaviMain implements ActionListener {
 	private JTextField txtSearch;
 	private JTable table;
 	private JMenuItem mntmCreateIndexpath;
+	private Integer filenumber;
+	private JLabel lblRicercaSuN;
 
 	/**
 	 * Launch the application.
@@ -47,6 +49,8 @@ public class ProgettoGaviMain implements ActionListener {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		filenumber = 0;
+		
 		frmHegregio = new JFrame();
 		frmHegregio.setTitle("Hegregio");
 		frmHegregio.setBounds(100, 100, 450, 300);
@@ -98,7 +102,7 @@ public class ProgettoGaviMain implements ActionListener {
 		table.setBounds(62, 79, 300, 150);
 		frmHegregio.getContentPane().add(table);
 		
-		JLabel lblRicercaSuN = new JLabel("Ricerca su N file con modello");
+		lblRicercaSuN = new JLabel("Ricerca su " + filenumber + " file con modello");
 		lblRicercaSuN.setHorizontalAlignment(SwingConstants.CENTER);
 		lblRicercaSuN.setBounds(61, 54, 301, 14);
 		frmHegregio.getContentPane().add(lblRicercaSuN);
@@ -109,9 +113,10 @@ public class ProgettoGaviMain implements ActionListener {
 		// TODO Auto-generated method stub
 		
 		if ( e.getSource() == mntmCreateIndexpath ) {
-					
 			try {
-				CreateIndexPath CIP = new CreateIndexPath(frmHegregio);
+				CreateIndexPath CIP = new CreateIndexPath();
+				filenumber += CIP.CreateFile(frmHegregio);
+				lblRicercaSuN.setText("Ricerca su " + filenumber + " file con modello");
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
