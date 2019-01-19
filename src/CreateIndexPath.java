@@ -40,8 +40,10 @@ public class CreateIndexPath {
 			docsPath = "." + docsPath.substring(basePath.length());
 			System.out.println("docPath :"+ docsPath);
 		}
+		if (returnVal==fc.CANCEL_OPTION) return 0;
 
 		ext = (String)JOptionPane.showInputDialog("Insert file extension", "nxml");
+		
 		while ( ext != null) {
 			ext = ext.toLowerCase();
 			if (ext.matches(".[a-z]+")) {
@@ -49,30 +51,33 @@ public class CreateIndexPath {
 			} else
 				ext = (String)JOptionPane.showInputDialog("Wrong extension, reinsert: ");
 		}
+		if(ext!=null) {
 		
-		int dialogResult = JOptionPane.showConfirmDialog (null, "Would You Like to append on file" + file + " ? ","",JOptionPane.YES_NO_OPTION);
-		if(dialogResult == JOptionPane.YES_OPTION){
-			append = true;
-		}
-		else {
-			append = false;
+			int dialogResult = JOptionPane.showConfirmDialog (null, "Would You Like to append on file" + file + " ? ","",JOptionPane.YES_NO_OPTION);
+			if(dialogResult == JOptionPane.YES_OPTION){
+				append = true;
+			}
+			else {
+				append = false;
+				
+			}
 			
+			JDialog dlgProgress = new JDialog(Parent, "Please wait...", false);
+			dlgProgress.getContentPane();
+		    BorderFactory.createTitledBorder("Loading file...");
+		    dlgProgress.setSize(300, 100);
+		    dlgProgress.setVisible(true);
+		    Parent.setEnabled(false);	    
+	
+			FileNumber = writeDocPath(docsPath, ext, file, append);
+			
+			dlgProgress.dispose();
+		    Parent.setEnabled(true);
+		    JOptionPane.showMessageDialog(Parent, "Caricamento completato", "Completato", JOptionPane.INFORMATION_MESSAGE);
+			return FileNumber;
+		    
 		}
-		
-		JDialog dlgProgress = new JDialog(Parent, "Please wait...", false);
-		dlgProgress.getContentPane();
-	    BorderFactory.createTitledBorder("Loading file...");
-	    dlgProgress.setSize(300, 100);
-	    dlgProgress.setVisible(true);
-	    Parent.setEnabled(false);	    
-
-		FileNumber = writeDocPath(docsPath, ext, file, append);
-		
-		dlgProgress.dispose();
-	    Parent.setEnabled(true);
-	    JOptionPane.showMessageDialog(Parent, "Caricamento completato", "Completato", JOptionPane.INFORMATION_MESSAGE);
-		return FileNumber;
-	    
+		return 0;
 	}
 
 	// Write on IndexPath.txt the path of each document that is going to add at the
