@@ -97,7 +97,7 @@ public class CreateIndexPath {
 	    
         try {
 			while (lnr.readLine() != null){
-					linenumber++;
+				linenumber++;
 			}
 			lnr.close();
 		} catch (IOException e) {

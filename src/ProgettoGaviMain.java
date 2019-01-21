@@ -30,6 +30,7 @@ public class ProgettoGaviMain implements ActionListener {
 	private JMenuItem mntmFuzzyModel;
 	private JMenuItem mntmProbabilisticModel;
 	private Model modelUsed = null;
+	public static String basePath = new File("").getAbsolutePath();
 
 	/**
 	 * Launch the application.
@@ -154,7 +155,7 @@ public class ProgettoGaviMain implements ActionListener {
 			    File yourFolder = fc.getSelectedFile();
 			    indexPath = yourFolder.getAbsolutePath();
 				
-				String basePath = new File("").getAbsolutePath();
+				
 				indexPath = "." + indexPath.substring(basePath.length());
 				System.out.println("docPath :"+ indexPath);
 			}
