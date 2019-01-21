@@ -21,18 +21,19 @@ public class Index {
 	public static final String FILE_NAME = "filename";
 	public static final String FILE_PATH = "filepath";
 	public static final int MAX_SEARCH = 10;
+	private IndexWriter writer;
 
 	public static void main(String[] args) throws IOException {
 		Index i = new Index();
 	}
 	
 	public Index() throws IOException {
+		Indexer("./index_pmc");
 		File toIndexFile = new File("../dataset/clinical_dataset/pmc-text-00/01/2668905.nxml");
 		IndexFile(toIndexFile);
 	}
 	
 	private Document getDocument(File file) throws IOException {
-		System.out.println("Indexing "+ file.getCanonicalPath());
 	   Document document = new Document();
 	   
 	   //index file contents
@@ -51,8 +52,6 @@ public class Index {
 	
 	   return document;
 	}
-	
-	private IndexWriter writer;
 
 	public void Indexer(String indexDirectoryPath) throws IOException {
 	   //this directory will contain the indexes
@@ -62,14 +61,20 @@ public class Index {
 	   IndexWriterConfig iwc = new IndexWriterConfig(analyzer);
 	   
 	   //create the indexer
-	   writer =new IndexWriter(	indexDirectory, iwc);
+	   writer = new IndexWriter(indexDirectory, iwc);
 	}
 	
 	private void IndexFile(File file) throws IOException {
 	   System.out.println("Indexing "+ file.getCanonicalPath());
 	   
-	   Document document = getDocument(file);
-	   writer.addDocument(document);
+	   Document doc = new Document();
+	   
+	   doc = getDocument(file);
+	   
+	   System.out.println(doc);
+	   
+	   writer.addDocument(doc);
+	   writer.close();
 	   
 	}
 }
