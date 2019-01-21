@@ -1,9 +1,11 @@
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.io.IOException;
 
 import javax.swing.JButton;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
@@ -21,6 +23,8 @@ public class ProgettoGaviMain implements ActionListener {
 	private JMenuItem mntmCreateIndexpath;
 	private Integer filenumber;
 	private JLabel lblRicercaSuN;
+	public JMenuItem mntmLoadFiles;
+	private String indexPath;
 
 	/**
 	 * Launch the application.
@@ -66,8 +70,9 @@ public class ProgettoGaviMain implements ActionListener {
 		mnIndexpath.add(mntmCreateIndexpath);
 		mntmCreateIndexpath.addActionListener(this);
 		
-		JMenuItem mntmLoadFiles = new JMenuItem("Load files");
+		mntmLoadFiles = new JMenuItem("Load index");
 		mnIndexpath.add(mntmLoadFiles);
+		mntmLoadFiles.addActionListener(this);
 		
 		JMenu mnModels = new JMenu("Models");
 		menuBar.add(mnModels);
@@ -121,6 +126,18 @@ public class ProgettoGaviMain implements ActionListener {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
+			
+		}
+		
+		if ( e.getSource() == mntmLoadFiles ) {
+			
+			JFileChooser fc = new JFileChooser();
+			fc.setCurrentDirectory(new java.io.File(".")); // start at application current directory
+			fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+			File yourFolder = fc.getSelectedFile();
+			indexPath = yourFolder.getAbsolutePath();
+				
+			System.out.println("docPath :"+ indexPath);
 			
 		}
 		
