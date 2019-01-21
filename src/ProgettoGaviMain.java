@@ -25,7 +25,11 @@ public class ProgettoGaviMain implements ActionListener {
 	private JLabel lblRicercaSuN;
 	public JMenuItem mntmLoadFiles;
 	private String indexPath;
-	public static String basePath = new File("").getAbsolutePath();
+	private JMenuItem mntmVectorSpaceModel;
+	private JMenuItem mntmBooleanModel;
+	private JMenuItem mntmFuzzyModel;
+	private JMenuItem mntmProbabilisticModel;
+	private Model modelUsed = null;
 
 	/**
 	 * Launch the application.
@@ -78,11 +82,21 @@ public class ProgettoGaviMain implements ActionListener {
 		JMenu mnModels = new JMenu("Models");
 		menuBar.add(mnModels);
 		
-		JMenuItem mntmVectorSpaceModel = new JMenuItem("Vector Space Model");
+		mntmVectorSpaceModel = new JMenuItem("Vector Space Model");
 		mnModels.add(mntmVectorSpaceModel);
+		mntmVectorSpaceModel.addActionListener(this);
 		
-		JMenuItem mntmBooleanModel = new JMenuItem("Boolean Model");
+		mntmBooleanModel = new JMenuItem("Boolean Model");
 		mnModels.add(mntmBooleanModel);
+		mntmBooleanModel.addActionListener(this);
+		
+		mntmFuzzyModel = new JMenuItem("Fuzzy Model");
+		mnModels.add(mntmFuzzyModel);
+		mntmFuzzyModel.addActionListener(this);
+		
+		mntmProbabilisticModel = new JMenuItem("Probabilistic(BM25) Model");
+		mnModels.add(mntmProbabilisticModel);
+		mntmProbabilisticModel.addActionListener(this);
 		
 		JMenu mnTolerantRetriaval = new JMenu("Tolerant retriaval");
 		menuBar.add(mnTolerantRetriaval);
@@ -139,7 +153,8 @@ public class ProgettoGaviMain implements ActionListener {
 			if(returnVal == JFileChooser.APPROVE_OPTION) {
 			    File yourFolder = fc.getSelectedFile();
 			    indexPath = yourFolder.getAbsolutePath();
-			    
+				
+				String basePath = new File("").getAbsolutePath();
 				indexPath = "." + indexPath.substring(basePath.length());
 				System.out.println("docPath :"+ indexPath);
 			}
@@ -148,6 +163,34 @@ public class ProgettoGaviMain implements ActionListener {
 			System.out.println("docPath :"+ indexPath);
 			
 		}
+		
+		//------------Model Selection--------------
+		
+		if ( e.getSource()  == mntmVectorSpaceModel ) {
+			
+			modelUsed  = new VectorSpaceModel();
+			
+		}
+		
+		if ( e.getSource()  == mntmBooleanModel ) {
+			
+			modelUsed = new BooleanModel();
+			
+		}
+		
+		if ( e.getSource()  == mntmFuzzyModel ) {
+			
+			modelUsed = new FuzzyModel();
+			
+		}
+		
+		
+		if ( e.getSource()  == mntmProbabilisticModel ) {
+			
+			modelUsed = new BM25();
+			
+		}
+		
 		
 		
 	}
