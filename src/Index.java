@@ -26,6 +26,7 @@ public class Index {
 	public static final String FILE_NAME = "filename";
 	public static final String FILE_PATH = "filepath";
 	public static final int MAX_SEARCH = 10;
+	public File toIndexFile = new File("./dataset/clinical_dataset/pmc-text-00/01/2668905.nxml");
 	private IndexWriter writer;
 	private String indexFile;
 	private String indexDir;
@@ -106,4 +107,28 @@ public class Index {
 			System.out.println(" caught a " + e.getClass() + "\n with message: " + e.getMessage());
 		}
 	}
+	
+	/**Funzione che estrapola dal file xml il contenuto del body
+	 * @throws IOException 
+	 * */
+	public static String fileToBody(File file) throws IOException {
+		 BufferedReader reader = new BufferedReader(new FileReader (file));
+		    String         line = null;
+		    StringBuilder  stringBuilder = new StringBuilder();
+		    String         ls = System.getProperty("line.separator");
+
+		    try {
+		        while((line = reader.readLine()) != null) {
+		            stringBuilder.append(line);
+		            stringBuilder.append(ls);
+		        }
+
+		        String result = stringBuilder.toString();
+		        result = result.substring(result.indexOf("<body>")+6, result.indexOf("</body>"));
+		        return result;
+		    } finally {
+		        reader.close();
+		    }
+                       
+    	}
 }
