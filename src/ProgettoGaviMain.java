@@ -25,6 +25,7 @@ public class ProgettoGaviMain implements ActionListener {
 	private JLabel lblRicercaSuN;
 	public JMenuItem mntmLoadFiles;
 	private String indexPath;
+	public static String basePath = new File("").getAbsolutePath();
 
 	/**
 	 * Launch the application.
@@ -138,8 +139,7 @@ public class ProgettoGaviMain implements ActionListener {
 			if(returnVal == JFileChooser.APPROVE_OPTION) {
 			    File yourFolder = fc.getSelectedFile();
 			    indexPath = yourFolder.getAbsolutePath();
-				
-				String basePath = new File("").getAbsolutePath();
+			    
 				indexPath = "." + indexPath.substring(basePath.length());
 				System.out.println("docPath :"+ indexPath);
 			}

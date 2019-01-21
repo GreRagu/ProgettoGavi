@@ -36,8 +36,7 @@ public class CreateIndexPath {
 		    File yourFolder = fc.getSelectedFile();
 			docsPath = yourFolder.getAbsolutePath();
 			
-			String basePath = new File("").getAbsolutePath();
-			docsPath = "." + docsPath.substring(basePath.length());
+			docsPath = "." + docsPath.substring(ProgettoGaviMain.basePath.length());
 			System.out.println("docPath :"+ docsPath);
 		}
 		if (returnVal==JFileChooser.CANCEL_OPTION) return 0;
