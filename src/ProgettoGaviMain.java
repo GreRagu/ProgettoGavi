@@ -134,8 +134,16 @@ public class ProgettoGaviMain implements ActionListener {
 			JFileChooser fc = new JFileChooser();
 			fc.setCurrentDirectory(new java.io.File(".")); // start at application current directory
 			fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-			File yourFolder = fc.getSelectedFile();
-			indexPath = yourFolder.getAbsolutePath();
+			int returnVal = fc.showOpenDialog(fc);
+			if(returnVal == JFileChooser.APPROVE_OPTION) {
+			    File yourFolder = fc.getSelectedFile();
+			    indexPath = yourFolder.getAbsolutePath();
+				
+				String basePath = new File("").getAbsolutePath();
+				indexPath = "." + indexPath.substring(basePath.length());
+				System.out.println("docPath :"+ indexPath);
+			}
+			if (returnVal==JFileChooser.CANCEL_OPTION) return;
 				
 			System.out.println("docPath :"+ indexPath);
 			

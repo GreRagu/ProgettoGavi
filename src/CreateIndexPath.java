@@ -40,7 +40,7 @@ public class CreateIndexPath {
 			docsPath = "." + docsPath.substring(basePath.length());
 			System.out.println("docPath :"+ docsPath);
 		}
-		if (returnVal==fc.CANCEL_OPTION) return 0;
+		if (returnVal==JFileChooser.CANCEL_OPTION) return 0;
 
 		ext = (String)JOptionPane.showInputDialog("Insert file extension", "nxml");
 		
