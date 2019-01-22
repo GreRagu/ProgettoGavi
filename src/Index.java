@@ -37,6 +37,7 @@ public class Index {
 
 	public static void main(String[] args) throws IOException {
 		Index i = new Index();
+
 	}
 	
 	public Index() throws IOException {
@@ -47,7 +48,7 @@ public class Index {
 	   Document document = new Document();
 	   
 	   //index file contents
-	   TextField contentField = new TextField(CONTENTS, "TESTO DA RICERCARE", Field.Store.YES);
+	   TextField contentField = new TextField(CONTENTS, fileToBody(file), Field.Store.YES);
 	   
 	   //index file name
 	   TextField fileNameField = new TextField(FILE_NAME, file.getName(), Field.Store.NO);
@@ -94,6 +95,7 @@ public class Index {
 			try (BufferedReader br = new BufferedReader(new FileReader(indexFile))) {
 				String line;
 				while ((line = br.readLine()) != null) {
+					//I documenti aggiunti qui sono già stati analizzati dall'analyzer
 					writer.addDocument(getDocument(new File(line)));
 				}
 			}
