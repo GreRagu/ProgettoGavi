@@ -127,7 +127,9 @@ public class Index {
 
 		        
 		        String result = stringBuilder.toString();
-
+		        
+		        //restituisce tutto il contenuto del tag body.
+		        //se non è presente restituisce stringa nulla
 		        if(result.indexOf("<body>") != -1) {
 		        	result = result.substring(result.indexOf("<body>")+6, result.indexOf("</body>"));
 		        	return result;
