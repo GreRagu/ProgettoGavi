@@ -16,15 +16,13 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 public class CreateIndexPath {
-	private String docsPath = "";
 	private String file = "";
 	private String ext = "";
-	private Boolean append = null;
 	private Integer FileNumber = 0;
 	
 	public CreateIndexPath() {}
 	
-	public int CreateFile(JFrame Parent) throws IOException {
+	public int CreateFile(JFrame Parent,String docsPath, boolean append) throws IOException {
 
 		file = "./dataset/clinical_dataset/IndexPath.txt";
 		

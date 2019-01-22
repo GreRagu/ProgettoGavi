@@ -30,6 +30,8 @@ public class ProgettoGaviMain implements ActionListener {
 	private JMenuItem mntmFuzzyModel;
 	private JMenuItem mntmProbabilisticModel;
 	private Model modelUsed = null;
+	private String indexDir;
+	private boolean append;
 	public static String basePath = new File("").getAbsolutePath();
 
 	/**
@@ -136,8 +138,15 @@ public class ProgettoGaviMain implements ActionListener {
 		if ( e.getSource() == mntmCreateIndexpath ) {
 			try {
 				CreateIndexPath CIP = new CreateIndexPath();
-				filenumber += CIP.CreateFile(frmHegregio);
+				filenumber += CIP.CreateFile(frmHegregio, indexDir , append );
 				lblRicercaSuN.setText("Ricerca su " + filenumber + " file con modello");
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			
+			try {
+				Index ind = new Index(indexDir, append);
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();

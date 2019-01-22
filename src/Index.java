@@ -35,20 +35,16 @@ public class Index {
 	private Analyzer analyzer;
 	private IndexWriterConfig iwc;
 
-	public static void main(String[] args) throws IOException {
-		Index i = new Index();
-
-	}
 	
-	public Index() throws IOException {
-		IndexFile();
+	public Index(String indexDir,boolean append) throws IOException {
+		IndexFile(indexDir, append);
 	}
 	
 	private Document getDocument(File file) throws IOException {
 	   Document document = new Document();
 	   
 	   //index file contents
-	   TextField contentField = new TextField(CONTENTS, fileToBody(file), Field.Store.YES);
+	   TextField contentField = new TextField(CONTENTS, "TESTO DA RICERCARE", Field.Store.YES);
 	   
 	   //index file name
 	   TextField fileNameField = new TextField(FILE_NAME, file.getName(), Field.Store.NO);
@@ -64,10 +60,9 @@ public class Index {
 	   return document;
 	}
 	
-	private void IndexFile() throws IOException {
+	private void IndexFile(String indexDir,boolean append ) throws IOException {
 		indexFile = "./dataset/clinical_dataset/IndexPath.txt";
-		indexDir = "./index_pmc";
-		append = false;
+
 		Date start = new Date();
 		try {
 			System.out.println("Indexing to directory '" + indexDir + "'...");
@@ -95,7 +90,6 @@ public class Index {
 			try (BufferedReader br = new BufferedReader(new FileReader(indexFile))) {
 				String line;
 				while ((line = br.readLine()) != null) {
-					//I documenti aggiunti qui sono già stati analizzati dall'analyzer
 					writer.addDocument(getDocument(new File(line)));
 				}
 			}
@@ -125,16 +119,9 @@ public class Index {
 		            stringBuilder.append(ls);
 		        }
 
-		        
 		        String result = stringBuilder.toString();
-		        
-		        //restituisce tutto il contenuto del tag body.
-		        //se non è presente restituisce stringa nulla
-		        if(result.indexOf("<body>") != -1) {
-		        	result = result.substring(result.indexOf("<body>")+6, result.indexOf("</body>"));
-		        	return result;
-		        	}
-		        return " ";
+		        result = result.substring(result.indexOf("<body>")+6, result.indexOf("</body>"));
+		        return result;
 		    } finally {
 		        reader.close();
 		    }
