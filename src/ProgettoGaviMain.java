@@ -11,6 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
@@ -23,15 +24,14 @@ public class ProgettoGaviMain implements ActionListener {
 	private JMenuItem mntmCreateIndexpath;
 	private Integer filenumber;
 	private JLabel lblRicercaSuN;
-	public JMenuItem mntmLoadFiles;
+	public JMenuItem mntmLoadIndex;
+	public JMenuItem mntmCreateIndex;
 	private String indexPath;
 	private JMenuItem mntmVectorSpaceModel;
 	private JMenuItem mntmBooleanModel;
 	private JMenuItem mntmFuzzyModel;
 	private JMenuItem mntmProbabilisticModel;
 	private Model modelUsed = null;
-	private String indexDir;
-	private boolean append;
 	public static String basePath = new File("").getAbsolutePath();
 
 	/**
@@ -71,16 +71,20 @@ public class ProgettoGaviMain implements ActionListener {
 		JMenuBar menuBar = new JMenuBar();
 		frmHegregio.setJMenuBar(menuBar);
 		
-		JMenu mnIndexpath = new JMenu("IndexPath");
+		JMenu mnIndexpath = new JMenu("Index");
 		menuBar.add(mnIndexpath);
 		
-		mntmCreateIndexpath = new JMenuItem("Create Indexpath");
+		mntmCreateIndexpath = new JMenuItem("Create IndexPath");
 		mnIndexpath.add(mntmCreateIndexpath);
 		mntmCreateIndexpath.addActionListener(this);
 		
-		mntmLoadFiles = new JMenuItem("Load index");
-		mnIndexpath.add(mntmLoadFiles);
-		mntmLoadFiles.addActionListener(this);
+		mntmLoadIndex = new JMenuItem("Load index");
+		mnIndexpath.add(mntmLoadIndex);
+		mntmLoadIndex.addActionListener(this);
+		
+		mntmCreateIndex = new JMenuItem("Create index");
+		mnIndexpath.add(mntmCreateIndex);
+		mntmCreateIndex.addActionListener(this);
 		
 		JMenu mnModels = new JMenu("Models");
 		menuBar.add(mnModels);
@@ -138,15 +142,8 @@ public class ProgettoGaviMain implements ActionListener {
 		if ( e.getSource() == mntmCreateIndexpath ) {
 			try {
 				CreateIndexPath CIP = new CreateIndexPath();
-				filenumber += CIP.CreateFile(frmHegregio, indexDir , append );
+				filenumber += CIP.CreateFile(frmHegregio);
 				lblRicercaSuN.setText("Ricerca su " + filenumber + " file con modello");
-			} catch (IOException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-			
-			try {
-				Index ind = new Index(indexDir, append);
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
@@ -154,14 +151,26 @@ public class ProgettoGaviMain implements ActionListener {
 			
 		}
 		
-		if ( e.getSource() == mntmLoadFiles ) {
+		if ( e.getSource() == mntmCreateIndex) {
+			Index ind = new Index();
+			try {
+				ind.CreateIndex(frmHegregio);
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			
+		}
+		
+		if ( e.getSource() == mntmLoadIndex ) {
 			
 			JFileChooser fc = new JFileChooser();
 			fc.setCurrentDirectory(new java.io.File(".")); // start at application current directory
 			fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
 			int returnVal = fc.showOpenDialog(fc);
+			File yourFolder = null;
 			if(returnVal == JFileChooser.APPROVE_OPTION) {
-			    File yourFolder = fc.getSelectedFile();
+			    yourFolder = fc.getSelectedFile();
 			    indexPath = yourFolder.getAbsolutePath();
 				
 				
@@ -169,7 +178,8 @@ public class ProgettoGaviMain implements ActionListener {
 				System.out.println("docPath :"+ indexPath);
 			}
 			if (returnVal==JFileChooser.CANCEL_OPTION) return;
-				
+			
+			JOptionPane.showMessageDialog(frmHegregio, "Cartella selezionata per l'indice: " + yourFolder.getAbsolutePath(), "Completato", JOptionPane.INFORMATION_MESSAGE);
 			System.out.println("docPath :"+ indexPath);
 			
 		}

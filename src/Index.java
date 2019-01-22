@@ -7,6 +7,12 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Date;
 
+import javax.swing.BorderFactory;
+import javax.swing.JDialog;
+import javax.swing.JFileChooser;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.Document;
@@ -26,7 +32,6 @@ public class Index {
 	public static final String FILE_NAME = "filename";
 	public static final String FILE_PATH = "filepath";
 	public static final int MAX_SEARCH = 10;
-	public File toIndexFile = new File("./dataset/clinical_dataset/pmc-text-00/01/2668905.nxml");
 	private IndexWriter writer;
 	private String indexFile;
 	private String indexDir;
@@ -35,16 +40,41 @@ public class Index {
 	private Analyzer analyzer;
 	private IndexWriterConfig iwc;
 
+	public Index() {}
 	
-	public Index(String indexDir,boolean append) throws IOException {
-		IndexFile(indexDir, append);
+	public int CreateIndex(JFrame Parent) throws IOException {
+		
+		JFileChooser fc = new JFileChooser();
+		fc.setCurrentDirectory(new java.io.File(".")); // start at application current directory
+		fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+		int returnVal = fc.showOpenDialog(fc);
+		if(returnVal == JFileChooser.APPROVE_OPTION) {
+		    File yourFolder = fc.getSelectedFile();
+		    indexDir = yourFolder.getAbsolutePath();
+		    
+		    indexDir = "." + indexDir.substring(ProgettoGaviMain.basePath.length());
+			System.out.println(indexDir);
+		}
+		if (returnVal==JFileChooser.CANCEL_OPTION) return 0;
+		
+		int dialogResult = JOptionPane.showConfirmDialog (null, "Would You Like to append to the index folder?","",JOptionPane.YES_NO_OPTION);
+		if(dialogResult == JOptionPane.YES_OPTION){
+			append = true;
+		} else {
+			append = false;
+			
+		}
+		
+		IndexFile(Parent);
+		
+		return 1;
 	}
 	
 	private Document getDocument(File file) throws IOException {
 	   Document document = new Document();
 	   
 	   //index file contents
-	   TextField contentField = new TextField(CONTENTS, "TESTO DA RICERCARE", Field.Store.YES);
+	   TextField contentField = new TextField(CONTENTS, fileToBody(file), Field.Store.YES);
 	   
 	   //index file name
 	   TextField fileNameField = new TextField(FILE_NAME, file.getName(), Field.Store.NO);
@@ -60,7 +90,7 @@ public class Index {
 	   return document;
 	}
 	
-	private void IndexFile(String indexDir,boolean append ) throws IOException {
+	private void IndexFile(JFrame Parent) throws IOException {
 		indexFile = "./dataset/clinical_dataset/IndexPath.txt";
 
 		Date start = new Date();
@@ -84,7 +114,14 @@ public class Index {
 			iwc.setRAMBufferSizeMB(512.0);
 
 			writer = new IndexWriter(dir, iwc);
-
+			
+			JDialog dlgProgress = new JDialog(Parent, "Please wait...", false);
+			dlgProgress.getContentPane();
+		    BorderFactory.createTitledBorder("Loading file...");
+		    dlgProgress.setSize(300, 100);
+		    dlgProgress.setVisible(true);
+		    Parent.setEnabled(false);	    
+			
 			// read line by line(path) indexFile and add document at the index by using the
 			// path of single file
 			try (BufferedReader br = new BufferedReader(new FileReader(indexFile))) {
@@ -97,6 +134,11 @@ public class Index {
 			writer.close();
 
 			Date end = new Date();
+			
+			dlgProgress.dispose();
+		    Parent.setEnabled(true);
+		    JOptionPane.showMessageDialog(Parent, "Caricamento completato", "Completato", JOptionPane.INFORMATION_MESSAGE);
+			
 			System.out.println(end.getTime() - start.getTime() + " total milliseconds");
 
 		} catch (IOException e) {
@@ -105,26 +147,33 @@ public class Index {
 	}
 	
 	/**Funzione che estrapola dal file xml il contenuto del body
-	 * @throws IOException 
-	 * */
-	public static String fileToBody(File file) throws IOException {
-		 BufferedReader reader = new BufferedReader(new FileReader (file));
-		    String         line = null;
-		    StringBuilder  stringBuilder = new StringBuilder();
-		    String         ls = System.getProperty("line.separator");
-
-		    try {
-		        while((line = reader.readLine()) != null) {
-		            stringBuilder.append(line);
-		            stringBuilder.append(ls);
-		        }
-
-		        String result = stringBuilder.toString();
+     * @throws IOException 
+     * */
+    public static String fileToBody(File file) throws IOException {
+        BufferedReader reader = new BufferedReader(new FileReader (file));
+		String         line = null;
+		StringBuilder  stringBuilder = new StringBuilder();
+		String         ls = System.getProperty("line.separator");
+		
+		try {
+		    while((line = reader.readLine()) != null) {
+		        stringBuilder.append(line);
+		        stringBuilder.append(ls);
+		    }
+		
+		    
+		    String result = stringBuilder.toString();
+		    
+		    //restituisce tutto il contenuto del tag body.
+		    //se non è presente restituisce stringa nulla
+		    if(result.indexOf("<body>") != -1) {
 		        result = result.substring(result.indexOf("<body>")+6, result.indexOf("</body>"));
 		        return result;
-		    } finally {
-		        reader.close();
-		    }
+		        }
+		    return " ";
+		} finally {
+		    reader.close();
+		}
                        
-    	}
+        }
 }

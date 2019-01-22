@@ -16,13 +16,15 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 public class CreateIndexPath {
-	private String file = "";
-	private String ext = "";
+	private String file;
+	private String ext;
 	private Integer FileNumber = 0;
+	private String docsPath;
+	private Boolean append;
 	
 	public CreateIndexPath() {}
 	
-	public int CreateFile(JFrame Parent,String docsPath, boolean append) throws IOException {
+	public int CreateFile(JFrame Parent) throws IOException {
 
 		file = "./dataset/clinical_dataset/IndexPath.txt";
 		
@@ -32,16 +34,16 @@ public class CreateIndexPath {
 		int returnVal = fc.showOpenDialog(fc);
 		if(returnVal == JFileChooser.APPROVE_OPTION) {
 		    File yourFolder = fc.getSelectedFile();
-			docsPath = yourFolder.getAbsolutePath();
-			
+		    docsPath = yourFolder.getAbsolutePath();
+		    
 			docsPath = "." + docsPath.substring(ProgettoGaviMain.basePath.length());
-			System.out.println("docPath :"+ docsPath);
+			System.out.println(docsPath);
 		}
 		if (returnVal==JFileChooser.CANCEL_OPTION) return 0;
 
 		ext = (String)JOptionPane.showInputDialog("Insert file extension", "nxml");
 		
-		while ( ext != null) {
+		while (ext != null) {
 			ext = ext.toLowerCase();
 			if (ext.matches(".[a-z]+")) {
 				break;
