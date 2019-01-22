@@ -125,9 +125,14 @@ public class Index {
 		            stringBuilder.append(ls);
 		        }
 
+		        
 		        String result = stringBuilder.toString();
-		        result = result.substring(result.indexOf("<body>")+6, result.indexOf("</body>"));
-		        return result;
+
+		        if(result.indexOf("<body>") != -1) {
+		        	result = result.substring(result.indexOf("<body>")+6, result.indexOf("</body>"));
+		        	return result;
+		        	}
+		        return " ";
 		    } finally {
 		        reader.close();
 		    }
