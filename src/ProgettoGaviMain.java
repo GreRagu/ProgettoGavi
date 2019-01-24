@@ -33,6 +33,7 @@ public class ProgettoGaviMain implements ActionListener {
 	private JMenuItem mntmProbabilisticModel;
 	private Model modelUsed = null;
 	public static String basePath = new File("").getAbsolutePath();
+	private JButton btnHelp;
 
 	/**
 	 * Launch the application.
@@ -115,7 +116,11 @@ public class ProgettoGaviMain implements ActionListener {
 		
 		JMenuItem mntmCalculateAndPlot = new JMenuItem("Calculate and plot");
 		mnEfficiency.add(mntmCalculateAndPlot);
+		
+		btnHelp = new JButton("Help");
+		menuBar.add(btnHelp);
 		frmHegregio.getContentPane().setLayout(null);
+		btnHelp.addActionListener(this);
 		
 		JButton btnSearch = new JButton("search");
 		btnSearch.setBounds(89, 11, 57, 21);
@@ -182,6 +187,20 @@ public class ProgettoGaviMain implements ActionListener {
 			
 			JOptionPane.showMessageDialog(frmHegregio, "Cartella selezionata per l'indice: " + yourFolder.getAbsolutePath(), "Completato", JOptionPane.INFORMATION_MESSAGE);
 			System.out.println("docPath :"+ indexPath);
+			
+		}
+		
+		
+		if ( e.getSource() == btnHelp ) {
+			
+			   
+			JOptionPane.showMessageDialog(frmHegregio,	"Programma che si occupa di information retrieval\" \n"
+								+	"Procedimento: scrivere nel text field il testo che verrà cercato nel dataset preimpostato\n"
+								+	" e premere il tasto 'cerca', nella tabella sottostante verrà restituito il risultato della ricerca \n"
+								+ 	"\n\n"
+								+ 	"\n"
+								+   " \n"
+								+   "");
 			
 		}
 		
