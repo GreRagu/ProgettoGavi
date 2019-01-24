@@ -39,15 +39,17 @@ public class ProgettoGaviMain implements ActionListener {
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
+            @Override
+            public void run() {
+                try {
 					ProgettoGaviMain window = new ProgettoGaviMain();
 					window.frmHegregio.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
 	}
 
 	/**
@@ -152,14 +154,13 @@ public class ProgettoGaviMain implements ActionListener {
 		}
 		
 		if ( e.getSource() == mntmCreateIndex) {
-			Index ind = new Index();
+			Index ind = new Index(frmHegregio, filenumber);
 			try {
-				ind.CreateIndex(frmHegregio);
+				ind.CreateGUI();
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
-			
 		}
 		
 		if ( e.getSource() == mntmLoadIndex ) {

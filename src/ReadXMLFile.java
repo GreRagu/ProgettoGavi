@@ -28,7 +28,7 @@ public class ReadXMLFile {
 			in = new BufferedReader(new InputStreamReader(System.in, "UTF-8"));
 			while (true) {
 				// line = in.readLine();
-				line = "./dataset/clinical_dataset/query/topics2014.xml";
+				line = "./dataset/clinical_dataset/Topics/topics2015A.xml";
 				XmlFile = new File(line);
 				if (!XmlFile.exists()) {
 					System.out
