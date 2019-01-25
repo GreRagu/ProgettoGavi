@@ -103,10 +103,10 @@ public class IndexWorker extends Thread {
 		TextField contentField = new TextField(CONTENTS, fileToBody(file), Field.Store.YES);
 
 		// index file name
-		TextField fileNameField = new TextField(FILE_NAME, file.getName(), Field.Store.NO);
+		TextField fileNameField = new TextField(FILE_NAME, file.getName(), Field.Store.YES);
 
 		// index file path
-		TextField filePathField = new TextField(FILE_PATH, file.getCanonicalPath(), Field.Store.NO);
+		TextField filePathField = new TextField(FILE_PATH, file.getCanonicalPath(), Field.Store.YES);
 
 		// System.out.println(contentField + " " + fileNameField + " " + filePathField);
 		document.add(contentField);
