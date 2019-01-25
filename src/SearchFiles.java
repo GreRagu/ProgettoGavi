@@ -1,9 +1,7 @@
 
 import java.io.BufferedReader;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.PrintWriter;
 import java.nio.file.Paths;
 import java.util.Date;
 
@@ -29,7 +27,6 @@ public class SearchFiles {
 		// select index to use (index_txt index_xml)
 		String index = "./index_pmc";
 		String field = "contents";
-		String queries = null;
 		int repeat = 0;
 		boolean raw = false;
 		String queryString = null;
@@ -42,11 +39,7 @@ public class SearchFiles {
 		BufferedReader in = null;
 		String q = null;
 		
-		/*if (queries != null) {
-			in = new BufferedReader(new InputStreamReader(new FileInputStream(queries), "UTF-8"));
-		} else {*/
-			in = new BufferedReader(new InputStreamReader(System.in, "UTF-8"));
-		//}
+		in = new BufferedReader(new InputStreamReader(System.in, "UTF-8"));
 		
 		QueryParser parser = new QueryParser(field, analyzer);
 		while (true) {
@@ -99,21 +92,7 @@ public class SearchFiles {
 		int start = 0;
 		int end = Math.min(numTotalHits, hitsPerPage);
 
-		// ------------------------------------------
-		
 		hits = searcher.search(query, numTotalHits).scoreDocs;
-		/*PrintWriter writer = new PrintWriter("./dataset/clinical_dataset/raw.txt", "UTF-8");
-		for (int i = start; i < numTotalHits; i++) {
-			Document doc = searcher.doc(hits[i].doc);
-			String path = doc.get("path");
-			writer.println(path);
-			doc = null;
-			if (i % 1000 == 0) {
-				System.gc();
-			}
-		}
-		writer.close();*/
-		// ------------------------------------------
 
 		while (true) {
 			if (end > hits.length) {
@@ -142,7 +121,8 @@ public class SearchFiles {
 					System.out.println((i + 1) + ". " + path);
 					String title = doc.get("filename");
 					if (title != null) {
-						System.out.println("   Title: " + doc.get("filename"));
+						System.out.print("   Title: " + doc.get("filename"));
+						System.out.println("   Score: " + hits[i].score);
 					}
 				} else {
 					System.out.println((i + 1) + ". " + "No path for this document");
