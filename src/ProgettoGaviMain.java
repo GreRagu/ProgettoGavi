@@ -34,6 +34,7 @@ public class ProgettoGaviMain implements ActionListener {
 	private Model modelUsed = null;
 	public static String basePath = new File("").getAbsolutePath();
 	private JButton btnHelp;
+	private JButton btnSearch;
 
 	/**
 	 * Launch the application.
@@ -122,15 +123,17 @@ public class ProgettoGaviMain implements ActionListener {
 		frmHegregio.getContentPane().setLayout(null);
 		btnHelp.addActionListener(this);
 		
-		JButton btnSearch = new JButton("search");
+		btnSearch = new JButton("search");
 		btnSearch.setBounds(89, 11, 57, 21);
 		frmHegregio.getContentPane().add(btnSearch);
+		btnSearch.addActionListener(this);
 		
 		txtSearch = new JTextField();
 		txtSearch.setText("Inserire testo da cercare");
 		txtSearch.setBounds(156, 12, 206, 20);
 		frmHegregio.getContentPane().add(txtSearch);
 		txtSearch.setColumns(15);
+		
 		
 		table = new JTable();
 		table.setBounds(62, 79, 300, 150);
@@ -203,6 +206,30 @@ public class ProgettoGaviMain implements ActionListener {
 								+   "");
 			
 		}
+		
+		
+		//BUTTON SEARCH
+		if ( e.getSource() == btnSearch ) {
+			
+			
+			if ( !txtSearch.getText().equals("") ) {
+				try {
+					SearchFiles sf = new SearchFiles( txtSearch.getText() );
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+			else {
+				
+				JOptionPane.showMessageDialog(frmHegregio,	"Inserire i testo nella barra di ricerca");
+	
+}
+				
+			}
+			
+		
+		
 		
 		//------------Model Selection--------------
 		
