@@ -46,7 +46,7 @@ public class Index implements ActionListener{
 		});
 	}
 
-	public int CreateGUI() throws IOException {
+	public String CreateGUI() throws IOException {
 
 		JFileChooser fc = new JFileChooser();
 		fc.setCurrentDirectory(new java.io.File(".")); // start at application current directory
@@ -60,7 +60,7 @@ public class Index implements ActionListener{
 			System.out.println(indexDir);
 		}
 		if (returnVal == JFileChooser.CANCEL_OPTION)
-			return 0;
+			return null;
 
 		int dialogResult = JOptionPane.showConfirmDialog(null, "Would You Like to append to the index folder?", "",
 				JOptionPane.YES_NO_OPTION);
@@ -107,7 +107,7 @@ public class Index implements ActionListener{
 		dlgProgress.setResizable(false);
 		
 
-		return 1;
+		return indexDir;
 	}
 
 	@Override

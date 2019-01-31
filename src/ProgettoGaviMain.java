@@ -212,7 +212,7 @@ public class ProgettoGaviMain implements ActionListener {
 		if ( e.getSource() == mntmCreateIndex) {
 			Index ind = new Index(frmHegregio, filenumber, IndexFile);
 			try {
-				ind.CreateGUI();
+				indexDir = ind.CreateGUI();
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
