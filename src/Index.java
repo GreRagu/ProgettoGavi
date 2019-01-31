@@ -20,7 +20,7 @@ import javax.swing.border.Border;
 
 public class Index implements ActionListener{
 
-	private String indexFile = "./dataset/clinical_dataset/IndexPath.txt";
+	private String indexFile;
 	private String indexDir;
 	private Boolean append;
 	private JProgressBar progressBar;
@@ -31,9 +31,10 @@ public class Index implements ActionListener{
 	private JButton start;
 	private JDialog dlgProgress;
 
-	public Index(JFrame Parent, Integer FileCount) {
+	public Index(JFrame Parent, Integer FileCount, String IndexFile) {
 		this.ParentFrame = Parent;
 		this.Number = FileCount;
+		this.indexFile = IndexFile;
 	}
 
 	public void setValue(final int j) {
@@ -78,6 +79,7 @@ public class Index implements ActionListener{
 					Number++;
 				}
 				lnr.close();
+				fr.close();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}

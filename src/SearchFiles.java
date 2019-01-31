@@ -1,16 +1,23 @@
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.nio.file.Paths;
-import java.util.Date;
+import java.text.NumberFormat;
+
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JFormattedTextField;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.table.DefaultTableModel;
 
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.index.DirectoryReader;
 import org.apache.lucene.index.IndexReader;
-import org.apache.lucene.queryparser.classic.ParseException;
 import org.apache.lucene.queryparser.classic.QueryParser;
 import org.apache.lucene.search.IndexSearcher;
 import org.apache.lucene.search.Query;
@@ -18,55 +25,71 @@ import org.apache.lucene.search.ScoreDoc;
 import org.apache.lucene.search.TopDocs;
 import org.apache.lucene.store.FSDirectory;
 
-public class SearchFiles {
+public class SearchFiles implements ActionListener{
+	
+	private String queryString;
+	private String index;
+	private String field = "contents";
+	private Integer Hits;
+	private DefaultTableModel model;
+	private Integer total;
+	private String path;
+	private String name;
+	private JFrame Parent;
+	private JDialog number;
+	private JLabel label;
+	private JButton okbtn;
+	private JFormattedTextField docnumber;
+	
+	public SearchFiles(String query, String indexDir, DefaultTableModel model, JFrame Parent) {
+		this.index = indexDir;
+		this.queryString = query;
+		this.model = model;
+		this.Parent = Parent;
+	}
 
-	public SearchFiles( String txtSearched ) throws Exception {
+	public int Search() throws Exception {
 
 	/** Simple command-line based search demo. */
 
 		// select index to use (index_txt index_xml)
-		String index = "./index_pmc";
-		String field = "contents";
-		int repeat = 0;
-		boolean raw = false;
-		String queryString = txtSearched;
-		int hitsPerPage = 10;
+		
 
 		IndexReader reader = DirectoryReader.open(FSDirectory.open(Paths.get(index)));
 		IndexSearcher searcher = new IndexSearcher(reader);
 		Analyzer analyzer = new StandardAnalyzer();
 
-		BufferedReader in = null;
-		String q = null;
-		
-		in = new BufferedReader(new InputStreamReader(System.in, "UTF-8"));
-		
+		BufferedReader in = null;				
 		QueryParser parser = new QueryParser(field, analyzer);
-		while (true) {
 
-			ReadXMLFile xml = new ReadXMLFile();
-			q = xml.SearchQuery();
-
-			Query query = parser.parse(q);
-			System.out.println(q);
-			System.out.println("Searching for: " + query.toString(field));
-
-			if (repeat > 0) { // repeat & time as benchmark
-				Date start = new Date();
-				for (int i = 0; i < repeat; i++) {
-					searcher.search(query, 100);
-				}
-				Date end = new Date();
-				System.out.println("Time: " + (end.getTime() - start.getTime()) + "ms");
-			}
-
-			doPagingSearch(in, searcher, query, hitsPerPage, raw, true);//queries == null && queryString == null);
-
-			if (queryString != null) {
-				break;
-			}
-		}
+		Query query = parser.parse(queryString);
+		System.out.println(queryString);
+		System.out.println("Searching for: " + query.toString(field));
+	
+		number = new JDialog(Parent, "Documenti desiderati", true);
+		number.setSize(300, 150);
+		number.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
+		number.setLayout(null);
+		label = new JLabel("Numero massimo di documenti da mostrare? (Solo numeri)");
+		label.setBounds(10, 10, 200, 20);
+		number.add(label);
+		docnumber = new JFormattedTextField(NumberFormat.getIntegerInstance());
+		docnumber.setBounds(50, 50, 50, 20);
+		number.add(docnumber);
+		okbtn = new JButton("OK");
+		okbtn.setBounds(120, 50, 70, 20);
+		okbtn.addActionListener(this);
+		number.add(okbtn);
+		number.setVisible(true);
+		
+		
+		
+		total = doPagingSearch(in, searcher, query, model);//queries == null && queryString == null);
+		
 		reader.close();
+		
+		return total;
+		
 	}
 
 	/**
@@ -79,103 +102,50 @@ public class SearchFiles {
 	 * limit, then the query is executed another time and all hits are collected.
 	 * 
 	 */
-	public static void doPagingSearch(BufferedReader in, IndexSearcher searcher, Query query, int hitsPerPage,
-			boolean raw, boolean interactive) throws IOException {
-
+	private int doPagingSearch(BufferedReader in, IndexSearcher searcher, Query query, DefaultTableModel model) throws IOException {
+		
 		// Collect enough docs to show 5 pages
-		TopDocs results = searcher.search(query, 5 * hitsPerPage);
+		TopDocs results = searcher.search(query, Hits);
 		ScoreDoc[] hits = results.scoreDocs;
 
 		int numTotalHits = (int) results.totalHits;
 		System.out.println(numTotalHits + " total matching documents");
 
 		int start = 0;
-		int end = Math.min(numTotalHits, hitsPerPage);
+		int end = Math.min(numTotalHits, Hits);
 
 		hits = searcher.search(query, numTotalHits).scoreDocs;
+		
+		end = Math.min(hits.length, start + Hits);
 
-		while (true) {
-			if (end > hits.length) {
-				System.out.println("Only results 1 - " + hits.length + " of " + numTotalHits
-						+ " total matching documents collected.");
-				System.out.println("Collect more (y/n) ?");
-				String line = in.readLine();
-				if (line.length() == 0 || line.charAt(0) == 'n') {
-					break;
-				}
+		for (int i = start; i < end; i++) {
 
-				hits = searcher.search(query, numTotalHits).scoreDocs;
+			Document doc = searcher.doc(hits[i].doc);
+			path = doc.get("filepath");
+			name = doc.get("filename");
+			
+			if(path == null) {
+				path = "Nessun path per questo documento";
 			}
-
-			end = Math.min(hits.length, start + hitsPerPage);
-
-			for (int i = start; i < end; i++) {
-				if (raw) { // output raw format
-					System.out.println("doc=" + hits[i].doc + "\t score=" + hits[i].score);
-					continue;
-				}
-
-				Document doc = searcher.doc(hits[i].doc);
-				String path = doc.get("filepath");
-				if (path != null) {
-					System.out.println((i + 1) + ". " + path);
-					String title = doc.get("filename");
-					if (title != null) {
-						System.out.print("   Title: " + doc.get("filename"));
-						System.out.println("   Score: " + hits[i].score);
-					}
-				} else {
-					System.out.println((i + 1) + ". " + "No path for this document");
-				}
-
+			if(name == null) {
+				name = "Nessun nome per questo documento";
 			}
+			
+			Object[] data = {String.valueOf(i + 1), name, path, hits[i].score};
+			model.addRow(data);
 
-			if (!interactive || end == 0) {
-				break;
-			}
+		}
+		
+		return numTotalHits;
 
-			if (numTotalHits >= end) {
-				boolean quit = false;
-				while (true) {
-					System.out.print("Press ");
-					if (start - hitsPerPage >= 0) {
-						System.out.print("(p)revious page, ");
-					}
-					if (start + hitsPerPage < numTotalHits) {
-						System.out.print("(n)ext page, ");
-					}
-					System.out.println("(q)uit or enter number to jump to a page.");
-					
-					String line; 
-					line = in.readLine();
-					System.out.println(line);
-					
-					if (line.length() == 0 || line.charAt(0) == 'q') {
-						quit = true;
-						break;
-					}
-					if (line.charAt(0) == 'p') {
-						start = Math.max(0, start - hitsPerPage);
-						break;
-					} else if (line.charAt(0) == 'n') {
-						if (start + hitsPerPage < numTotalHits) {
-							start += hitsPerPage;
-						}
-						break;
-					} else {
-						int page = Integer.parseInt(line);
-						if ((page - 1) * hitsPerPage < numTotalHits) {
-							start = (page - 1) * hitsPerPage;
-							break;
-						} else {
-							System.out.println("No such page");
-						}
-					}
-				}
-				if (quit)
-					break;
-				end = Math.min(numTotalHits, start + hitsPerPage);
-			}
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		if ( e.getSource() == okbtn ) {
+			Hits = (int) (long) docnumber.getValue();
+			number.dispose();
 		}
 	}
 }
