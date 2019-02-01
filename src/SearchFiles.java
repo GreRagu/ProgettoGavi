@@ -2,6 +2,7 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.text.NumberFormat;
@@ -40,12 +41,14 @@ public class SearchFiles implements ActionListener{
 	private JLabel label;
 	private JButton okbtn;
 	private JFormattedTextField docnumber;
+	private String ModelPath;
 	
-	public SearchFiles(String query, String indexDir, DefaultTableModel model, JFrame Parent) {
+	public SearchFiles(String query, String indexDir, DefaultTableModel model, JFrame Parent, String ModelPath) {
 		this.index = indexDir;
 		this.queryString = query;
 		this.model = model;
 		this.Parent = Parent;
+		this.ModelPath = ModelPath;
 	}
 
 	public int Search() throws Exception {
@@ -54,9 +57,13 @@ public class SearchFiles implements ActionListener{
 
 		// select index to use (index_txt index_xml)
 		
-
+		FileReader fr = new FileReader(ModelPath);
+		MyModel M = new MyModel((int) fr.read());
+		fr.close();
+		
 		IndexReader reader = DirectoryReader.open(FSDirectory.open(Paths.get(index)));
 		IndexSearcher searcher = new IndexSearcher(reader);
+		searcher.setSimilarity(M.getModelSymilarity());
 		Analyzer analyzer = new StandardAnalyzer();
 
 		BufferedReader in = null;				
@@ -67,11 +74,11 @@ public class SearchFiles implements ActionListener{
 		System.out.println("Searching for: " + query.toString(field));
 	
 		number = new JDialog(Parent, "Documenti desiderati", true);
-		number.setSize(300, 150);
+		number.setSize(450, 150);
 		number.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
 		number.setLayout(null);
 		label = new JLabel("Numero massimo di documenti da mostrare? (Solo numeri)");
-		label.setBounds(10, 10, 200, 20);
+		label.setBounds(10, 10, 400, 20);
 		number.add(label);
 		docnumber = new JFormattedTextField(NumberFormat.getIntegerInstance());
 		docnumber.setBounds(50, 50, 50, 20);
@@ -119,7 +126,7 @@ public class SearchFiles implements ActionListener{
 		end = Math.min(hits.length, start + Hits);
 
 		for (int i = start; i < end; i++) {
-
+			
 			Document doc = searcher.doc(hits[i].doc);
 			path = doc.get("filepath");
 			name = doc.get("filename");
@@ -130,6 +137,8 @@ public class SearchFiles implements ActionListener{
 			if(name == null) {
 				name = "Nessun nome per questo documento";
 			}
+			
+			path = "." + path.substring(ProgettoGaviMain.basePath.length());
 			
 			Object[] data = {String.valueOf(i + 1), name, path, hits[i].score};
 			model.addRow(data);

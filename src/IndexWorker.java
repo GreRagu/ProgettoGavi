@@ -30,7 +30,6 @@ public class IndexWorker extends Thread {
 	public static final String FILE_PATH = "filepath";
 	public static final int MAX_SEARCH = 10;
 	private String indexDir;
-	private String indexFile = "./dataset/clinical_dataset/IndexPath.txt";
 	private boolean append;
 	private Directory dir;
 	private Analyzer analyzer;
@@ -39,19 +38,26 @@ public class IndexWorker extends Thread {
 	private JProgressBar pb;
 	private JDialog parent;
 	private JFrame parentFrame;
+	private MyModel M;
+	private String indexFile;
 	
-	public IndexWorker(String indexDir, boolean append, JProgressBar pb, JDialog parent, JFrame parentFrame) {
+	public IndexWorker(String indexDir, boolean append, JProgressBar pb, JDialog parent, JFrame parentFrame, MyModel M, String indexFile) {
 		this.indexDir = indexDir;
 		this.append = append;
 		this.pb = pb;
 		this.parent = parent;
 		this.parentFrame = parentFrame;
+		this.M = M;
+		this.indexFile = indexFile;
 	}
 	
 	private void indexCreator() throws IOException {
 		dir = FSDirectory.open(Paths.get(indexDir));
 		analyzer = new StandardAnalyzer();
 		iwc = new IndexWriterConfig(analyzer);
+		iwc.setSimilarity(M.getModelSymilarity());
+		
+		System.out.println(iwc.getSimilarity());
 
 		if (!append) {
 			// Create a new index in the directory, removing any

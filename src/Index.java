@@ -3,8 +3,10 @@ import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.LineNumberReader;
 
@@ -30,11 +32,15 @@ public class Index implements ActionListener{
 	public String timeused = null;
 	private JButton start;
 	private JDialog dlgProgress;
+	private MyModel M;
+	private String ModelPath;
 
-	public Index(JFrame Parent, Integer FileCount, String IndexFile) {
+	public Index(JFrame Parent, Integer FileCount, String IndexFile, MyModel M, String ModelPath) {
 		this.ParentFrame = Parent;
 		this.Number = FileCount;
 		this.indexFile = IndexFile;
+		this.M = M;
+		this.ModelPath = ModelPath;
 	}
 
 	public void setValue(final int j) {
@@ -69,6 +75,7 @@ public class Index implements ActionListener{
 		} else {
 			append = false;
 		}
+		
 
 		// Usato per ottenere il numero di di path per inizializzare la progressBar
 		if (Number == 0) {
@@ -84,9 +91,17 @@ public class Index implements ActionListener{
 				e.printStackTrace();
 			}
 		}
+		
+		int dResult = JOptionPane.showConfirmDialog(null, "Do you want to create index with model: " + M.getModelString() 
+						+ " end " + Number + " of file?", "", JOptionPane.YES_NO_OPTION);
+		if (dResult == JOptionPane.NO_OPTION) return null;
 
 		System.out.println(Number);
 
+		BufferedWriter writer = new BufferedWriter(new FileWriter(ModelPath));
+	    writer.write(M.getModel());
+	    writer.close();
+	    
 		dlgProgress = new JDialog(ParentFrame, "Please wait...", false);
 		dlgProgress.setLocationRelativeTo(ParentFrame);
 		dlgProgress.setSize(500, 110);
@@ -115,7 +130,7 @@ public class Index implements ActionListener{
 		// TODO Auto-generated method stub
 		if (e.getSource() == start) {
 			ParentFrame.setEnabled(false);
-			IndexWorker c = new IndexWorker(indexDir, append, progressBar, dlgProgress, ParentFrame);
+			IndexWorker c = new IndexWorker(indexDir, append, progressBar, dlgProgress, ParentFrame, M, indexFile);
 			c.start();
 		}
 	}

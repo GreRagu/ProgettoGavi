@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.io.LineNumberReader;
 import java.util.Vector;
 
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
@@ -18,6 +19,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
+import javax.swing.JRadioButtonMenuItem;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -37,11 +39,13 @@ public class ProgettoGaviMain implements ActionListener {
 	public JMenuItem mntmCreateIndex;
 	private String indexPath;
 	private String IndexFile = "./dataset/clinical_dataset/IndexPath.txt";
-	private JMenuItem mntmVectorSpaceModel;
-	private JMenuItem mntmBooleanModel;
-	private JMenuItem mntmFuzzyModel;
-	private JMenuItem mntmProbabilisticModel;
-	private Model modelUsed = null;
+	private String ModelPath = "./dataset/clinical_dataset/Model.txt";
+	private JRadioButtonMenuItem mntmVectorSpaceModel;
+	private JRadioButtonMenuItem mntmBooleanModel;
+	private JRadioButtonMenuItem mntmFuzzyModel;
+	private JRadioButtonMenuItem mntmProbabilisticModel;
+	private Model ActualModel = null;
+	private Integer modelUsed = 0; //Default BM25 Model
 	private String indexDir = null;
 	public static String basePath = new File("").getAbsolutePath();
 	private JButton btnHelp;
@@ -71,6 +75,7 @@ public class ProgettoGaviMain implements ActionListener {
 	 * Create the application.
 	 */
 	public ProgettoGaviMain() {
+		
 		initialize();
 	}
 
@@ -107,21 +112,30 @@ public class ProgettoGaviMain implements ActionListener {
 		JMenu mnModels = new JMenu("Models");
 		menuBar.add(mnModels);
 		
-		mntmVectorSpaceModel = new JMenuItem("Vector Space Model");
-		mnModels.add(mntmVectorSpaceModel);
-		mntmVectorSpaceModel.addActionListener(this);
-		
-		mntmBooleanModel = new JMenuItem("Boolean Model");
-		mnModels.add(mntmBooleanModel);
-		mntmBooleanModel.addActionListener(this);
-		
-		mntmFuzzyModel = new JMenuItem("Fuzzy Model");
-		mnModels.add(mntmFuzzyModel);
-		mntmFuzzyModel.addActionListener(this);
-		
-		mntmProbabilisticModel = new JMenuItem("Probabilistic(BM25) Model");
+		ButtonGroup group = new ButtonGroup();
+		mntmProbabilisticModel = new JRadioButtonMenuItem("Probabilistic(BM25) Model");
 		mnModels.add(mntmProbabilisticModel);
 		mntmProbabilisticModel.addActionListener(this);
+		group.add(mntmProbabilisticModel);
+		mnModels.addSeparator();
+		
+		mntmVectorSpaceModel = new JRadioButtonMenuItem("Vector Space Model (TFIDF)");
+		mnModels.add(mntmVectorSpaceModel);
+		mntmVectorSpaceModel.addActionListener(this);
+		group.add(mntmVectorSpaceModel);
+		mnModels.addSeparator();
+		
+		mntmBooleanModel = new JRadioButtonMenuItem("Boolean Model");
+		mnModels.add(mntmBooleanModel);
+		mntmBooleanModel.addActionListener(this);
+		group.add(mntmBooleanModel);
+		mnModels.addSeparator();
+		
+		mntmFuzzyModel = new JRadioButtonMenuItem("Fuzzy Model");
+		mnModels.add(mntmFuzzyModel);
+		mntmFuzzyModel.addActionListener(this);
+		group.add(mntmFuzzyModel);
+		mnModels.addSeparator();
 		
 		JMenu mnTolerantRetriaval = new JMenu("Tolerant retriaval");
 		menuBar.add(mnTolerantRetriaval);
@@ -178,11 +192,11 @@ public class ProgettoGaviMain implements ActionListener {
 		model = new DefaultTableModel(columnNames, 0);
 		table = new JTable(model);
 		TableColumn a = table.getColumnModel().getColumn(0);
-	    a.setPreferredWidth(25);
+	    a.setPreferredWidth(30);
 	    a = table.getColumnModel().getColumn(1);
 	    a.setPreferredWidth(100);
 	    a = table.getColumnModel().getColumn(2);
-	    a.setPreferredWidth(350);
+	    a.setPreferredWidth(345);
 	    a = table.getColumnModel().getColumn(3);
 	    a.setPreferredWidth(102);
 	    table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
@@ -210,7 +224,8 @@ public class ProgettoGaviMain implements ActionListener {
 		}
 		
 		if ( e.getSource() == mntmCreateIndex) {
-			Index ind = new Index(frmHegregio, filenumber, IndexFile);
+			MyModel M = new MyModel(modelUsed);
+			Index ind = new Index(frmHegregio, filenumber, IndexFile, M, ModelPath);
 			try {
 				indexDir = ind.CreateGUI();
 			} catch (IOException e1) {
@@ -220,7 +235,6 @@ public class ProgettoGaviMain implements ActionListener {
 		}
 		
 		if ( e.getSource() == mntmLoadIndex ) {
-			
 			JFileChooser fc = new JFileChooser();
 			fc.setCurrentDirectory(new java.io.File(".")); // start at application current directory
 			fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
@@ -239,7 +253,12 @@ public class ProgettoGaviMain implements ActionListener {
 					}
 					lnr.close();
 					fr.close();
-					lblRicercaSuN.setText("Ricerca su " + filenumber + " file con modello");
+					fr = new FileReader(ModelPath);
+					modelUsed = (int) fr.read();
+					fr.close();
+					MyModel M = new MyModel(modelUsed);
+					lblRicercaSuN.setText("Ricerca su " + filenumber + " file con modello: " + M.getModelString());
+					
 				} catch (IOException e1) {
 					e1.printStackTrace();
 				}
@@ -270,9 +289,14 @@ public class ProgettoGaviMain implements ActionListener {
 			if (!txtSearch.getText().equals("") &&  !txtSearch.getText().equals("Inserire testo da cercare")) {
 				if(indexDir != null) {
 					try {
-						
-						SearchFiles sf = new SearchFiles(txtSearch.getText(), indexDir, model, frmHegregio);
-						totalFound.setText(totalFound.getText() + " " + sf.Search());
+						for(int k = 0; k < model.getRowCount(); k++) {
+							model.removeRow(k);
+						}
+						model.setRowCount(0);
+						SearchFiles sf = new SearchFiles(txtSearch.getText(), indexDir, model, frmHegregio, ModelPath);
+						Integer totalFile = sf.Search();
+						totalFound.setText("File trovati: ");
+						totalFound.setText(totalFound.getText() + " " + totalFile);
 						
 					} catch (Exception e1) {
 						// TODO Auto-generated catch block
@@ -295,28 +319,19 @@ public class ProgettoGaviMain implements ActionListener {
 		//------------Model Selection--------------
 		
 		if ( e.getSource()  == mntmVectorSpaceModel ) {
-			
-			modelUsed  = new VectorSpaceModel();
-			
+			modelUsed = 1;
 		}
 		
 		if ( e.getSource()  == mntmBooleanModel ) {
-			
-			modelUsed = new BooleanModel();
-			
+			modelUsed = 2;
 		}
 		
 		if ( e.getSource()  == mntmFuzzyModel ) {
-			
-			modelUsed = new FuzzyModel();
-			
+			modelUsed = 3;
 		}
 		
-		
 		if ( e.getSource()  == mntmProbabilisticModel ) {
-			
-			modelUsed = new BM25();
-			
+			modelUsed = 0;
 		}
 		
 		
