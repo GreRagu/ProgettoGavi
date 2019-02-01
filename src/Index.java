@@ -94,12 +94,15 @@ public class Index implements ActionListener{
 		
 		int dResult = JOptionPane.showConfirmDialog(null, "Do you want to create index with model: " + M.getModelString() 
 						+ " end " + Number + " of file?", "", JOptionPane.YES_NO_OPTION);
-		if (dResult == JOptionPane.NO_OPTION) return null;
+		if (dResult == JOptionPane.NO_OPTION) {
+			Number = 0;
+			return null;
+		}
 
 		System.out.println(Number);
 
 		BufferedWriter writer = new BufferedWriter(new FileWriter(ModelPath));
-	    writer.write(M.getModel());
+	    writer.write(M.getModel().toString());
 	    writer.close();
 	    
 		dlgProgress = new JDialog(ParentFrame, "Please wait...", false);
@@ -130,6 +133,7 @@ public class Index implements ActionListener{
 		// TODO Auto-generated method stub
 		if (e.getSource() == start) {
 			ParentFrame.setEnabled(false);
+			dlgProgress.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
 			IndexWorker c = new IndexWorker(indexDir, append, progressBar, dlgProgress, ParentFrame, M, indexFile);
 			c.start();
 		}

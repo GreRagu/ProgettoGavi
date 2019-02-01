@@ -181,7 +181,7 @@ public class ProgettoGaviMain implements ActionListener {
 		frmHegregio.add(totalFound, null);
 		
 		lblRicercaSuN = new JLabel("Ricerca su " + filenumber + " file con modello");
-		lblRicercaSuN.setBounds(15, 45, 300, 15);
+		lblRicercaSuN.setBounds(15, 45, 400, 15);
 		frmHegregio.add(lblRicercaSuN, null);
 		
 		columnNames = new Vector<>();
@@ -226,8 +226,23 @@ public class ProgettoGaviMain implements ActionListener {
 		if ( e.getSource() == mntmCreateIndex) {
 			MyModel M = new MyModel(modelUsed);
 			Index ind = new Index(frmHegregio, filenumber, IndexFile, M, ModelPath);
+			
 			try {
 				indexDir = ind.CreateGUI();
+				if(indexDir != null) {
+					FileReader fr = new FileReader(IndexFile);
+					LineNumberReader lnr = new LineNumberReader(fr);
+					try {
+						while ((lnr.readLine()) != null) {
+							filenumber++;
+						}
+						lnr.close();
+						fr.close();
+					} catch (IOException e1) {
+						e1.printStackTrace();
+					}
+					lblRicercaSuN.setText("Ricerca su " + filenumber + " file con modello: " + M.getModelString());
+				}
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
@@ -254,8 +269,9 @@ public class ProgettoGaviMain implements ActionListener {
 					lnr.close();
 					fr.close();
 					fr = new FileReader(ModelPath);
-					modelUsed = (int) fr.read();
+					modelUsed = Character.getNumericValue(fr.read());
 					fr.close();
+					System.out.println(modelUsed);
 					MyModel M = new MyModel(modelUsed);
 					lblRicercaSuN.setText("Ricerca su " + filenumber + " file con modello: " + M.getModelString());
 					
