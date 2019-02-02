@@ -6,9 +6,7 @@ import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileReader;
 import java.io.IOException;
-import java.io.LineNumberReader;
 import java.io.ObjectInputStream;
 import java.util.Vector;
 
@@ -41,12 +39,10 @@ public class ProgettoGaviMain implements ActionListener {
 	public JMenuItem mntmCreateIndex;
 	private String indexPath;
 	private String IndexFile = "./dataset/clinical_dataset/IndexPath.txt";
-	private String ModelPath = "./dataset/clinical_dataset/Model.ser";
 	private JRadioButtonMenuItem mntmVectorSpaceModel;
 	private JRadioButtonMenuItem mntmBooleanModel;
 	private JRadioButtonMenuItem mntmFuzzyModel;
 	private JRadioButtonMenuItem mntmProbabilisticModel;
-	private Model ActualModel = null;
 	private Integer modelUsed = 0; //Default BM25 Model
 	private String indexDir = null;
 	public static String basePath = new File("").getAbsolutePath();
@@ -54,6 +50,7 @@ public class ProgettoGaviMain implements ActionListener {
 	private JButton btnSearch;
 	private Vector<String> columnNames;
 	private DefaultTableModel model;
+	private MyModel M;
 
 	/**
 	 * Launch the application.
@@ -77,7 +74,7 @@ public class ProgettoGaviMain implements ActionListener {
 	 * Create the application.
 	 */
 	public ProgettoGaviMain() {
-		
+		M = new MyModel(modelUsed);
 		initialize();
 	}
 
@@ -226,23 +223,13 @@ public class ProgettoGaviMain implements ActionListener {
 		}
 		
 		if ( e.getSource() == mntmCreateIndex) {
-			MyModel M = new MyModel(modelUsed);
-			Index ind = new Index(frmHegregio, filenumber, IndexFile, M, ModelPath);
+			Index ind = new Index(frmHegregio, filenumber, IndexFile, M);
 			
 			try {
-				indexDir = ind.CreateGUI();
-				if(indexDir != null) {
-					FileReader fr = new FileReader(IndexFile);
-					LineNumberReader lnr = new LineNumberReader(fr);
-					try {
-						while ((lnr.readLine()) != null) {
-							filenumber++;
-						}
-						lnr.close();
-						fr.close();
-					} catch (IOException e1) {
-						e1.printStackTrace();
-					}
+				String[] app = ind.CreateGUI().split(" ");
+				indexDir = app[0];
+				filenumber = Integer.parseInt(app[1]);
+				if(indexDir != null && filenumber != 0) {
 					lblRicercaSuN.setText("Search on " + filenumber + " files with model: " + M.getModelString());
 				}
 			} catch (IOException e1) {
@@ -261,26 +248,15 @@ public class ProgettoGaviMain implements ActionListener {
 			    yourFolder = fc.getSelectedFile();
 			    indexPath = yourFolder.getAbsolutePath();
 			    indexPath = "." + indexPath.substring(basePath.length());
-			    
+				
 				try {
-						FileReader fr = new FileReader(IndexFile);
-						LineNumberReader lnr = new LineNumberReader(fr);
-						while ((lnr.readLine()) != null) {
-							filenumber++;
-						}
-						lnr.close();
-						fr.close();
-					} catch (IOException e1) {
-						e1.printStackTrace();
-					}
-					
-				try {
-						ObjectInputStream in = new ObjectInputStream(new FileInputStream(ModelPath));
+						ObjectInputStream in = new ObjectInputStream(new FileInputStream(M.getPaht()));
 						modelUsed = (Integer) in.readObject();
+						filenumber = (Integer) in.readObject();
 						in.close();
 						System.out.println(modelUsed);
 						if(modelUsed >= 0 && modelUsed < 4) {
-							MyModel M = new MyModel(modelUsed);
+							M = new MyModel(modelUsed);
 							JOptionPane.showMessageDialog(frmHegregio, "Folder selected for index: " + yourFolder.getAbsolutePath(), "Complete", JOptionPane.INFORMATION_MESSAGE);
 							lblRicercaSuN.setText("Search on " + filenumber + " files with model: " + M.getModelString());
 							System.out.println("docPath :"+ indexPath);
@@ -312,16 +288,16 @@ public class ProgettoGaviMain implements ActionListener {
 		
 		//BUTTON SEARCH
 		if ( e.getSource() == btnSearch ) {
-			if (!txtSearch.getText().equals("") &&  !txtSearch.getText().equals("Inserire testo da cercare")) {
+			if (!txtSearch.getText().equals("") &&  !txtSearch.getText().equals("Enter the search text")) {
 				if(indexDir != null) {
 					try {
 						for(int k = 0; k < model.getRowCount(); k++) {
 							model.removeRow(k);
 						}
 						model.setRowCount(0);
-						SearchFiles sf = new SearchFiles(txtSearch.getText(), indexDir, model, frmHegregio, ModelPath);
+						SearchFiles sf = new SearchFiles(txtSearch.getText(), indexDir, model, frmHegregio, M);
 						Integer totalFile = sf.Search();
-						totalFound.setText("File trovati: ");
+						totalFound.setText("Files found: ");
 						totalFound.setText(totalFound.getText() + " " + totalFile);
 						
 					} catch (Exception e1) {
@@ -346,18 +322,22 @@ public class ProgettoGaviMain implements ActionListener {
 		
 		if ( e.getSource()  == mntmVectorSpaceModel ) {
 			modelUsed = 1;
+			M = new MyModel(modelUsed);
 		}
 		
 		if ( e.getSource()  == mntmBooleanModel ) {
 			modelUsed = 2;
+			M = new MyModel(modelUsed);
 		}
 		
 		if ( e.getSource()  == mntmFuzzyModel ) {
 			modelUsed = 3;
+			M = new MyModel(modelUsed);
 		}
 		
 		if ( e.getSource()  == mntmProbabilisticModel ) {
 			modelUsed = 0;
+			M = new MyModel(modelUsed);
 		}
 		
 		

@@ -5,9 +5,14 @@ public class MyModel {
 	private String[] Model = {"Probabilistic(BM25) Model", "Vector Space Model (TFIDF)", "Boolean Model", "Fuzzy Model"};
 	private Integer modelUsed;
 	private Similarity Sim;
+	private String Path = "./dataset/clinical_dataset/Model.ser";
 	
 	public MyModel(Integer modelUsed) {
 		this.modelUsed = modelUsed;
+	}
+	
+	public String getPaht() {
+		return Path;
 	}
 	
 	public Integer getModel() {

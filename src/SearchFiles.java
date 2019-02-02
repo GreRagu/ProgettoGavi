@@ -1,8 +1,6 @@
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.text.NumberFormat;
@@ -41,32 +39,23 @@ public class SearchFiles implements ActionListener{
 	private JLabel label;
 	private JButton okbtn;
 	private JFormattedTextField docnumber;
-	private String ModelPath;
+	private MyModel M;
 	
-	public SearchFiles(String query, String indexDir, DefaultTableModel model, JFrame Parent, String ModelPath) {
+	public SearchFiles(String query, String indexDir, DefaultTableModel model, JFrame Parent, MyModel M) {
 		this.index = indexDir;
 		this.queryString = query;
 		this.model = model;
 		this.Parent = Parent;
-		this.ModelPath = ModelPath;
+		this.M = M;
 	}
 
 	public int Search() throws Exception {
-
-	/** Simple command-line based search demo. */
-
-		// select index to use (index_txt index_xml)
-		
-		FileReader fr = new FileReader(ModelPath);
-		MyModel M = new MyModel((int) fr.read());
-		fr.close();
 		
 		IndexReader reader = DirectoryReader.open(FSDirectory.open(Paths.get(index)));
 		IndexSearcher searcher = new IndexSearcher(reader);
 		searcher.setSimilarity(M.getModelSymilarity());
 		Analyzer analyzer = new StandardAnalyzer();
-
-		BufferedReader in = null;				
+			
 		QueryParser parser = new QueryParser(field, analyzer);
 
 		Query query = parser.parse(queryString);
@@ -91,7 +80,7 @@ public class SearchFiles implements ActionListener{
 		
 		
 		
-		total = doPagingSearch(in, searcher, query, model);//queries == null && queryString == null);
+		total = doPagingSearch(searcher, query, model);//queries == null && queryString == null);
 		
 		reader.close();
 		
@@ -109,7 +98,7 @@ public class SearchFiles implements ActionListener{
 	 * limit, then the query is executed another time and all hits are collected.
 	 * 
 	 */
-	private int doPagingSearch(BufferedReader in, IndexSearcher searcher, Query query, DefaultTableModel model) throws IOException {
+	private int doPagingSearch(IndexSearcher searcher, Query query, DefaultTableModel model) throws IOException {
 		
 		// Collect enough docs to show 5 pages
 		TopDocs results = searcher.search(query, Hits);

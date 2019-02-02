@@ -1,7 +1,9 @@
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -40,8 +42,10 @@ public class IndexWorker extends Thread {
 	private JFrame parentFrame;
 	private MyModel M;
 	private String indexFile;
+	private Integer Number;
+	private Integer FileNotFound;
 	
-	public IndexWorker(String indexDir, boolean append, JProgressBar pb, JDialog parent, JFrame parentFrame, MyModel M, String indexFile) {
+	public IndexWorker(String indexDir, boolean append, JProgressBar pb, JDialog parent, JFrame parentFrame, MyModel M, String indexFile, Integer Number) {
 		this.indexDir = indexDir;
 		this.append = append;
 		this.pb = pb;
@@ -49,6 +53,8 @@ public class IndexWorker extends Thread {
 		this.parentFrame = parentFrame;
 		this.M = M;
 		this.indexFile = indexFile;
+		this.Number = Number;
+		this.FileNotFound = 0;
 	}
 	
 	private void indexCreator() throws IOException {
@@ -80,10 +86,17 @@ public class IndexWorker extends Thread {
 		Date start = new Date();
 		try (BufferedReader br = new BufferedReader(new FileReader(indexFile))) {
 			String line;
+			File file;
 
-			while ((line = br.readLine()) != null) {				
+			while ((line = br.readLine()) != null) {			
+				file = new File(line);
+				if (file.isFile() && file.canRead()) {
+					writer.addDocument(getDocument(new File(line)));
+				}
+				else {
+					FileNotFound++;
+				}
 				pb.setValue(pb.getValue() + 1);
-				writer.addDocument(getDocument(new File(line)));
 			}
 		}
 
@@ -99,7 +112,12 @@ public class IndexWorker extends Thread {
 		parent.dispose();
 		parentFrame.setEnabled(true);
 		JOptionPane.showMessageDialog(parentFrame, "Loading completed in " + formatted, "Complete",
-				JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.PLAIN_MESSAGE);
+		
+		ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(M.getPaht()));
+		out.writeObject(M.getModel());
+		out.writeObject(Number - FileNotFound);
+		out.close();
 	}
 	
 	private Document getDocument(File file) throws IOException {

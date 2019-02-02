@@ -3,15 +3,10 @@ import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedWriter;
-import java.io.DataOutputStream;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.LineNumberReader;
-import java.io.ObjectOutputStream;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -36,14 +31,12 @@ public class Index implements ActionListener{
 	private JButton start;
 	private JDialog dlgProgress;
 	private MyModel M;
-	private String ModelPath;
 
-	public Index(JFrame Parent, Integer FileCount, String IndexFile, MyModel M, String ModelPath) {
+	public Index(JFrame Parent, Integer FileCount, String IndexFile, MyModel M) {
 		this.ParentFrame = Parent;
 		this.Number = FileCount;
 		this.indexFile = IndexFile;
 		this.M = M;
-		this.ModelPath = ModelPath;
 	}
 
 	public void setValue(final int j) {
@@ -103,10 +96,6 @@ public class Index implements ActionListener{
 		}
 
 		System.out.println(Number);
-
-		ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(ModelPath));
-		out.writeObject(M.getModel());
-		out.close();
 	    
 		dlgProgress = new JDialog(ParentFrame, "Please wait...", false);
 		dlgProgress.setLocationRelativeTo(ParentFrame);
@@ -114,7 +103,7 @@ public class Index implements ActionListener{
 		dlgProgress.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		Container content = dlgProgress.getContentPane();
 		Border border = BorderFactory
-				.createTitledBorder("Indexing to directory " + yourFolder.getAbsolutePath() + "...");
+				.createTitledBorder("Indexing to directory " + indexDir + "...");
 		progressBar = new JProgressBar(0, Number);
 		progressBar.setValue(0);
 		progressBar.setStringPainted(true);
@@ -127,8 +116,7 @@ public class Index implements ActionListener{
 		dlgProgress.setVisible(true);
 		dlgProgress.setResizable(false);
 		
-
-		return indexDir;
+		return indexDir + " " + Number;
 	}
 
 	@Override
@@ -138,7 +126,7 @@ public class Index implements ActionListener{
 			ParentFrame.setEnabled(false);
 			dlgProgress.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
 			start.setEnabled(false);
-			IndexWorker c = new IndexWorker(indexDir, append, progressBar, dlgProgress, ParentFrame, M, indexFile);
+			IndexWorker c = new IndexWorker(indexDir, append, progressBar, dlgProgress, ParentFrame, M, indexFile, Number);
 			c.start();
 		}
 	}
