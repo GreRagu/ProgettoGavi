@@ -73,11 +73,11 @@ public class SearchFiles implements ActionListener{
 		System.out.println(queryString);
 		System.out.println("Searching for: " + query.toString(field));
 	
-		number = new JDialog(Parent, "Documenti desiderati", true);
+		number = new JDialog(Parent, "Desired documents", true);
 		number.setSize(450, 150);
 		number.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
 		number.setLayout(null);
-		label = new JLabel("Numero massimo di documenti da mostrare? (Solo numeri)");
+		label = new JLabel("Maximum number of documents desired? (only number)");
 		label.setBounds(10, 10, 400, 20);
 		number.add(label);
 		docnumber = new JFormattedTextField(NumberFormat.getIntegerInstance());
@@ -132,10 +132,10 @@ public class SearchFiles implements ActionListener{
 			name = doc.get("filename");
 			
 			if(path == null) {
-				path = "Nessun path per questo documento";
+				path = "No path for this document";
 			}
 			if(name == null) {
-				name = "Nessun nome per questo documento";
+				name = "No name for this document";
 			}
 			
 			path = "." + path.substring(ProgettoGaviMain.basePath.length());

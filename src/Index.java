@@ -4,11 +4,14 @@ import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedWriter;
+import java.io.DataOutputStream;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.LineNumberReader;
+import java.io.ObjectOutputStream;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -101,9 +104,9 @@ public class Index implements ActionListener{
 
 		System.out.println(Number);
 
-		BufferedWriter writer = new BufferedWriter(new FileWriter(ModelPath));
-	    writer.write(M.getModel().toString());
-	    writer.close();
+		ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(ModelPath));
+		out.writeObject(M.getModel());
+		out.close();
 	    
 		dlgProgress = new JDialog(ParentFrame, "Please wait...", false);
 		dlgProgress.setLocationRelativeTo(ParentFrame);
@@ -134,6 +137,7 @@ public class Index implements ActionListener{
 		if (e.getSource() == start) {
 			ParentFrame.setEnabled(false);
 			dlgProgress.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
+			start.setEnabled(false);
 			IndexWorker c = new IndexWorker(indexDir, append, progressBar, dlgProgress, ParentFrame, M, indexFile);
 			c.start();
 		}

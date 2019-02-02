@@ -98,7 +98,7 @@ public class IndexWorker extends Thread {
 
 		parent.dispose();
 		parentFrame.setEnabled(true);
-		JOptionPane.showMessageDialog(parentFrame, "Caricamento completato in " + formatted, "Completato",
+		JOptionPane.showMessageDialog(parentFrame, "Loading completed in " + formatted, "Complete",
 				JOptionPane.INFORMATION_MESSAGE);
 	}
 	

@@ -5,9 +5,11 @@ import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.LineNumberReader;
+import java.io.ObjectInputStream;
 import java.util.Vector;
 
 import javax.swing.ButtonGroup;
@@ -39,7 +41,7 @@ public class ProgettoGaviMain implements ActionListener {
 	public JMenuItem mntmCreateIndex;
 	private String indexPath;
 	private String IndexFile = "./dataset/clinical_dataset/IndexPath.txt";
-	private String ModelPath = "./dataset/clinical_dataset/Model.txt";
+	private String ModelPath = "./dataset/clinical_dataset/Model.ser";
 	private JRadioButtonMenuItem mntmVectorSpaceModel;
 	private JRadioButtonMenuItem mntmBooleanModel;
 	private JRadioButtonMenuItem mntmFuzzyModel;
@@ -157,18 +159,18 @@ public class ProgettoGaviMain implements ActionListener {
 		btnSearch.addActionListener(this);
 		
 		txtSearch = new JTextField();
-		txtSearch.setText("Inserire testo da cercare");
+		txtSearch.setText("Enter the search text");
 		txtSearch.addFocusListener(new FocusListener() {
 			public void focusGained(FocusEvent evt) {
-				if (txtSearch.getText().toLowerCase().equals("inserire testo da cercare")) {
+				if (txtSearch.getText().toLowerCase().equals("enter the search text")) {
 					txtSearch.setText("");
 				}
 			}
 			
 			public void focusLost(FocusEvent evt) {
 				if (txtSearch.getText().trim().equals("")
-						|| txtSearch.getText().toLowerCase().equals("inserire testo da cercare")) {
-					txtSearch.setText("Inserire testo da cercare");
+						|| txtSearch.getText().toLowerCase().equals("enter the search text")) {
+					txtSearch.setText("Enter the search text");
 				}
 			}
 		});
@@ -176,12 +178,12 @@ public class ProgettoGaviMain implements ActionListener {
 		txtSearch.setColumns(15);
 		frmHegregio.add(txtSearch, null);
 		
-		totalFound = new JLabel("File trovati: ");
+		totalFound = new JLabel("Files found: ");
 		totalFound.setBounds(15, 60, 300, 15);
 		frmHegregio.add(totalFound, null);
 		
-		lblRicercaSuN = new JLabel("Ricerca su " + filenumber + " file con modello");
-		lblRicercaSuN.setBounds(15, 45, 400, 15);
+		lblRicercaSuN = new JLabel("Search on " + filenumber + " files with model: ");
+		lblRicercaSuN.setBounds(14, 45, 400, 15);
 		frmHegregio.add(lblRicercaSuN, null);
 		
 		columnNames = new Vector<>();
@@ -215,7 +217,7 @@ public class ProgettoGaviMain implements ActionListener {
 			try {
 				CreateIndexPath CIP = new CreateIndexPath();
 				filenumber += CIP.CreateFile(frmHegregio);
-				lblRicercaSuN.setText("Ricerca su " + filenumber + " file con modello");
+				lblRicercaSuN.setText("Search on " + filenumber + " files with model: ");
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
@@ -241,7 +243,7 @@ public class ProgettoGaviMain implements ActionListener {
 					} catch (IOException e1) {
 						e1.printStackTrace();
 					}
-					lblRicercaSuN.setText("Ricerca su " + filenumber + " file con modello: " + M.getModelString());
+					lblRicercaSuN.setText("Search on " + filenumber + " files with model: " + M.getModelString());
 				}
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
@@ -261,30 +263,38 @@ public class ProgettoGaviMain implements ActionListener {
 			    indexPath = "." + indexPath.substring(basePath.length());
 			    
 				try {
-					FileReader fr = new FileReader(IndexFile);
-					LineNumberReader lnr = new LineNumberReader(fr);
-					while ((lnr.readLine()) != null) {
-						filenumber++;
+						FileReader fr = new FileReader(IndexFile);
+						LineNumberReader lnr = new LineNumberReader(fr);
+						while ((lnr.readLine()) != null) {
+							filenumber++;
+						}
+						lnr.close();
+						fr.close();
+					} catch (IOException e1) {
+						e1.printStackTrace();
 					}
-					lnr.close();
-					fr.close();
-					fr = new FileReader(ModelPath);
-					modelUsed = Character.getNumericValue(fr.read());
-					fr.close();
-					System.out.println(modelUsed);
-					MyModel M = new MyModel(modelUsed);
-					lblRicercaSuN.setText("Ricerca su " + filenumber + " file con modello: " + M.getModelString());
 					
-				} catch (IOException e1) {
-					e1.printStackTrace();
-				}
+				try {
+						ObjectInputStream in = new ObjectInputStream(new FileInputStream(ModelPath));
+						modelUsed = (Integer) in.readObject();
+						in.close();
+						System.out.println(modelUsed);
+						if(modelUsed >= 0 && modelUsed < 4) {
+							MyModel M = new MyModel(modelUsed);
+							JOptionPane.showMessageDialog(frmHegregio, "Folder selected for index: " + yourFolder.getAbsolutePath(), "Complete", JOptionPane.INFORMATION_MESSAGE);
+							lblRicercaSuN.setText("Search on " + filenumber + " files with model: " + M.getModelString());
+							System.out.println("docPath :"+ indexPath);
+							indexDir = indexPath;
+						}
+						else {
+							JOptionPane.showMessageDialog(frmHegregio,	"Impossible to load index, unknown model", "Error", JOptionPane.ERROR_MESSAGE);
+						}
+					} catch (ClassNotFoundException | IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 			}
-			if (returnVal==JFileChooser.CANCEL_OPTION) return;
-			
-			JOptionPane.showMessageDialog(frmHegregio, "Cartella selezionata per l'indice: " + yourFolder.getAbsolutePath(), "Completato", JOptionPane.INFORMATION_MESSAGE);
-			System.out.println("docPath :"+ indexPath);
-			indexDir = indexPath;
-			
+			else return;
 		}
 		
 		
@@ -320,11 +330,11 @@ public class ProgettoGaviMain implements ActionListener {
 					}
 				}
 				else {
-					JOptionPane.showMessageDialog(frmHegregio,	"Selezionare la cartella dell'indice o creane uno", "Error", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(frmHegregio,	"Select the index folder or create one", "Error", JOptionPane.ERROR_MESSAGE);
 				}
 			}
 			else {
-				JOptionPane.showMessageDialog(frmHegregio,	"Inserire il testo nella barra di ricerca");
+				JOptionPane.showMessageDialog(frmHegregio,	"Insert the text on search bar");
 			}
 			
 		}
