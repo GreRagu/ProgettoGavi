@@ -1,13 +1,16 @@
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.EventQueue;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.io.File;
-import java.io.FileInputStream;
+import java.io.FileReader;
 import java.io.IOException;
-import java.io.ObjectInputStream;
+import java.io.LineNumberReader;
+import java.util.Arrays;
 import java.util.Vector;
 
 import javax.swing.ButtonGroup;
@@ -39,10 +42,12 @@ public class ProgettoGaviMain implements ActionListener {
 	public JMenuItem mntmCreateIndex;
 	private String indexPath;
 	private String IndexFile = "./dataset/clinical_dataset/IndexPath.txt";
+	private String ModelPath = "./dataset/clinical_dataset/Model.txt";
 	private JRadioButtonMenuItem mntmVectorSpaceModel;
 	private JRadioButtonMenuItem mntmBooleanModel;
 	private JRadioButtonMenuItem mntmFuzzyModel;
 	private JRadioButtonMenuItem mntmProbabilisticModel;
+	private Model ActualModel = null;
 	private Integer modelUsed = 0; //Default BM25 Model
 	private String indexDir = null;
 	public static String basePath = new File("").getAbsolutePath();
@@ -50,7 +55,9 @@ public class ProgettoGaviMain implements ActionListener {
 	private JButton btnSearch;
 	private Vector<String> columnNames;
 	private DefaultTableModel model;
-	private MyModel M;
+	private JMenuItem mntmCalculateAndPlot;
+	private Index generalIndex = null;
+	private JFrame waitPane;
 
 	/**
 	 * Launch the application.
@@ -74,7 +81,7 @@ public class ProgettoGaviMain implements ActionListener {
 	 * Create the application.
 	 */
 	public ProgettoGaviMain() {
-		M = new MyModel(modelUsed);
+		
 		initialize();
 	}
 
@@ -142,8 +149,9 @@ public class ProgettoGaviMain implements ActionListener {
 		JMenu mnEfficiency = new JMenu("Efficiency");
 		menuBar.add(mnEfficiency);
 		
-		JMenuItem mntmCalculateAndPlot = new JMenuItem("Calculate and plot");
+		mntmCalculateAndPlot = new JMenuItem("Calculate and plot");
 		mnEfficiency.add(mntmCalculateAndPlot);
+		mntmCalculateAndPlot.addActionListener(this);
 		
 		btnHelp = new JButton("? Help");
 		btnHelp.setBounds(540, 0, 70, 20);
@@ -156,18 +164,18 @@ public class ProgettoGaviMain implements ActionListener {
 		btnSearch.addActionListener(this);
 		
 		txtSearch = new JTextField();
-		txtSearch.setText("Enter the search text");
+		txtSearch.setText("Inserire testo da cercare");
 		txtSearch.addFocusListener(new FocusListener() {
 			public void focusGained(FocusEvent evt) {
-				if (txtSearch.getText().toLowerCase().equals("enter the search text")) {
+				if (txtSearch.getText().toLowerCase().equals("inserire testo da cercare")) {
 					txtSearch.setText("");
 				}
 			}
 			
 			public void focusLost(FocusEvent evt) {
 				if (txtSearch.getText().trim().equals("")
-						|| txtSearch.getText().toLowerCase().equals("enter the search text")) {
-					txtSearch.setText("Enter the search text");
+						|| txtSearch.getText().toLowerCase().equals("inserire testo da cercare")) {
+					txtSearch.setText("Inserire testo da cercare");
 				}
 			}
 		});
@@ -175,12 +183,12 @@ public class ProgettoGaviMain implements ActionListener {
 		txtSearch.setColumns(15);
 		frmHegregio.add(txtSearch, null);
 		
-		totalFound = new JLabel("Files found: ");
+		totalFound = new JLabel("File trovati: ");
 		totalFound.setBounds(15, 60, 300, 15);
 		frmHegregio.add(totalFound, null);
 		
-		lblRicercaSuN = new JLabel("Search on " + filenumber + " files with model: ");
-		lblRicercaSuN.setBounds(14, 45, 400, 15);
+		lblRicercaSuN = new JLabel("Ricerca su " + filenumber + " file con modello");
+		lblRicercaSuN.setBounds(15, 45, 300, 15);
 		frmHegregio.add(lblRicercaSuN, null);
 		
 		columnNames = new Vector<>();
@@ -204,6 +212,24 @@ public class ProgettoGaviMain implements ActionListener {
 		frmHegregio.add(scrollPane, BorderLayout.CENTER);
 		
 		frmHegregio.setResizable(false);
+		
+		generalIndex = Index.getIndex();
+		
+		//prova
+				waitPane=new JFrame("Please Wait --->  Benchmark is working...");
+				waitPane.setSize(400,100);
+				Dimension screenSize = Toolkit.getDefaultToolkit ( ).getScreenSize();
+
+				waitPane.setLocation ( ( screenSize.width / 2 ) - ( waitPane.getWidth ( ) / 2 ), (screenSize.height / 2 ) - ( waitPane.getHeight ( ) / 2 ) );
+				waitPane.getContentPane().setLayout(null);
+				waitPane.setAlwaysOnTop(true);
+				waitPane.setEnabled(false);
+				
+				
+				JLabel lblBenchemarkIsWorking = new JLabel("Benchmark is working...");
+				lblBenchemarkIsWorking.setBounds(89, 23, 205, 27);
+				waitPane.getContentPane().add(lblBenchemarkIsWorking);
+		
 	}
 
 	@Override
@@ -214,7 +240,7 @@ public class ProgettoGaviMain implements ActionListener {
 			try {
 				CreateIndexPath CIP = new CreateIndexPath();
 				filenumber += CIP.CreateFile(frmHegregio);
-				lblRicercaSuN.setText("Search on " + filenumber + " files with model: ");
+				lblRicercaSuN.setText("Ricerca su " + filenumber + " file con modello");
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
@@ -223,15 +249,10 @@ public class ProgettoGaviMain implements ActionListener {
 		}
 		
 		if ( e.getSource() == mntmCreateIndex) {
-			Index ind = new Index(frmHegregio, filenumber, IndexFile, M);
-			
+			MyModel M = new MyModel(modelUsed);
+			Index ind = new Index(frmHegregio, filenumber, IndexFile, M, ModelPath);
 			try {
-				String[] app = ind.CreateGUI().split(" ");
-				indexDir = app[0];
-				filenumber = Integer.parseInt(app[1]);
-				if(indexDir != null && filenumber != 0) {
-					lblRicercaSuN.setText("Search on " + filenumber + " files with model: " + M.getModelString());
-				}
+				indexDir = ind.CreateGUI();
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
@@ -248,29 +269,31 @@ public class ProgettoGaviMain implements ActionListener {
 			    yourFolder = fc.getSelectedFile();
 			    indexPath = yourFolder.getAbsolutePath();
 			    indexPath = "." + indexPath.substring(basePath.length());
-				
+			    
 				try {
-						ObjectInputStream in = new ObjectInputStream(new FileInputStream(M.getPaht()));
-						modelUsed = (Integer) in.readObject();
-						filenumber = (Integer) in.readObject();
-						in.close();
-						System.out.println(modelUsed);
-						if(modelUsed >= 0 && modelUsed < 4) {
-							M = new MyModel(modelUsed);
-							JOptionPane.showMessageDialog(frmHegregio, "Folder selected for index: " + yourFolder.getAbsolutePath(), "Complete", JOptionPane.INFORMATION_MESSAGE);
-							lblRicercaSuN.setText("Search on " + filenumber + " files with model: " + M.getModelString());
-							System.out.println("docPath :"+ indexPath);
-							indexDir = indexPath;
-						}
-						else {
-							JOptionPane.showMessageDialog(frmHegregio,	"Impossible to load index, unknown model", "Error", JOptionPane.ERROR_MESSAGE);
-						}
-					} catch (ClassNotFoundException | IOException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
+					FileReader fr = new FileReader(IndexFile);
+					LineNumberReader lnr = new LineNumberReader(fr);
+					while ((lnr.readLine()) != null) {
+						filenumber++;
 					}
+					lnr.close();
+					fr.close();
+					fr = new FileReader(ModelPath);
+					modelUsed = (int) fr.read();
+					fr.close();
+					MyModel M = new MyModel(modelUsed);
+					lblRicercaSuN.setText("Ricerca su " + filenumber + " file con modello: " + M.getModelString());
+					
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
 			}
-			else return;
+			if (returnVal==JFileChooser.CANCEL_OPTION) return;
+			
+			JOptionPane.showMessageDialog(frmHegregio, "Cartella selezionata per l'indice: " + yourFolder.getAbsolutePath(), "Completato", JOptionPane.INFORMATION_MESSAGE);
+			System.out.println("docPath :"+ indexPath);
+			indexDir = indexPath;
+			
 		}
 		
 		
@@ -286,18 +309,19 @@ public class ProgettoGaviMain implements ActionListener {
 		}
 		
 		
-		//BUTTON SEARCH
+		//--------------BUTTON SEARCH---------------
+		
 		if ( e.getSource() == btnSearch ) {
-			if (!txtSearch.getText().equals("") &&  !txtSearch.getText().equals("Enter the search text")) {
+			if (!txtSearch.getText().equals("") &&  !txtSearch.getText().equals("Inserire testo da cercare")) {
 				if(indexDir != null) {
 					try {
 						for(int k = 0; k < model.getRowCount(); k++) {
 							model.removeRow(k);
 						}
 						model.setRowCount(0);
-						SearchFiles sf = new SearchFiles(txtSearch.getText(), indexDir, model, frmHegregio, M);
+						SearchFiles sf = new SearchFiles(txtSearch.getText(), indexDir, model, frmHegregio, ModelPath);
 						Integer totalFile = sf.Search();
-						totalFound.setText("Files found: ");
+						totalFound.setText("File trovati: ");
 						totalFound.setText(totalFound.getText() + " " + totalFile);
 						
 					} catch (Exception e1) {
@@ -306,41 +330,122 @@ public class ProgettoGaviMain implements ActionListener {
 					}
 				}
 				else {
-					JOptionPane.showMessageDialog(frmHegregio,	"Select the index folder or create one", "Error", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(frmHegregio,	"Selezionare la cartella dell'indice o creane uno", "Error", JOptionPane.ERROR_MESSAGE);
 				}
 			}
 			else {
-				JOptionPane.showMessageDialog(frmHegregio,	"Insert the text on search bar");
+				JOptionPane.showMessageDialog(frmHegregio,	"Inserire il testo nella barra di ricerca");
 			}
 			
 		}
 			
+		//-------------CALCULATE AND PLOT----------------
+		
+		if( e.getSource() == mntmCalculateAndPlot) {
+			
+			int reply =JOptionPane.showConfirmDialog(null,"Do you want to launch LISA Benchmark?", "Attention", JOptionPane.YES_NO_OPTION);
+			
+			
+			if(reply==JOptionPane.YES_OPTION) {
+				
+				// Before loading docs of benchmark, index is erased
+				generalIndex.resetIndex();
+				
+				waitPane.setVisible(true);
+				
+				Model model=null;
+				Benchmark benchmark=null;
+				 
+				if( modelUsed == 2 ) {
+					System.out.println("Boolean");
+					model = new BooleanModel();
+				}
+					
+				if( modelUsed == 1) {
+					System.out.println("Vector Space");
+					model = new VectorSpaceModel();
+				}
+					
+				if( modelUsed == 0) {
+					System.out.println("Probabilistic(BM25)");
+					model = new BM25();
+				}
+					
+				if(  modelUsed == 3) {
+					System.out.println("Fuzzy");
+					model = new FuzzyModel();
+				}	
+				
+				String currentD = "";
+				try {
+					 currentD = new java.io.File( "." ).getCanonicalPath();
+				} catch (IOException e2) {
+					// TODO Auto-generated catch block
+					e2.printStackTrace();
+				}
+				
+				
+				String IndexPath = currentD + "\\dataset\\clinical_dataset\\IndexPath";
+				String topicPath = currentD + "\\dataset\\clinical_dataset\\Topics\\topics2014.xml";
+				String qrelsPath = currentD + "\\dataset\\clinical_dataset\\Qrels\\qrels-trecval-2015.txt";
+
+				benchmark = new Benchmark(model, IndexPath , topicPath , qrelsPath );
+				benchmark.executeBenchmark();
+					
+				waitPane.setVisible(false);
+				int reply1 = JOptionPane.showConfirmDialog(null,"Do you want to see the results of Benchmark?", "Attention", JOptionPane.YES_NO_OPTION);
+					
+					
+					if(reply1==JOptionPane.YES_OPTION) {
+						// Grafici
+						System.out.println("Starting plotting...");
+						waitPane.setVisible(true);
+						
+						benchmark.doGraph();
+						
+						waitPane.setVisible(false);
+						
+						File files[];
+						File Directory = null;
+
+							try {
+								Directory = new File(new java.io.File( "." ).getCanonicalPath()+"\\results\\");
+							} catch (IOException e1) {
+								// TODO Auto-generated catch block
+								e1.printStackTrace();
+							}
+
+						
+						files=Directory.listFiles();
+						Arrays.sort(files);
+
+					}
+				//After benchmark, index is erased
+				generalIndex.resetIndex();
+			}
+				
+			
+		}
 		
 		
 		
-		//------------Model Selection--------------
+		//------------MODEL SELECION--------------
 		
 		if ( e.getSource()  == mntmVectorSpaceModel ) {
 			modelUsed = 1;
-			M = new MyModel(modelUsed);
 		}
 		
 		if ( e.getSource()  == mntmBooleanModel ) {
 			modelUsed = 2;
-			M = new MyModel(modelUsed);
 		}
 		
 		if ( e.getSource()  == mntmFuzzyModel ) {
 			modelUsed = 3;
-			M = new MyModel(modelUsed);
 		}
 		
 		if ( e.getSource()  == mntmProbabilisticModel ) {
 			modelUsed = 0;
-			M = new MyModel(modelUsed);
 		}
-		
-		
 		
 	}
 }

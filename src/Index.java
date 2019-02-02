@@ -1,10 +1,28 @@
+
+import java.awt.BorderLayout;
+import java.awt.Container;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.LineNumberReader;
 import java.io.PrintWriter;
 import java.util.LinkedList;
+
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JFileChooser;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JProgressBar;
+import javax.swing.SwingUtilities;
+import javax.swing.border.Border;
 
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.Document;
@@ -22,56 +40,47 @@ import org.apache.lucene.search.similarities.Similarity;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.RAMDirectory;
 
-/**
- * 
- * Classe che implementa un indice. 
- * Questo indice permette di essere modificato dall'utente, che può decidere quali documenti/directory aggiungere/rimuovere.
- */
-public class Index{
+public class Index implements ActionListener{
 
-	/*
-	 * A singleton to have an unique index, reachable by each part of the program and equals for 
-	 * everybody
-	 */
-	private static Index uniqueIndex = null;
-	
+	//----------------------
+	private static Index uniqueIndex;
+	private static Similarity simUsed = null;
 	private static StandardAnalyzer stdAnalyzer = null; 
 	private static Directory dirIndex = null;
 	private static IndexWriterConfig iwConfig = null; 
 	private static IndexWriter inWriter = null; 
 	private static IndexReader inReader = null;
 	private static IndexSearcher inSearcher = null;
-	private static Similarity simUsed = null;
+	//----------------------
+	
+	private String indexFile;
+	private String indexDir;
+	private Boolean append;
+	private JProgressBar progressBar;
+	private Integer Number;
+	private JFrame ParentFrame;
+	private File yourFolder;
+	public String timeused = null;
+	private JButton start;
+	private JDialog dlgProgress;
+	private MyModel M;
+	private String ModelPath;
+	
 	
 	private Index() {
 		startIndex();
 	}
 	
-	/**
-	 * Questo metodo rende questa classe un singleton, allocando uniqueIndex come unicca istanza di questa classe.
-	 * Di default, è applicato il VectorSpaceModel.
-	 * @return Index as a uniqueIndex
-	 */
-	public static Index getIndex() {
-		if(uniqueIndex == null) {
-			return getIndex(new VectorSpaceModel().getSimilarity());
-		}
-		return uniqueIndex;
+
+	public Index(JFrame Parent, Integer FileCount, String IndexFile, MyModel M, String ModelPath) {
+		this.ParentFrame = Parent;
+		this.Number = FileCount;
+		this.indexFile = IndexFile;
+		this.M = M;
+		this.ModelPath = ModelPath;
 	}
 	
-	/**
-	 * Crea un index specificando la similarity. 
-	 * Quando viene chiamato il costruttore simUsed definisc il modello da usare per la similarity.
-	 * @param sim similarità da applicare, non applicata se uniqueIndex non è ancora stato creato
-	 * @return Index 
-	 */
-	public static Index getIndex(Similarity sim) {
-		if(uniqueIndex == null) {
-			simUsed = sim;
-			uniqueIndex = new Index();
-		}
-		return uniqueIndex;
-	}
+	//-------------------
 	
 	/**
 	 * alloca tutti gli strumenti dell'Index. per cambiare la similarità, l'indice deve essere riinizializzato
@@ -128,6 +137,7 @@ public class Index{
 		startIndex();
 	}
 	
+	
 	/**
 	 * This method close tools that are closable.
 	 */
@@ -150,6 +160,7 @@ public class Index{
 			}
 		}
 	}
+	
 	
 	/**
 	 * This method write all documents path to the target file, as clear text.
@@ -211,7 +222,6 @@ public class Index{
 		
 		System.out.println("Loading successful from " + saveFile + "!");
 	}
-	
 	
 	/**
 	 * Crea e aggiunge un documento all'index. 
@@ -376,6 +386,130 @@ public class Index{
 		}
 		
 		return queryResults;
+	}
+
+	//-------------------
+	
+	
+	
+
+	public void setValue(final int j) {
+		SwingUtilities.invokeLater(new Runnable() {
+			@Override
+			public void run() {
+				progressBar.setValue(j);
+			}
+		});
+	}
+
+	public String CreateGUI() throws IOException {
+
+		JFileChooser fc = new JFileChooser();
+		fc.setCurrentDirectory(new java.io.File(".")); // start at application current directory
+		fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+		int returnVal = fc.showOpenDialog(fc);
+		if (returnVal == JFileChooser.APPROVE_OPTION) {
+			yourFolder = fc.getSelectedFile();
+			indexDir = yourFolder.getAbsolutePath();
+
+			indexDir = "." + indexDir.substring(ProgettoGaviMain.basePath.length());
+			System.out.println(indexDir);
+		}
+		if (returnVal == JFileChooser.CANCEL_OPTION)
+			return null;
+
+		int dialogResult = JOptionPane.showConfirmDialog(null, "Would You Like to append to the index folder?", "",
+				JOptionPane.YES_NO_OPTION);
+		if (dialogResult == JOptionPane.YES_OPTION) {
+			append = true;
+		} else {
+			append = false;
+		}
+		
+
+		// Usato per ottenere il numero di di path per inizializzare la progressBar
+		if (Number == 0) {
+			FileReader fr = new FileReader(indexFile);
+			LineNumberReader lnr = new LineNumberReader(fr);
+			try {
+				while ((lnr.readLine()) != null) {
+					Number++;
+				}
+				lnr.close();
+				fr.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		int dResult = JOptionPane.showConfirmDialog(null, "Do you want to create index with model: " + M.getModelString() 
+						+ " end " + Number + " of file?", "", JOptionPane.YES_NO_OPTION);
+		if (dResult == JOptionPane.NO_OPTION) return null;
+
+		System.out.println(Number);
+
+		BufferedWriter writer = new BufferedWriter(new FileWriter(ModelPath));
+	    writer.write(M.getModel());
+	    writer.close();
+	    
+		dlgProgress = new JDialog(ParentFrame, "Please wait...", false);
+		dlgProgress.setLocationRelativeTo(ParentFrame);
+		dlgProgress.setSize(500, 110);
+		dlgProgress.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+		Container content = dlgProgress.getContentPane();
+		Border border = BorderFactory
+				.createTitledBorder("Indexing to directory " + yourFolder.getAbsolutePath() + "...");
+		progressBar = new JProgressBar(0, Number);
+		progressBar.setValue(0);
+		progressBar.setStringPainted(true);
+		progressBar.setBorder(border);
+		start = new JButton("Start");
+		start.setSize(70, 50);
+		start.addActionListener(this);
+		content.add(start, BorderLayout.EAST);
+		content.add(progressBar, BorderLayout.NORTH);
+		dlgProgress.setVisible(true);
+		dlgProgress.setResizable(false);
+		
+
+		return indexDir;
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		if (e.getSource() == start) {
+			ParentFrame.setEnabled(false);
+			IndexWorker c = new IndexWorker(indexDir, append, progressBar, dlgProgress, ParentFrame, M, indexFile);
+			c.start();
+		}
+	}
+	
+	/**
+	 * Questo metodo rende questa classe un singleton, allocando uniqueIndex come unicca istanza di questa classe.
+	 * Di default, è applicato il VectorSpaceModel.
+	 * @return Index as a uniqueIndex
+	 */
+	public static Index getIndex() {
+		if(uniqueIndex == null) {
+			return getIndex(new VectorSpaceModel().getSimilarity());
+		}
+		return uniqueIndex;
+	}
+	
+	
+	/**
+	 * Crea un index specificando la similarity. 
+	 * Quando viene chiamato il costruttore simUsed definisc il modello da usare per la similarity.
+	 * @param sim similarità da applicare, non applicata se uniqueIndex non è ancora stato creato
+	 * @return Index 
+	 */
+	public static Index getIndex(Similarity sim) {
+		if(uniqueIndex == null) {
+			simUsed = sim;
+			uniqueIndex = new Index();
+		}
+		return uniqueIndex;
 	}
 	
 }

@@ -10,16 +10,16 @@ import java.util.LinkedList;
 
 import plot.Plot;
 import plot.Plot.Line;
-//import org.apache.lucene.benchmark.byTask.Benchmark;
-//import sun.applet.Main;
+
+//import Line;
 
 public class Benchmark {
 
 	//Attributi
 	Model model;				//Modello su cui eseguire
 	String fileDocumentsPaths;	//in questo documento ogni riga è il percorso di un documento su cui eseguire le query
-	String queryFile;			//File LISA.QUE
-	String docExpected;			//File LISA.REL
+	String queryFile;			//File LISA.QUE  (topics2014.xml)
+	String docExpected;			//File LISA.REL  (qrels)
 	Index generalIndex; 		//Index
 	LinkedList<String> ll; 		//List where to search (name, content)
 	
