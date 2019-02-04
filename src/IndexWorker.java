@@ -15,13 +15,14 @@ import javax.swing.JOptionPane;
 import javax.swing.JProgressBar;
 
 import org.apache.lucene.analysis.Analyzer;
-import org.apache.lucene.analysis.standard.StandardAnalyzer;
+import org.apache.lucene.analysis.en.EnglishAnalyzer;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
 import org.apache.lucene.document.TextField;
 import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.index.IndexWriterConfig;
 import org.apache.lucene.index.IndexWriterConfig.OpenMode;
+import org.apache.lucene.queryparser.classic.ParseException;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
 
@@ -63,7 +64,8 @@ public class IndexWorker extends Thread {
 	
 	private int indexCreator() throws IOException {
 		dir = FSDirectory.open(Paths.get(indexDir));
-		analyzer = new StandardAnalyzer();
+		//analyzer = new StandardAnalyzer();
+		analyzer = new EnglishAnalyzer();
 		iwc = new IndexWriterConfig(analyzer);
 		iwc.setSimilarity(M.getModelSymilarity());
 		
@@ -137,6 +139,7 @@ public class IndexWorker extends Thread {
 
 		// index file contents
 		TextField contentField = new TextField(CONTENTS, fileToBody(file), Field.Store.YES);
+		
 
 		// index file name
 		TextField fileNameField = new TextField(FILE_NAME, file.getName(), Field.Store.YES);
@@ -144,7 +147,7 @@ public class IndexWorker extends Thread {
 		// index file path
 		TextField filePathField = new TextField(FILE_PATH, file.getCanonicalPath(), Field.Store.YES);
 
-		// System.out.println(contentField + " " + fileNameField + " " + filePathField);
+		//System.out.println(contentField + " " + fileNameField + " " + filePathField);
 		document.add(contentField);
 		document.add(fileNameField);
 		document.add(filePathField);
@@ -156,8 +159,9 @@ public class IndexWorker extends Thread {
 	 * Funzione che estrapola dal file xml il contenuto del body
 	 * 
 	 * @throws IOException
+	 * @throws ParseException 
 	 */
-	public static String fileToBody(File file) throws IOException {
+	public String fileToBody(File file) throws IOException {
 		BufferedReader reader = new BufferedReader(new FileReader(file));
 		String line = null;
 		StringBuilder stringBuilder = new StringBuilder();

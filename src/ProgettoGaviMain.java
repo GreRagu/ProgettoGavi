@@ -12,6 +12,7 @@ import java.util.Vector;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -48,9 +49,9 @@ public class ProgettoGaviMain implements ActionListener {
 	public static String basePath = new File("").getAbsolutePath();
 	private JButton btnHelp;
 	private JButton btnSearch;
-	private Vector<String> columnNames;
 	private DefaultTableModel model;
 	private MyModel M;
+	private Vector<String> columnNames;
 
 	/**
 	 * Launch the application.
@@ -176,13 +177,13 @@ public class ProgettoGaviMain implements ActionListener {
 		frmHegregio.add(txtSearch, null);
 		
 		totalFound = new JLabel("Files found: ");
-		totalFound.setBounds(15, 60, 300, 15);
+		totalFound.setBounds(15, 60, 400, 15);
 		frmHegregio.add(totalFound, null);
 		
 		lblRicercaSuN = new JLabel("Search on " + filenumber + " files with model: ");
 		lblRicercaSuN.setBounds(14, 45, 400, 15);
 		frmHegregio.add(lblRicercaSuN, null);
-		
+
 		columnNames = new Vector<>();
 		columnNames.addElement("#");
 		columnNames.addElement("Docnos");
@@ -190,15 +191,18 @@ public class ProgettoGaviMain implements ActionListener {
 		columnNames.addElement("Score");
 		model = new DefaultTableModel(columnNames, 0);
 		table = new JTable(model);
-		TableColumn a = table.getColumnModel().getColumn(0);
-	    a.setPreferredWidth(30);
-	    a = table.getColumnModel().getColumn(1);
-	    a.setPreferredWidth(100);
-	    a = table.getColumnModel().getColumn(2);
-	    a.setPreferredWidth(345);
-	    a = table.getColumnModel().getColumn(3);
-	    a.setPreferredWidth(88);
-	    table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+		TableColumn col = table.getColumnModel().getColumn(0);
+		col.setPreferredWidth(40);
+		col = table.getColumnModel().getColumn(1);
+		col.setPreferredWidth(200);
+		col = table.getColumnModel().getColumn(2);
+		col.setPreferredWidth(150);
+		col = table.getColumnModel().getColumn(3);
+		col.setPreferredWidth(165);
+		col.setCellRenderer(new TableButton());
+		col.setCellEditor(new ButtonEditor(new JCheckBox()));
+		table.setRowHeight(20);
+		table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 		JScrollPane scrollPane = new JScrollPane(table);
 		scrollPane.setBounds(15, 110, 580, 300);
 		frmHegregio.add(scrollPane, BorderLayout.CENTER);
@@ -227,8 +231,10 @@ public class ProgettoGaviMain implements ActionListener {
 			
 			try {
 				String[] app = ind.CreateGUI().split(" ");
-				indexDir = app[0];
-				filenumber = Integer.parseInt(app[1]);
+				if(!app[0].equals("null") && !app[1].equals(0) ) {
+					indexDir = app[0];
+					filenumber = Integer.parseInt(app[1]);
+				}
 				if(indexDir != null && filenumber != 0) {
 					lblRicercaSuN.setText("Search on " + filenumber + " files with model: " + M.getModelString());
 				}
@@ -302,7 +308,7 @@ public class ProgettoGaviMain implements ActionListener {
 						SearchFiles sf = new SearchFiles(CorrectQuery, indexDir, model, frmHegregio, M);
 						Integer totalFile = sf.Search();
 						totalFound.setText("Files found: ");
-						totalFound.setText(totalFound.getText() + " " + totalFile + "for query: " + CorrectQuery);
+						totalFound.setText(totalFound.getText() + " " + totalFile + " for query: " + CorrectQuery);
 						
 					} catch (Exception e1) {
 						// TODO Auto-generated catch block

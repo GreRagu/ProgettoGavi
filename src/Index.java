@@ -63,7 +63,7 @@ public class Index implements ActionListener{
 			System.out.println(indexDir);
 		}
 		if (returnVal == JFileChooser.CANCEL_OPTION)
-			return null;
+			return "null 0";
 
 		int dialogResult = JOptionPane.showConfirmDialog(null, "Would You Like to append to the index folder?", "",
 				JOptionPane.YES_NO_OPTION);
@@ -93,7 +93,7 @@ public class Index implements ActionListener{
 						+ " end " + Number + " of file?", "", JOptionPane.YES_NO_OPTION);
 		if (dResult == JOptionPane.NO_OPTION) {
 			Number = 0;
-			return null;
+			return "null 0";
 		}
 
 		System.out.println(Number);

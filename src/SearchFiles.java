@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 import org.apache.lucene.analysis.Analyzer;
-import org.apache.lucene.analysis.standard.StandardAnalyzer;
+import org.apache.lucene.analysis.en.EnglishAnalyzer;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.index.DirectoryReader;
 import org.apache.lucene.index.IndexReader;
@@ -56,7 +56,8 @@ public class SearchFiles implements ActionListener{
 		IndexReader reader = DirectoryReader.open(FSDirectory.open(Paths.get(index)));
 		IndexSearcher searcher = new IndexSearcher(reader);
 		searcher.setSimilarity(M.getModelSymilarity());
-		Analyzer analyzer = new StandardAnalyzer();
+		//Analyzer analyzer = new StandardAnalyzer();
+		Analyzer analyzer = new EnglishAnalyzer();
 			
 		QueryParser parser = new QueryParser(field, analyzer);
 
@@ -132,9 +133,8 @@ public class SearchFiles implements ActionListener{
 				
 				path = "." + path.substring(ProgettoGaviMain.basePath.length());
 				
-				Object[] data = {String.valueOf(i + 1), name, path, hits[i].score};
+				Object[] data = {String.valueOf(i + 1), name, hits[i].score, doc.get("filepath")};
 				model.addRow(data);
-
 			}
 		}
 		else {
