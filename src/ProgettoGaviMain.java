@@ -56,7 +56,6 @@ public class ProgettoGaviMain implements ActionListener {
 	private Vector<String> columnNames;
 	private DefaultTableModel model;
 	private JMenuItem mntmCalculateAndPlot;
-	private Index generalIndex = null;
 	private JFrame waitPane;
 
 	/**
@@ -212,9 +211,7 @@ public class ProgettoGaviMain implements ActionListener {
 		frmHegregio.add(scrollPane, BorderLayout.CENTER);
 		
 		frmHegregio.setResizable(false);
-		
-		generalIndex = Index.getIndex();
-		
+				
 		//prova
 				waitPane=new JFrame("Please Wait --->  Benchmark is working...");
 				waitPane.setSize(400,100);
@@ -342,88 +339,7 @@ public class ProgettoGaviMain implements ActionListener {
 		//-------------CALCULATE AND PLOT----------------
 		
 		if( e.getSource() == mntmCalculateAndPlot) {
-			
-			int reply =JOptionPane.showConfirmDialog(null,"Do you want to launch LISA Benchmark?", "Attention", JOptionPane.YES_NO_OPTION);
-			
-			
-			if(reply==JOptionPane.YES_OPTION) {
-				
-				// Before loading docs of benchmark, index is erased
-				generalIndex.resetIndex();
-				
-				waitPane.setVisible(true);
-				
-				Model model=null;
-				Benchmark benchmark=null;
-				 
-				if( modelUsed == 2 ) {
-					System.out.println("Boolean");
-					model = new BooleanModel();
-				}
-					
-				if( modelUsed == 1) {
-					System.out.println("Vector Space");
-					model = new VectorSpaceModel();
-				}
-					
-				if( modelUsed == 0) {
-					System.out.println("Probabilistic(BM25)");
-					model = new BM25();
-				}
-					
-				if(  modelUsed == 3) {
-					System.out.println("Fuzzy");
-					model = new FuzzyModel();
-				}	
-				
-				String currentD = "";
-				try {
-					 currentD = new java.io.File( "." ).getCanonicalPath();
-				} catch (IOException e2) {
-					// TODO Auto-generated catch block
-					e2.printStackTrace();
-				}
-				
-				
-				String IndexPath = currentD + "\\dataset\\clinical_dataset\\IndexPath";
-				String topicPath = currentD + "\\dataset\\clinical_dataset\\Topics\\topics2014.xml";
-				String qrelsPath = currentD + "\\dataset\\clinical_dataset\\Qrels\\qrels-trecval-2015.txt";
-
-				benchmark = new Benchmark(model, IndexPath , topicPath , qrelsPath );
-				benchmark.executeBenchmark();
-					
-				waitPane.setVisible(false);
-				int reply1 = JOptionPane.showConfirmDialog(null,"Do you want to see the results of Benchmark?", "Attention", JOptionPane.YES_NO_OPTION);
-					
-					
-					if(reply1==JOptionPane.YES_OPTION) {
-						// Grafici
-						System.out.println("Starting plotting...");
-						waitPane.setVisible(true);
-						
-						benchmark.doGraph();
-						
-						waitPane.setVisible(false);
-						
-						File files[];
-						File Directory = null;
-
-							try {
-								Directory = new File(new java.io.File( "." ).getCanonicalPath()+"\\results\\");
-							} catch (IOException e1) {
-								// TODO Auto-generated catch block
-								e1.printStackTrace();
-							}
-
-						
-						files=Directory.listFiles();
-						Arrays.sort(files);
-
-					}
-				//After benchmark, index is erased
-				generalIndex.resetIndex();
-			}
-				
+		
 			
 		}
 		
