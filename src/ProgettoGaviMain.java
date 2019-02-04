@@ -197,7 +197,7 @@ public class ProgettoGaviMain implements ActionListener {
 	    a = table.getColumnModel().getColumn(2);
 	    a.setPreferredWidth(345);
 	    a = table.getColumnModel().getColumn(3);
-	    a.setPreferredWidth(90);
+	    a.setPreferredWidth(88);
 	    table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 		JScrollPane scrollPane = new JScrollPane(table);
 		scrollPane.setBounds(15, 110, 580, 300);
@@ -295,10 +295,14 @@ public class ProgettoGaviMain implements ActionListener {
 							model.removeRow(k);
 						}
 						model.setRowCount(0);
-						SearchFiles sf = new SearchFiles(txtSearch.getText(), indexDir, model, frmHegregio, M);
+						SimpleSuggestionService SSS = new SimpleSuggestionService(txtSearch.getText().split(" "));
+						String CorrectQuery = SSS.DidYouMean();
+						System.out.println("corretta: " + CorrectQuery);
+						
+						SearchFiles sf = new SearchFiles(CorrectQuery, indexDir, model, frmHegregio, M);
 						Integer totalFile = sf.Search();
 						totalFound.setText("Files found: ");
-						totalFound.setText(totalFound.getText() + " " + totalFile);
+						totalFound.setText(totalFound.getText() + " " + totalFile + "for query: " + CorrectQuery);
 						
 					} catch (Exception e1) {
 						// TODO Auto-generated catch block

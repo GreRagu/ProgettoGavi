@@ -50,6 +50,7 @@ public class SearchFiles implements ActionListener{
 		this.M = M;
 	}
 
+	@SuppressWarnings("deprecation")
 	public int Search() throws Exception {
 		
 		IndexReader reader = DirectoryReader.open(FSDirectory.open(Paths.get(index)));
@@ -67,11 +68,12 @@ public class SearchFiles implements ActionListener{
 		number.setSize(450, 150);
 		number.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
 		number.setLayout(null);
-		label = new JLabel("Maximum number of documents desired? (only number)");
+		label = new JLabel("Maximum number of documents desired? (only number, default 100)");
 		label.setBounds(10, 10, 400, 20);
 		number.add(label);
 		docnumber = new JFormattedTextField(NumberFormat.getIntegerInstance());
 		docnumber.setBounds(50, 50, 50, 20);
+		docnumber.setValue(new Long("100"));
 		number.add(docnumber);
 		okbtn = new JButton("OK");
 		okbtn.setBounds(120, 50, 70, 20);
@@ -147,8 +149,13 @@ public class SearchFiles implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		if ( e.getSource() == okbtn ) {
-			Hits = (int) (long) docnumber.getValue();
-			number.dispose();
+			if(!docnumber.getValue().equals("0")) {
+				Hits = (int) (long) docnumber.getValue();
+				number.dispose();
+			}
+			else {
+				Hits = 100;
+			}
 		}
 	}
 }

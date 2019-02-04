@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
@@ -8,34 +9,51 @@ import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
 
 public class SimpleSuggestionService {
+	
+	private String[] text;
+	private Path dir;
+	private Path dict;
+	private Directory directory;
+	private IndexWriterConfig iwc;
+	private SpellChecker spellChecker;
+	private PlainTextDictionary d;
+	private String Correct = "";
+	
     
-    public static void main(String[] args) throws Exception {
+    public SimpleSuggestionService(String[] text) {
+    	this.text = text;
+    }
+    
+    public String DidYouMean() throws IOException {
+    	
+        dir = Paths.get("./dictionary");
+        dict = Paths.get("./dictionary.txt");
+        directory = FSDirectory.open(dir);
+        iwc = new IndexWriterConfig();
+        spellChecker = new SpellChecker(directory);
         
-        Path dir = Paths.get("./dictionary");
-        Path dict = Paths.get("./dictionary.txt");
-        Directory directory = FSDirectory.open(dir);
-        IndexWriterConfig iwc = new IndexWriterConfig();
-        SpellChecker spellChecker = new SpellChecker(directory);
-        
-        PlainTextDictionary d = new PlainTextDictionary(dict);
+        d = new PlainTextDictionary(dict);
         spellChecker.indexDictionary(d, iwc, false);
         
-        String wordForSuggestions = "diseast"; //instead of heart
-        
         int suggestionsNumber = 1;
+        
+        for(int i = 0; i < text.length; i++) {
+        	String[] suggestions = spellChecker.suggestSimilar(text[i], suggestionsNumber);
 
-        String[] suggestions = spellChecker.
-            suggestSimilar(wordForSuggestions, suggestionsNumber);
-
-        if (suggestions!=null && suggestions.length>0) {
-            for (String word : suggestions) {
-                System.out.println("Did you mean:" + word);
+            if (suggestions!=null && suggestions.length>0) {
+                for (String word : suggestions) {
+                    System.out.println("Did you mean:" + word);
+                    Correct += word + " ";
+                }
+            }
+            else {
+                System.out.println("No suggestions found for word:" + text[i]);
+                Correct += text[i] + " ";
             }
         }
-        else {
-            System.out.println("No suggestions found for word:"+wordForSuggestions);
-        }
-            
+        spellChecker.close();
+        System.out.println(Correct);
+		return Correct;
     }
 
 }
