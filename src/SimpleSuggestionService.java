@@ -1,8 +1,6 @@
-import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import org.apache.lucene.analysis.hunspell.Dictionary;
 import org.apache.lucene.index.IndexWriterConfig;
 import org.apache.lucene.search.spell.PlainTextDictionary;
 import org.apache.lucene.search.spell.SpellChecker;

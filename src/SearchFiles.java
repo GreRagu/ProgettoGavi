@@ -10,6 +10,7 @@ import javax.swing.JDialog;
 import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 import org.apache.lucene.analysis.Analyzer;
@@ -107,31 +108,35 @@ public class SearchFiles implements ActionListener{
 		int numTotalHits = (int) results.totalHits;
 		System.out.println(numTotalHits + " total matching documents");
 
-		int start = 0;
-		int end = Math.min(numTotalHits, Hits);
-
-		hits = searcher.search(query, numTotalHits).scoreDocs;
-		
-		end = Math.min(hits.length, start + Hits);
-
-		for (int i = start; i < end; i++) {
+		if(numTotalHits > 0) {
+			int start = 0;
+			int end = Math.min(numTotalHits, Hits);
+			hits = searcher.search(query, numTotalHits).scoreDocs;
 			
-			Document doc = searcher.doc(hits[i].doc);
-			path = doc.get("filepath");
-			name = doc.get("filename");
-			
-			if(path == null) {
-				path = "No path for this document";
+			end = Math.min(hits.length, start + Hits);
+
+			for (int i = start; i < end; i++) {
+				
+				Document doc = searcher.doc(hits[i].doc);
+				path = doc.get("filepath");
+				name = doc.get("filename");
+				
+				if(path == null) {
+					path = "No path for this document";
+				}
+				if(name == null) {
+					name = "No name for this document";
+				}
+				
+				path = "." + path.substring(ProgettoGaviMain.basePath.length());
+				
+				Object[] data = {String.valueOf(i + 1), name, path, hits[i].score};
+				model.addRow(data);
+
 			}
-			if(name == null) {
-				name = "No name for this document";
-			}
-			
-			path = "." + path.substring(ProgettoGaviMain.basePath.length());
-			
-			Object[] data = {String.valueOf(i + 1), name, path, hits[i].score};
-			model.addRow(data);
-
+		}
+		else {
+			JOptionPane.showMessageDialog(Parent,"No results for this search", "Error", JOptionPane.ERROR_MESSAGE);
 		}
 		
 		return numTotalHits;

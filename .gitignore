@@ -4,3 +4,4 @@
 /src/*.class
 .classpath
 /bin/
+/dictionary/*

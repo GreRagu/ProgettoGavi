@@ -57,7 +57,11 @@ public class IndexWorker extends Thread {
 		this.FileNotFound = 0;
 	}
 	
-	private void indexCreator() throws IOException {
+	public int getTotal() {
+		return Number - FileNotFound;
+	}
+	
+	private int indexCreator() throws IOException {
 		dir = FSDirectory.open(Paths.get(indexDir));
 		analyzer = new StandardAnalyzer();
 		iwc = new IndexWriterConfig(analyzer);
@@ -98,9 +102,12 @@ public class IndexWorker extends Thread {
 				}
 				pb.setValue(pb.getValue() + 1);
 			}
+			br.close();
 		}
-
 		writer.close();
+		analyzer.close();
+		dir.close();
+		
 		Date end = new Date();
 
 		// formatta il tempo da millisecondi al formato HH:mm:ss
@@ -111,13 +118,18 @@ public class IndexWorker extends Thread {
 
 		parent.dispose();
 		parentFrame.setEnabled(true);
-		JOptionPane.showMessageDialog(parentFrame, "Loading completed in " + formatted, "Complete",
-				JOptionPane.PLAIN_MESSAGE);
+		JOptionPane.showMessageDialog(parentFrame, "Loading completed in " + formatted + 
+				"\n " + (Number - FileNotFound) + " of " + Number + " files found", "Complete", JOptionPane.PLAIN_MESSAGE);
+		
+		writer.close();
+		
 		
 		ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(M.getPaht()));
 		out.writeObject(M.getModel());
 		out.writeObject(Number - FileNotFound);
 		out.close();
+		
+		return 1;
 	}
 	
 	private Document getDocument(File file) throws IOException {
