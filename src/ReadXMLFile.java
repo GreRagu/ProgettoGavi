@@ -22,13 +22,13 @@ public class ReadXMLFile {
 	public ReadXMLFile() {
 	}
 
-	public String SearchQuery() {
-		System.out.println("Enter query file path: ");
+	public String SearchQuery( int n ) {
+		
 		try {
 			in = new BufferedReader(new InputStreamReader(System.in, "UTF-8"));
 			while (true) {
 				// line = in.readLine();
-				line = "./dataset/clinical_dataset/Topics/topics2015A.xml";
+				line = new java.io.File(".")+"/dataset/clinical_dataset/topics/topics2014.xml";
 				XmlFile = new File(line);
 				if (!XmlFile.exists()) {
 					System.out
@@ -45,7 +45,7 @@ public class ReadXMLFile {
 
 			NodeList nList = doc.getElementsByTagName("topic");
 
-			System.out.println("Enter query number(1-30): ");
+			/*System.out.println("Enter query number(1-30): ");
 			while ((line = in.readLine()) != null) {
 				if (line.matches("([1-9]|[12][0-9]|3[0])")) {
 					number = Integer.parseInt(line);
@@ -55,7 +55,9 @@ public class ReadXMLFile {
 						System.out.println("Number out of range, \nplease enter a correct ones: ");
 				} else
 					System.out.println("Not a number, \nplease enter a correct ones: ");
-			}
+			}*/
+			
+			number = n;
 
 			Node nNode = nList.item(number - 1);
 
@@ -82,4 +84,5 @@ public class ReadXMLFile {
 		}
 		return line;
 	}
+	 
 }
