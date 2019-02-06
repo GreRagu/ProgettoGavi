@@ -4,6 +4,7 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
+import java.io.StringReader;
 import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -15,7 +16,13 @@ import javax.swing.JOptionPane;
 import javax.swing.JProgressBar;
 
 import org.apache.lucene.analysis.Analyzer;
+import org.apache.lucene.analysis.StopFilter;
+import org.apache.lucene.analysis.TokenStream;
+import org.apache.lucene.analysis.Tokenizer;
+import org.apache.lucene.analysis.core.StopAnalyzer;
+import org.apache.lucene.analysis.core.WhitespaceTokenizer;
 import org.apache.lucene.analysis.en.EnglishAnalyzer;
+import org.apache.lucene.analysis.en.PorterStemFilter;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
 import org.apache.lucene.document.TextField;
@@ -179,6 +186,17 @@ public class IndexWorker extends Thread {
 			// se non è presente restituisce stringa nulla
 			if (result.indexOf("<body>") != -1) {
 				result = result.substring(result.indexOf("<body>") + 6, result.indexOf("</body>"));
+				
+				//-----------------------------------------------------------
+				StringReader string = new StringReader(result);
+				Tokenizer whitespaceTokenizer = new WhitespaceTokenizer();
+				whitespaceTokenizer.setReader(string);
+				TokenStream tokenStream = new StopFilter(whitespaceTokenizer, StopAnalyzer.ENGLISH_STOP_WORDS_SET);
+				tokenStream = new PorterStemFilter(tokenStream);
+				//-----------------------------------------------------------
+				
+				System.out.println(tokenStream.toString());
+				
 				return result;
 			}
 			return " ";

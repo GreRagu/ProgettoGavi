@@ -351,7 +351,7 @@ public class ProgettoGaviMain implements ActionListener {
 		}
 		
 		if( e.getSource() == mntmCalculateAndPlot) {
-			ReadXMLFile Rf = new ReadXMLFile(frmHegregio);
+			/*ReadXMLFile Rf = new ReadXMLFile(frmHegregio);
 			Integer num = Rf.queryNumber();
 			String line = Rf.SearchQuery(num);
 			System.out.println(num + " " + line);
@@ -366,7 +366,7 @@ public class ProgettoGaviMain implements ActionListener {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-			}
+			}*/
 		}
 		
 	}
