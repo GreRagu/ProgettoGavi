@@ -52,6 +52,7 @@ public class ProgettoGaviMain implements ActionListener {
 	private DefaultTableModel model;
 	private MyModel M;
 	private Vector<String> columnNames;
+	private JMenuItem mntmCalculateAndPlot;
 
 	/**
 	 * Launch the application.
@@ -143,7 +144,8 @@ public class ProgettoGaviMain implements ActionListener {
 		JMenu mnEfficiency = new JMenu("Efficiency");
 		menuBar.add(mnEfficiency);
 		
-		JMenuItem mntmCalculateAndPlot = new JMenuItem("Calculate and plot");
+		mntmCalculateAndPlot = new JMenuItem("Calculate and plot");
+		mntmCalculateAndPlot.addActionListener(this);
 		mnEfficiency.add(mntmCalculateAndPlot);
 		
 		btnHelp = new JButton("? Help");
@@ -348,7 +350,24 @@ public class ProgettoGaviMain implements ActionListener {
 			M = new MyModel(modelUsed);
 		}
 		
-		
+		if( e.getSource() == mntmCalculateAndPlot) {
+			ReadXMLFile Rf = new ReadXMLFile(frmHegregio);
+			Integer num = Rf.queryNumber();
+			String line = Rf.SearchQuery(num);
+			System.out.println(num + " " + line);
+			if(indexDir != null) {
+				SearchFiles sf = new SearchFiles(line, indexDir, model, frmHegregio, M);
+				Integer totalFile;
+				try {
+					totalFile = sf.Search();
+					totalFound.setText("Files found: ");
+					totalFound.setText(totalFound.getText() + " " + totalFile + " for query: " + line);
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		}
 		
 	}
 }
