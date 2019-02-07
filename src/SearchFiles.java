@@ -69,7 +69,7 @@ public class SearchFiles implements ActionListener{
 		number.setSize(450, 150);
 		number.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
 		number.setLayout(null);
-		label = new JLabel("Maximum number of documents desired? (only number, default 100)");
+		label = new JLabel("How many documets do you want to collect? (only number, default 100)");
 		label.setBounds(10, 10, 400, 20);
 		number.add(label);
 		docnumber = new JFormattedTextField(NumberFormat.getIntegerInstance());
@@ -104,7 +104,6 @@ public class SearchFiles implements ActionListener{
 	 */
 	private int doPagingSearch(IndexSearcher searcher, Query query, DefaultTableModel model) throws IOException {
 		
-		// Collect enough docs to show 5 pages
 		TopDocs results = searcher.search(query, Hits);
 		ScoreDoc[] hits = results.scoreDocs;
 

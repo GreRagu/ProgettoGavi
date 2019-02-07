@@ -263,15 +263,28 @@ public class ProgettoGaviMain implements ActionListener {
 						filenumber = (Integer) in.readObject();
 						in.close();
 						System.out.println(modelUsed);
-						if(modelUsed >= 0 && modelUsed < 4) {
-							M = new MyModel(modelUsed);
-							JOptionPane.showMessageDialog(frmHegregio, "Folder selected for index: " + yourFolder.getAbsolutePath(), "Complete", JOptionPane.INFORMATION_MESSAGE);
-							lblRicercaSuN.setText("Search on " + filenumber + " files with model: " + M.getModelString());
-							System.out.println("indexPath :"+ indexPath);
-							indexDir = indexPath;
+						File dir = new File(indexPath);
+						String[] file = dir.list();
+						Boolean cond = false;
+						for(int i = 0; i < file.length; i++) {
+							if(file[i].endsWith(".cfs")) {
+								cond = true;
+							}
+						}
+						if(dir.isDirectory() && dir.list().length > 0 && cond) {
+							if(modelUsed >= 0 && modelUsed < 4) {
+								M = new MyModel(modelUsed);
+								JOptionPane.showMessageDialog(frmHegregio, "Folder selected for index: " + yourFolder.getAbsolutePath(), "Complete", JOptionPane.INFORMATION_MESSAGE);
+								lblRicercaSuN.setText("Search on " + filenumber + " files with model: " + M.getModelString());
+								System.out.println("indexPath :"+ indexPath);
+								indexDir = indexPath;
+							}
+							else {
+								JOptionPane.showMessageDialog(frmHegregio,	"Impossible to load index, unknown model", "Error", JOptionPane.ERROR_MESSAGE);
+							}
 						}
 						else {
-							JOptionPane.showMessageDialog(frmHegregio,	"Impossible to load index, unknown model", "Error", JOptionPane.ERROR_MESSAGE);
+							JOptionPane.showMessageDialog(frmHegregio,	"Not index in selected folder!", "Error", JOptionPane.ERROR_MESSAGE);
 						}
 					} catch (ClassNotFoundException | IOException e1) {
 						// TODO Auto-generated catch block
@@ -307,7 +320,14 @@ public class ProgettoGaviMain implements ActionListener {
 						String CorrectQuery = SSS.DidYouMean();
 						System.out.println("corretta: " + CorrectQuery);
 						
-						SearchFiles sf = new SearchFiles(CorrectQuery, indexDir, model, frmHegregio, M);
+						int result = JOptionPane.showConfirmDialog(frmHegregio, "Did you mean: " + CorrectQuery + "?", "", JOptionPane.YES_NO_OPTION);
+						SearchFiles sf;
+						if (result == JOptionPane.YES_OPTION) {
+							sf = new SearchFiles(CorrectQuery, indexDir, model, frmHegregio, M);
+						} else {
+							sf = new SearchFiles(txtSearch.getText(), indexDir, model, frmHegregio, M);
+						}
+						
 						Integer totalFile = sf.Search();
 						totalFound.setText("Files found: ");
 						totalFound.setText(totalFound.getText() + " " + totalFile + " for query: " + CorrectQuery);

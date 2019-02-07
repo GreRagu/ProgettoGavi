@@ -1,6 +1,6 @@
 <top>
 <num> Number: 1
-<title> A 44-year-old man with coffee-ground emesis, tachycardia, hypoxia,  hypotension and  cool, clammy extremities.
+<title> diagnosis
 
 <desc> Description: 
 A 44-year-old man with coffee-ground emesis, tachycardia, hypoxia,  hypotension and  cool, clammy extremities.
@@ -13,7 +13,7 @@ A 44 yo male is brought to the emergency room after multiple bouts of vomiting t
 
 <top>
 <num> Number: 2
-<title> A 62-year-old immunosuppressed male with fever, cough and intranuclear inclusion bodies in bronchoalveolar lavage
+<title> diagnosis
 
 <desc> Description: 
 A 62-year-old immunosuppressed male with fever, cough and intranuclear inclusion bodies in bronchoalveolar lavage
@@ -26,7 +26,7 @@ A 62 yo male presents with four days of non-productive cough and one day of feve
 
 <top>
 <num> Number: 3
-<title> A 65-year-old male presents with dyspnea, tachypnea, chest pain on inspiration, and swelling and pain in the right calf. 
+<title> diagnosis
 
 <desc> Description: 
 A 65-year-old male presents with dyspnea, tachypnea, chest pain on inspiration, and swelling and pain in the right calf. 
@@ -39,7 +39,7 @@ A 65 yo male with no significant history of cardiovascular disease presents to t
 
 <top>
 <num> Number: 4
-<title> 82-year-old woman awakened by acute stabbing chest pain, with ST-segment elevation, hypertension, sinus tachycardia, no diseases on coronary angiography and left ventricular dysfunction on ventriculography.
+<title> diagnosis
 
 <desc> Description: 
 82-year-old woman awakened by acute stabbing chest pain, with ST-segment elevation, hypertension, sinus tachycardia, no diseases on coronary angiography and left ventricular dysfunction on ventriculography.
@@ -52,7 +52,7 @@ An 82-year-old woman comes to the emergency department because of chest pain and
 
 <top>
 <num> Number: 5
-<title> Young adult woman with 2 weeks of fever and migrating joint inflammation.
+<title> diagnosis
 
 <desc> Description: 
 Young adult woman with 2 weeks of fever and migrating joint inflammation.
@@ -65,7 +65,7 @@ A 31-year-old woman with no previous medical problems comes to the emergency roo
 
 <top>
 <num> Number: 6
-<title> A 46-year-old woman with sweaty hands, exophthalmia, and weight loss despite increased eating.
+<title> diagnosis
 
 <desc> Description: 
 A 46-year-old woman with sweaty hands, exophthalmia, and weight loss despite increased eating.
@@ -78,7 +78,7 @@ A 46-year-old woman presents  with a 9 month history of weight loss (20 lb), swe
 
 <top>
 <num> Number: 7
-<title> A 22 year old female presents with changes in appetite and sleeping, fatigue, diminished ability to think or concentrate, anhedonia and feelings of guilt.
+<title> diagnosis
 
 <desc> Description: 
 A 22 year old female presents with changes in appetite and sleeping, fatigue, diminished ability to think or concentrate, anhedonia and feelings of guilt.
@@ -91,7 +91,7 @@ A 20 yo female college student with no significant past medical history presents
 
 <top>
 <num> Number: 8
-<title> A 10-year-old boy with difficulty concentrating, daytime sleepiness, and failure to thrive. The boy sleeps restlessly, snores, sweats, breathes heavily through his mouth and gasps in his sleep. 
+<title> diagnosis
 
 <desc> Description: 
 A 10-year-old boy with difficulty concentrating, daytime sleepiness, and failure to thrive. The boy sleeps restlessly, snores, sweats, breathes heavily through his mouth and gasps in his sleep. 
@@ -104,7 +104,7 @@ A 10 yo boy with nighttime snoring, pauses in breathing, and restlessness with n
 
 <top>
 <num> Number: 9
-<title> A 10 year old child with recent history of pork consumption presents with fever, myalgia, facial edema and eosinophilia
+<title> diagnosis
 
 <desc> Description: 
 A 10 year old child with recent history of pork consumption presents with fever, myalgia, facial edema and eosinophilia
@@ -117,7 +117,7 @@ A 10 year old child is brought to the emergency room complaining of myalgia, cou
 
 <top>
 <num> Number: 10
-<title> A 38 year old woman with severe dysmenorrhea, menorrhagia, and menometrorrhagia. PMH of infertility treatment and ectopic pregnancy
+<title> diagnosis
 
 <desc> Description: 
 A 38 year old woman with severe dysmenorrhea, menorrhagia, and menometrorrhagia. PMH of infertility treatment and ectopic pregnancy
@@ -130,7 +130,7 @@ A 38 year old woman complains of severe premenstrual and menstrual pelvic pain, 
 
 <top>
 <num> Number: 11
-<title> A 56-year old Caucasian female presents with sensitivity to cold, fatigue, and constipation. Physical examination reveals hyporeflexia with delayed relaxation of knee and ankle reflexes, and very dry skin.
+<title> test
 
 <desc> Description: 
 A 56-year old Caucasian female presents with sensitivity to cold, fatigue, and constipation. Physical examination reveals hyporeflexia with delayed relaxation of knee and ankle reflexes, and very dry skin.
@@ -143,7 +143,7 @@ A 56-year old Caucasian female complains of being markedly more sensitive to the
 
 <top>
 <num> Number: 12
-<title> A 44-year-old man complains of severe headache and fever. Nuchal rigidity was found on physical examination.
+<title> test
 
 <desc> Description: 
 A 44-year-old man complains of severe headache and fever. Nuchal rigidity was found on physical examination.
@@ -156,7 +156,7 @@ A 44-year-old man was recently in an automobile accident where he sustained a sk
 
 <top>
 <num> Number: 13
-<title> A 5-year-old boy presents with difficulty in breathing, stridor, drooling, fever, dysphagia and voice change.
+<title> test
 
 <desc> Description: 
 A 5-year-old boy presents with difficulty in breathing, stridor, drooling, fever, dysphagia and voice change.
@@ -169,7 +169,7 @@ A 5-year-old boy presents to the emergency department with complaints of progres
 
 <top>
 <num> Number: 14
-<title> A young woman in her second gestation presenting with anemia resistant to improvement by iron supplementation, elevated LDH, anisocytosis, poikilocytosis, hemosiderinuria and normal clotting screen.
+<title> test
 
 <desc> Description: 
 A young woman in her second gestation presenting with anemia resistant to improvement by iron supplementation, elevated LDH, anisocytosis, poikilocytosis, hemosiderinuria and normal clotting screen.
@@ -182,7 +182,7 @@ A 27-year-old woman at 11 weeks gestation in her second pregnancy is found to ha
 
 <top>
 <num> Number: 15
-<title> A 72-year-old woman with history of hypertension, type 2 diabetes, cryptogenic stroke, normal EKG, normal echocardiogram, normal angiograms, and complaints of occasional shortness of breath and palpitations.
+<title> test
 
 <desc> Description: 
 A 72-year-old woman with history of hypertension, type 2 diabetes, cryptogenic stroke, normal EKG, normal echocardiogram, normal angiograms, and complaints of occasional shortness of breath and palpitations.
@@ -195,7 +195,7 @@ Karen is a 72-year-old woman with hypertension and type 2 diabetes, who was hosp
 
 <top>
 <num> Number: 16
-<title> A 4 year old boy presents with wheezing after playing in the backyard unobserved.
+<title> test
 
 <desc> Description: 
 A 4 year old boy presents with wheezing after playing in the backyard unobserved.
@@ -208,7 +208,7 @@ A 4 year old boy presents to the emergency room with wheezing. He has had a hist
 
 <top>
 <num> Number: 17
-<title> A 32 year old female with screening that was positive for human papilloma virus with normal Pap smears.
+<title> test
 
 <desc> Description: 
 A 32 year old female with screening that was positive for human papilloma virus with normal Pap smears.
@@ -221,7 +221,7 @@ A 32 year old female with no previous medical history presents to clinic to disc
 
 <top>
 <num> Number: 18
-<title> A 65-year-old African-American male with progressive dyspnea on exertion and while lying flat; bilateral pitting lower-extremity edema. The lungs revealed bilateral basilar crackles.
+<title> test
 
 <desc> Description: 
 A 65-year-old African-American male with progressive dyspnea on exertion and while lying flat; bilateral pitting lower-extremity edema. The lungs revealed bilateral basilar crackles.
@@ -234,7 +234,7 @@ A 65 yo African-American male with shortness of breath related to exertion that 
 
 <top>
 <num> Number: 19
-<title> A 66-year-old female smoker presents with worsening dyspnea, productive chronic cough, moderate respiratory distress and unintentional weight loss.
+<title> test
 
 <desc> Description: 
 A 66-year-old female smoker presents with worsening dyspnea, productive chronic cough, moderate respiratory distress and unintentional weight loss.
@@ -247,7 +247,7 @@ A 66yo female with significant smoking history and chronic cough for the past tw
 
 <top>
 <num> Number: 20
-<title> An 89-year-old man with progressive change in personality, poor memory, and myoclonic jerks.
+<title> test
 
 <desc> Description: 
 An 89-year-old man with progressive change in personality, poor memory, and myoclonic jerks.
@@ -260,7 +260,7 @@ An 89-year-old man was brought to the emergency department by his wife and son a
 
 <top>
 <num> Number: 21
-<title> A 32-year-old male presents with diarrhea and foul-smelling stools. Stool smear reveals protozoan parasites.
+<title> treatment
 
 <desc> Description: 
 A 32-year-old male presents with diarrhea and foul-smelling stools. Stool smear reveals protozoan parasites.
@@ -273,7 +273,7 @@ A 32-year-old male presents to your office complaining of diarrhea, abdominal cr
 
 <top>
 <num> Number: 22
-<title> A 65-year-old male complains of productive cough with tinges of blood. Chest X-ray reveals a round opaque mass within a cavity in his lung. Culture of the sputum revealed fungal elements.
+<title> treatment
 
 <desc> Description: 
 A 65-year-old male complains of productive cough with tinges of blood. Chest X-ray reveals a round opaque mass within a cavity in his lung. Culture of the sputum revealed fungal elements.
@@ -286,7 +286,7 @@ A 65-year-old male with a history of tuberculosis has started to complain of pro
 
 <top>
 <num> Number: 23
-<title> An 18-year-old male returned from Asia a week ago. He presents with high fever, severe headache and joint pain. His blood analysis reveals leukopenia, increased hematocrit and thrombocytopenia.
+<title> treatment
 
 <desc> Description: 
 An 18-year-old male returned from Asia a week ago. He presents with high fever, severe headache and joint pain. His blood analysis reveals leukopenia, increased hematocrit and thrombocytopenia.
@@ -299,7 +299,7 @@ An 18-year-old male returning from a recent vacation in Asia presents to the ER 
 
 <top>
 <num> Number: 24
-<title> A 31 year old male presents with productive cough, chest pain, fever and chills. On exam he has audible wheezing with decreased breath sounds and dullness to percussion.
+<title> treatment
 
 <desc> Description: 
 A 31 year old male presents with productive cough, chest pain, fever and chills. On exam he has audible wheezing with decreased breath sounds and dullness to percussion.
@@ -312,7 +312,7 @@ A 31 yo male with no significant past medical history presents with productive c
 
 <top>
 <num> Number: 25
-<title> 10-year-old boy with progressive right knee and left leg pain and edema, lethargy and an osteolytic lesion. No history of trauma, fever, tachycardia, or urinary incontinence.
+<title> treatment
 
 <desc> Description: 
 10-year-old boy with progressive right knee and left leg pain and edema, lethargy and an osteolytic lesion. No history of trauma, fever, tachycardia, or urinary incontinence.
@@ -325,7 +325,7 @@ A 10-year-old boy comes to the emergency department for evaluation of right knee
 
 <top>
 <num> Number: 26
-<title> An obese 28 yo female with non-ruptured ectopic pregnancy and history of adhesions.
+<title> treatment
 
 <desc> Description: 
 An obese 28 yo female with non-ruptured ectopic pregnancy and history of adhesions.
@@ -338,7 +338,7 @@ A 28 yo female G1P0A0 is admitted to the Ob/Gyn service for non-ruptured ectopic
 
 <top>
 <num> Number: 27
-<title> A 15 yo girl with fatigue, pale skin, low hemoglobin and ferritin.
+<title> treatment
 
 <desc> Description: 
 A 15 yo girl with fatigue, pale skin, low hemoglobin and ferritin.
@@ -351,7 +351,7 @@ A 15 yo girl accompanied by her mother is referred for evaluation by the school.
 
 <top>
 <num> Number: 28
-<title> An 8-year-old boy presents with a swollen right knee, lower extremity pain and fever. The parents report no history of trauma. The parents noticed a tick bite several months earlier.
+<title> treatment
 
 <desc> Description: 
 An 8-year-old boy presents with a swollen right knee, lower extremity pain and fever. The parents report no history of trauma. The parents noticed a tick bite several months earlier.
@@ -364,7 +364,7 @@ A previously healthy 8-year-old boy presents with a complaint of right lower ext
 
 <top>
 <num> Number: 29
-<title> A 4-year-old girl with persistent high fever, skin rash, strawberry tongue, swollen red hands, and bilateral nonexudative conjunctivitis.
+<title> treatment
 
 <desc> Description: 
 A 4-year-old girl with persistent high fever, skin rash, strawberry tongue, swollen red hands, and bilateral nonexudative conjunctivitis.
@@ -377,7 +377,7 @@ A 4-year-old girl presents with persistent fever for the past week. The parents 
 
 <top>
 <num> Number: 30
-<title> A 47 year old male who fell on his outstretched left arm presents with pain, swelling, and inability to bend the arm. The x-ray, shows posterior elbow dislocation.
+<title> treatment
 
 <desc> Description: 
 A 47 year old male who fell on his outstretched left arm presents with pain, swelling, and inability to bend the arm. The x-ray, shows posterior elbow dislocation.

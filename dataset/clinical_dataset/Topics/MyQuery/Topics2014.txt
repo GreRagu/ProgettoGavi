@@ -1,6 +1,6 @@
 <top>
 <num> Number: 1
-<title> 58-year-old woman with hypertension and obesity presents with exercise-related episodic chest pain radiating to the back.
+<title> diagnosis
 
 <desc> Description: 
 58-year-old woman with hypertension and obesity presents with exercise-related episodic chest pain radiating to the back.
@@ -13,7 +13,7 @@ A 58-year-old African-American woman presents to the ER with episodic pressing/b
 
 <top>
 <num> Number: 2
-<title> 8-year-old boy with 2 days of loose stools, fever, and cough after returning from a trip to Colorado. Chest x-ray shows bilateral lung infiltrates.
+<title> diagnosis
 
 <desc> Description: 
 8-year-old boy with 2 days of loose stools, fever, and cough after returning from a trip to Colorado. Chest x-ray shows bilateral lung infiltrates.
@@ -26,7 +26,7 @@ An 8-year-old male presents in March to the ER with fever up to 39 C, dyspnea an
 
 <top>
 <num> Number: 3
-<title>  58-year-old female non-smoker with left lung mass on x-ray. Head CT shows a solitary right frontal lobe mass.
+<title> diagnosis
 
 <desc> Description: 
  58-year-old female non-smoker with left lung mass on x-ray. Head CT shows a solitary right frontal lobe mass.
@@ -39,7 +39,7 @@ A 58-year-old nonsmoker white female with mild exertional dyspnea and occasional
 
 <top>
 <num> Number: 4
-<title> 2-year-old boy with fever and irritability for 5 days. Physical exam findings include conjunctivitis, strawberry tongue, and desquamation of the fingers and toes. Lab results include low albumin, elevated white blood cell count and C-reactive protein, and urine leukocytes. Echo shows moderate dilation of the coronary arteries.
+<title> diagnosis
 
 <desc> Description: 
 2-year-old boy with fever and irritability for 5 days. Physical exam findings include conjunctivitis, strawberry tongue, and desquamation of the fingers and toes. Lab results include low albumin, elevated white blood cell count and C-reactive protein, and urine leukocytes. Echo shows moderate dilation of the coronary arteries.
@@ -52,7 +52,7 @@ A 2-year-old boy is brought to the emergency department by his parents for 5 day
 
 <top>
 <num> Number: 5
-<title> 56-year-old woman presents with shortness of breath 3 weeks after surgical mastectomy. Physical exam is significant for right calf tenderness and decreased breath sounds at the right base. Her D-dimer level is elevated.
+<title> diagnosis
 
 <desc> Description: 
 56-year-old woman presents with shortness of breath 3 weeks after surgical mastectomy. Physical exam is significant for right calf tenderness and decreased breath sounds at the right base. Her D-dimer level is elevated.
@@ -65,7 +65,7 @@ A 56-year-old female on 20th day post-left mastectomy presents to the emergency 
 
 <top>
 <num> Number: 6
-<title> 64-year-old woman with uncontrolled diabetes, now with an oozing, painful skin lesion on her left lower leg.
+<title> diagnosis
 
 <desc> Description: 
 64-year-old woman with uncontrolled diabetes, now with an oozing, painful skin lesion on her left lower leg.
@@ -78,7 +78,7 @@ A 56-year-old female on 20th day post-left mastectomy presents to the emergency 
 
 <top>
 <num> Number: 7
-<title> 26-year-old obese woman with bipolar disorder, on zolpidem and lithium, with recent difficulty sleeping, agitation, suicidal ideation, and irritability.
+<title> diagnosis
 
 <desc> Description: 
 26-year-old obese woman with bipolar disorder, on zolpidem and lithium, with recent difficulty sleeping, agitation, suicidal ideation, and irritability.
@@ -91,7 +91,7 @@ A 26-year-old obese woman with a history of bipolar disorder complains that her 
 
 <top>
 <num> Number: 8
-<title> 62-year-old man with progressive memory loss and involuntary leg movements. Brain MRI reveals cortical atrophy, and cortical biopsy shows vacuolar gray matter changes with reactive astrocytosis.
+<title> diagnosis
 
 <desc> Description: 
 62-year-old man with progressive memory loss and involuntary leg movements. Brain MRI reveals cortical atrophy, and cortical biopsy shows vacuolar gray matter changes with reactive astrocytosis.
@@ -104,7 +104,7 @@ A 62-year-old man sees a neurologist for progressive memory loss and jerking mov
 
 <top>
 <num> Number: 9
-<title> 43-year-old woman with soft, flesh-colored, pedunculated lesions on her neck.
+<title> diagnosis
 
 <desc> Description: 
 43-year-old woman with soft, flesh-colored, pedunculated lesions on her neck.
@@ -117,7 +117,7 @@ A 43-year-old woman visits her dermatologist for lesions on her neck. On examina
 
 <top>
 <num> Number: 10
-<title> 67-year-old woman status post cardiac catheterization via right femoral artery, now with a cool, pulseless right foot and right femoral bruit.
+<title> diagnosis
 
 <desc> Description: 
 67-year-old woman status post cardiac catheterization via right femoral artery, now with a cool, pulseless right foot and right femoral bruit.
@@ -130,7 +130,7 @@ A physician is called to see a 67-year-old woman who underwent cardiac catheteri
 
 <top>
 <num> Number: 11
-<title> 40-year-old woman with severe right arm pain and hypotension. She has no history of trauma and right arm exam reveals no significant findings.
+<title> test
 
 <desc> Description: 
 40-year-old woman with severe right arm pain and hypotension. She has no history of trauma and right arm exam reveals no significant findings.
@@ -143,7 +143,7 @@ A 40-year-old woman with no past medical history presents to the ER with excruci
 
 <top>
 <num> Number: 12
-<title> 25-year-old woman with fatigue, hair loss, weight gain, and cold intolerance for 6 months.
+<title> test
 
 <desc> Description: 
 25-year-old woman with fatigue, hair loss, weight gain, and cold intolerance for 6 months.
@@ -156,7 +156,7 @@ A 25-year-old woman presents to the clinic complaining of prolonged fatigue. She
 
 <top>
 <num> Number: 13
-<title> 30-year-old woman who is 3 weeks post-partum, presents with shortness of breath, tachypnea, and hypoxia.
+<title> test
 
 <desc> Description: 
 30-year-old woman who is 3 weeks post-partum, presents with shortness of breath, tachypnea, and hypoxia.
@@ -169,7 +169,7 @@ A 30-year-old generally healthy woman presents with shortness of breath that had
 
 <top>
 <num> Number: 14
-<title> 85-year-old man who was in a car accident 3 weeks ago, now with 3 days of progressively decreasing level of consciousness and impaired ability to perform activities of daily living.
+<title> test
 
 <desc> Description: 
 85-year-old man who was in a car accident 3 weeks ago, now with 3 days of progressively decreasing level of consciousness and impaired ability to perform activities of daily living.
@@ -182,7 +182,7 @@ An 85-year-old man is brought to the ER because of gradual decrease in his level
 
 <top>
 <num> Number: 15
-<title> 36-year-old woman with amenorrhea, abdominal tenderness, enlarged uterus, and cervical dilation. Urine pregnancy test is negative. Ultrasound reveals an enlarged uterus with multiple cystic areas, which could be consistent with vesicular mole and fibroid degeneration.
+<title> test
 
 <desc> Description: 
 36-year-old woman with amenorrhea, abdominal tenderness, enlarged uterus, and cervical dilation. Urine pregnancy test is negative. Ultrasound reveals an enlarged uterus with multiple cystic areas, which could be consistent with vesicular mole and fibroid degeneration.
@@ -195,7 +195,7 @@ A 36-year-old woman presents to the emergency department with 12 weeks of amenor
 
 <top>
 <num> Number: 16
-<title> 28-year-old female with neck pain and left arm numbness 3 weeks after working with stray animals. Physical exam initially remarkable for slight left arm tremor and spasticity. Three days later she presented with significant arm spasticity, diaphoresis, agitation, difficulty swallowing, and hydrophobia.
+<title> test
 
 <desc> Description: 
 28-year-old female with neck pain and left arm numbness 3 weeks after working with stray animals. Physical exam initially remarkable for slight left arm tremor and spasticity. Three days later she presented with significant arm spasticity, diaphoresis, agitation, difficulty swallowing, and hydrophobia.
@@ -208,7 +208,7 @@ A 28-year-old female with neck and shoulder pain and left hand and arm paresthes
 
 <top>
 <num> Number: 17
-<title> 48-year-old man with common variable immunodeficiency presents with abdominal pain and fever. Ultrasound reveals hepatomegaly and free intraperitoneal fluid. A ruptured liver abscess is found and drained during exploratory laparotomy.
+<title> test
 
 <desc> Description: 
 48-year-old man with common variable immunodeficiency presents with abdominal pain and fever. Ultrasound reveals hepatomegaly and free intraperitoneal fluid. A ruptured liver abscess is found and drained during exploratory laparotomy.
@@ -221,7 +221,7 @@ A 48-year-old white male with history of common variable immunodeficiency (CVID)
 
 <top>
 <num> Number: 18
-<title> 6-month-old male with decreased urine output and edema several hours after surgery. He is hypertensive and tachycardic, has a high BUN and creatinine, and urine microscopy reveals red blood cells and granular casts.
+<title> test
 
 <desc> Description: 
 6-month-old male with decreased urine output and edema several hours after surgery. He is hypertensive and tachycardic, has a high BUN and creatinine, and urine microscopy reveals red blood cells and granular casts.
@@ -234,7 +234,7 @@ A 6-month-old male infant has a urine output of less than 0.2 mL/kg/hr shortly a
 
 <top>
 <num> Number: 19
-<title> 52-year-old man with history of smoking and heavy drinking, now with progressive dysphagia and 25-pound weight loss.
+<title> test
 
 <desc> Description: 
 52-year-old man with history of smoking and heavy drinking, now with progressive dysphagia and 25-pound weight loss.
@@ -247,7 +247,7 @@ A 52-year-old African American man with a history of heavy smoking and drinking,
 
 <top>
 <num> Number: 20
-<title> 32-year-old unbelted driver status post car accident. Has multiple extremity fractures and severe abdominal pain with rebound and guarding.
+<title> test
 
 <desc> Description: 
 32-year-old unbelted driver status post car accident. Has multiple extremity fractures and severe abdominal pain with rebound and guarding.
@@ -260,7 +260,7 @@ A 32-year-old woman is admitted to the ER following a car accident. She has sust
 
 <top>
 <num> Number: 21
-<title> 21-year-old female with progressive arthralgias, fatigue, and butterfly-shaped facial rash. Labs are significant for positive ANA and anti-double-stranded DNA, as well as proteinuria and RBC casts.
+<title> treatment
 
 <desc> Description: 
 21-year-old female with progressive arthralgias, fatigue, and butterfly-shaped facial rash. Labs are significant for positive ANA and anti-double-stranded DNA, as well as proteinuria and RBC casts.
@@ -273,7 +273,7 @@ A 21-year-old female is evaluated for progressive arthralgias and malaise. On ex
 
 <top>
 <num> Number: 22
-<title> 15-year-old girl with right lower quadrant abdominal pain, decreased appetite, and enlarged appendix on abdominal ultrasound.
+<title> treatment
 
 <desc> Description: 
 15-year-old girl with right lower quadrant abdominal pain, decreased appetite, and enlarged appendix on abdominal ultrasound.
@@ -286,7 +286,7 @@ A 15-year-old girl presents to the ER with abdominal pain. The pain appeared gra
 
 <top>
 <num> Number: 23
-<title> 63-year-old heavy smoker with productive cough, shortness of breath, tachypnea, and oxygen requirement. Chest x-ray shows hyperinflation with no consolidation.
+<title> treatment
 
 <desc> Description: 
 63-year-old heavy smoker with productive cough, shortness of breath, tachypnea, and oxygen requirement. Chest x-ray shows hyperinflation with no consolidation.
@@ -299,7 +299,7 @@ A 63-year-old man presents with cough and shortness of breath. His past medical 
 
 <top>
 <num> Number: 24
-<title>  33-year-old male presents with severe abdominal pain one week after a bike accident in which he sustained abdominal trauma. He is hypotensive and tachycardic, and imaging reveals a ruptured spleen and intraperitoneal hemorrhage.
+<title> treatment
 
 <desc> Description: 
  33-year-old male presents with severe abdominal pain one week after a bike accident in which he sustained abdominal trauma. He is hypotensive and tachycardic, and imaging reveals a ruptured spleen and intraperitoneal hemorrhage.
@@ -312,7 +312,7 @@ A 33-year-old male athlete presented to the ER with acute abdominal pain. Family
 
 <top>
 <num> Number: 25
-<title> 8-year-old boy with decreased level of consciousness 30 minutes after falling from his bike and hitting his head. He was not wearing a helmet. In the ER he was bradycardic and hypertensive, and the neurosurgeon strongly advised immediate treatment.
+<title> treatment
 
 <desc> Description: 
 8-year-old boy with decreased level of consciousness 30 minutes after falling from his bike and hitting his head. He was not wearing a helmet. In the ER he was bradycardic and hypertensive, and the neurosurgeon strongly advised immediate treatment.
@@ -325,7 +325,7 @@ An 8-year-old boy fell from his bike striking his left temple on the pavement. T
 
 <top>
 <num> Number: 26
-<title> Group traveling to the Amazon rainforest, including 3 pregnant women. All members' immunizations are up-to-date but they require malaria prophylaxis.
+<title> treatment
 
 <desc> Description: 
 Group traveling to the Amazon rainforest, including 3 pregnant women. All members' immunizations are up-to-date but they require malaria prophylaxis.
@@ -338,7 +338,7 @@ A group of 14 humanitarian service workers is preparing a trip to the Amazon Rai
 
 <top>
 <num> Number: 27
-<title> 21-year-old male with dozens of small polyps found on colonoscopy. Family history significant for both older siblings having total colectomies after colonoscopy revealed hundreds of adenomas.
+<title> treatment
 
 <desc> Description: 
 21-year-old male with dozens of small polyps found on colonoscopy. Family history significant for both older siblings having total colectomies after colonoscopy revealed hundreds of adenomas.
@@ -351,7 +351,7 @@ A 21-year-old college student undergoes colonoscopy due to family history of mul
 
 <top>
 <num> Number: 28
-<title> 31-year-old female with amenorrhea, milky nipple discharge, negative urine pregnancy test, and elevated prolactin level.
+<title> treatment
 
 <desc> Description: 
 31-year-old female with amenorrhea, milky nipple discharge, negative urine pregnancy test, and elevated prolactin level.
@@ -364,7 +364,7 @@ A 31-year-old woman is seen in clinic with amenorrhea. She had menarche at age 1
 
 <top>
 <num> Number: 29
-<title> 51-year-old smoker with hypertension and diabetes, in menopause, needs recommendations for preventing osteoporosis.
+<title> treatment
 
 <desc> Description: 
 51-year-old smoker with hypertension and diabetes, in menopause, needs recommendations for preventing osteoporosis.
@@ -377,7 +377,7 @@ A 51-year-old woman is seen in clinic for advice on osteoporosis. She has a past
 
 <top>
 <num> Number: 30
-<title> 72-year-old man with calf pain while walking uphill. History of ischemic heart disease and worsening hypertension despite medication compliance. On physical exam he has a right carotid bruit and his lower extremities are cool, with diminished dorsalis pedis pulses.
+<title> treatment
 
 <desc> Description: 
 72-year-old man with calf pain while walking uphill. History of ischemic heart disease and worsening hypertension despite medication compliance. On physical exam he has a right carotid bruit and his lower extremities are cool, with diminished dorsalis pedis pulses.

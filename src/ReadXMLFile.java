@@ -17,7 +17,7 @@ import org.xml.sax.SAXException;
 
 public class ReadXMLFile {
 
-	private String line = "./dataset/clinical_dataset/topics/topics2016.xml";;
+	private String line = "./dataset/clinical_dataset/topics/topics2015B.xml";;
 	private File XmlFile = null;
 	private Integer number = 0;
 	private DocumentBuilderFactory dbFactory = null;
@@ -62,7 +62,7 @@ public class ReadXMLFile {
 
 				writer.println("<top>");
 				writer.println("<num> Number: " + eElement.getAttribute("number"));
-				writer.println("<title> " + eElement.getElementsByTagName("summary").item(0).getTextContent() + "\n");
+				writer.println("<title> " + eElement.getAttribute("type") + "\n");
 				writer.println("<desc> Description: \n"
 						+ eElement.getElementsByTagName("summary").item(0).getTextContent() + "\n");
 				writer.println("<narr> Narrative: \n"

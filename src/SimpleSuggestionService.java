@@ -1,3 +1,4 @@
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -29,11 +30,15 @@ public class SimpleSuggestionService {
         dir = Paths.get("./dictionary");
         dict = Paths.get("./dictionary.txt");
         directory = FSDirectory.open(dir);
-        iwc = new IndexWriterConfig();
         spellChecker = new SpellChecker(directory);
         
         d = new PlainTextDictionary(dict);
-        spellChecker.indexDictionary(d, iwc, false);
+        File dictdir = new File(dir.toString());
+        
+        if(dictdir.isDirectory() && dictdir.list().length > 0) {
+        	iwc = new IndexWriterConfig();
+        	spellChecker.indexDictionary(d, iwc, false);
+        }
         
         int suggestionsNumber = 1;
         
@@ -52,7 +57,6 @@ public class SimpleSuggestionService {
             }
         }
         spellChecker.close();
-        System.out.println(Correct);
 		return Correct;
     }
 
