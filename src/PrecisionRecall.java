@@ -35,25 +35,25 @@ public class PrecisionRecall {
 	private static ArrayList<Double> avgPrecision;
 	private static ArrayList<Double> recall;
 	private static PrintWriter writer;
-	private static String qrelPath = "C:\\Users\\Andrea\\eclipse-workspace\\ProgettoGavi\\dataset\\clinical_dataset\\Qrels\\newQrels2014.txt";
+	private static String qrelPath = "./dataset/clinical_dataset/Qrels/MyQrels/Qrels2014.txt";
  
 public static void main(String[] args) throws Throwable {
  
-	ReadXMLFile reader = new ReadXMLFile();
+	/*ReadXMLFile reader = new ReadXMLFile();
 	for ( int i = 1; i <= 30; i++  ) { 
 		
 		reader.SearchQuery( i );
 		
-	}
+	}*/
 	
 	initQrel();
 	
 	
 	
-	File topicsFile = new File("C:\\Users\\Andrea\\eclipse-workspace\\ProgettoGavi\\dataset\\clinical_dataset\\Topics\\newTopics2014.txt");
-    File qrelsFile = new File("C:\\Users\\Andrea\\eclipse-workspace\\ProgettoGavi\\dataset\\clinical_dataset\\Qrels\\newQrels2014.txt");
+	File topicsFile = new File("./dataset/clinical_dataset/Topics/MyQuery/Topics2014.txt");
+    File qrelsFile = new File("./dataset/clinical_dataset/Qrels/MyQrels/Qrels2014.txt");
     
-    String s = "C:\\Users\\Andrea\\eclipse-workspace\\ProgettoGavi\\dataset\\clinical_dataset\\indice";
+    String s = "./index_pmc";
     FSDirectory open = FSDirectory.open(Paths.get(s));
     
     IndexSearcher searcher = new IndexSearcher(DirectoryReader.open(open));
@@ -79,7 +79,7 @@ public static void main(String[] args) throws Throwable {
     
     judge.validateData(qqs, logger);                     //#3
     //System.out.println("step 2 ");
-    QualityQueryParser qqParser = new SimpleQQParser("title", "contents");  //#4
+    QualityQueryParser qqParser = new SimpleQQParser("description", "contents");  //#4
  
     QualityBenchmark qrun = new QualityBenchmark(qqs, qqParser, searcher, docNameField);
     
@@ -115,7 +115,7 @@ private static void initQrel() {
 	 //lettura file qrels-sampleval-2014
 	    Scanner sc = null;
 	    try {
-	        sc = new Scanner(new File("C:\\Users\\Andrea\\eclipse-workspace\\ProgettoGavi\\dataset\\clinical_dataset\\Qrels\\qrels-sampleval-2014.txt"));
+	        sc = new Scanner(new File("./dataset/clinical_dataset/Qrels/qrels-sampleval-2014.txt"));
 	    } catch (FileNotFoundException e) {
 	        // TODO Auto-generated catch block
 	        e.printStackTrace();
@@ -185,7 +185,7 @@ public static void doGraph() {
 								marker(Plot.Marker.COLUMN).
 								color(Color.BLUE).markerColor(Color.BLUE));
 			try {
-				plot.save( new java.io.File( "." ).getCanonicalPath()+"\\results\\precision", "png");
+				plot.save( new java.io.File( "." ).getCanonicalPath()+"/results/precision", "png");
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
