@@ -35,7 +35,7 @@ public class PrecisionRecall {
 	private static ArrayList<Double> avgPrecision;
 	private static ArrayList<Double> recall;
 	private static PrintWriter writer;
-	private static String qrelPath = "./dataset/clinical_dataset/Qrels/MyQrels/Qrels2014.txt";
+	private static String qrelPath = "./dataset/clinical_dataset/Qrels/MyQrels/NewQrels-treceval-2014.txt";
  
 public static void main(String[] args) throws Throwable {
  
@@ -46,12 +46,12 @@ public static void main(String[] args) throws Throwable {
 		
 	}*/
 	
-	initQrel();
+	//initQrel();
 	
 	
 	
 	File topicsFile = new File("./dataset/clinical_dataset/Topics/MyQuery/Topics2014.txt");
-    File qrelsFile = new File("./dataset/clinical_dataset/Qrels/MyQrels/Qrels2014.txt");
+    File qrelsFile = new File("./dataset/clinical_dataset/Qrels/qrels-sampleval-2014.txt");
     
     String s = "./index_pmc";
     FSDirectory open = FSDirectory.open(Paths.get(s));
@@ -66,6 +66,10 @@ public static void main(String[] args) throws Throwable {
     QualityQuery qqs[] = qReader.readQueries(            //#1
         new BufferedReader(new FileReader(topicsFile))); //#1
     
+    String k = qqs[1].getValue("description");
+    
+    System.out.println(k);
+    
     System.out.println("numero componenti topic file: "+qqs.length);
     
     Judge judge = new TrecJudge(new BufferedReader(      //#2
@@ -79,7 +83,7 @@ public static void main(String[] args) throws Throwable {
     
     judge.validateData(qqs, logger);                     //#3
     //System.out.println("step 2 ");
-    QualityQueryParser qqParser = new SimpleQQParser("description", "contents");  //#4
+    QualityQueryParser qqParser = new SimpleQQParser("description", "contents");//#4
  
     QualityBenchmark qrun = new QualityBenchmark(qqs, qqParser, searcher, docNameField);
     
@@ -115,7 +119,7 @@ private static void initQrel() {
 	 //lettura file qrels-sampleval-2014
 	    Scanner sc = null;
 	    try {
-	        sc = new Scanner(new File("./dataset/clinical_dataset/Qrels/qrels-sampleval-2014.txt"));
+	        sc = new Scanner(new File("./dataset/clinical_dataset/Qrels/qrels-treceval-2014.txt"));
 	    } catch (FileNotFoundException e) {
 	        // TODO Auto-generated catch block
 	        e.printStackTrace();
@@ -191,49 +195,37 @@ public static void doGraph() {
 				e.printStackTrace();
 			}
 			
+			System.out.println("Plotting recall graph");
+			//Recall
+			plot = Plot.plot(Plot.plotOpts().
+					title("Recall graph").
+					width(1000).
+					height(600).
+					legend(Plot.LegendFormat.TOP)).	
+				xAxis("Query #", Plot.axisOpts().
+					format(Plot.AxisFormat.NUMBER_INT).
+					range(0, num_queries.size())).
+				yAxis("Recall", Plot.axisOpts().
+					range(0, getMax(recall))).series(".", Plot.data().
+							xy(num_queries, recall),
+							Plot.seriesOpts().
+								line(Line.NONE).
+								marker(Plot.Marker.COLUMN).
+								color(Color.BLUE).markerColor(Color.BLUE));
+			try {
+				plot.save(new java.io.File( "." ).getCanonicalPath()+"\\results\\recall", "png");
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			
+			
 			
 			
 			
 			
 			/*try {
-				
-				System.out.println("Plotting precision graph");
-				//Precision
-				Plot plot = Plot.plot(Plot.plotOpts().
-						title("Precision graph").
-						width(1000).
-						height(600).
-						legend(Plot.LegendFormat.TOP)).	
-					xAxis("Query #", Plot.axisOpts().
-						format(Plot.AxisFormat.NUMBER_INT).
-						range(0, num_queries.size())).
-					yAxis("Precision", Plot.axisOpts().
-						range(0, getMax(precision))).series(".", Plot.data().
-								xy(num_queries, precision),
-								Plot.seriesOpts().
-									line(Line.NONE).
-									marker(Plot.Marker.COLUMN).
-									color(Color.BLUE).markerColor(Color.BLUE));
-				plot.save( new java.io.File( "." ).getCanonicalPath()+"\\results\\precision", "png");
-				
-				System.out.println("Plotting recall graph");
-				//Recall
-				plot = Plot.plot(Plot.plotOpts().
-						title("Recall graph").
-						width(1000).
-						height(600).
-						legend(Plot.LegendFormat.TOP)).	
-					xAxis("Query #", Plot.axisOpts().
-						format(Plot.AxisFormat.NUMBER_INT).
-						range(0, num_queries.size())).
-					yAxis("Recall", Plot.axisOpts().
-						range(0, getMax(recall))).series(".", Plot.data().
-								xy(num_queries, recall),
-								Plot.seriesOpts().
-									line(Line.NONE).
-									marker(Plot.Marker.COLUMN).
-									color(Color.BLUE).markerColor(Color.BLUE));
-				plot.save(new java.io.File( "." ).getCanonicalPath()+"\\results\\recall", "png");
 				
 				/*System.out.println("Plotting R-Precision (5)");
 				//R-Precision 5
@@ -354,10 +346,12 @@ private static void initVar() {
 	System.out.println("INIT VAR");
 	
 	precision = new ArrayList<Double>();
+	recall = new ArrayList<Double>();
 	avgPrecision = new ArrayList<Double>();
 	  boolean summary = false;
 	  boolean getPrecision = true;
-	
+	  boolean getRecall = true;
+	  
     Scanner sc = null;
     try {
         sc = new Scanner(new File("Output.txt"));
@@ -374,6 +368,7 @@ private static void initVar() {
     	  if ( line.contains( "SUMMARY" ) ) {
     		  summary = true;
     		  getPrecision = false;
+    		  getRecall    = false;
     	  }
     	  
     	  if ( line.contains("Average Precision:") && getPrecision ) {
@@ -383,6 +378,13 @@ private static void initVar() {
     		  	precision.add(Double.parseDouble(sub));
     	  }
     	  
+    	  if ( line.contains("Recall:") && getRecall ) {
+  		  	sub = line.substring(line.length()- precisionOffset);
+  		  	//System.out.println(sub);
+  		  	
+  		  	recall.add(Double.parseDouble(sub));
+  	  }
+    	  
 
 		if ( line.contains("Average Precision:") && summary  ) {
   		  	sub = line.substring(line.length()- precisionOffset);
@@ -390,6 +392,8 @@ private static void initVar() {
   		  	
   		  	avgPrecision.add(Double.parseDouble(sub));
     }
+		
+		
     	  
     	
     }
