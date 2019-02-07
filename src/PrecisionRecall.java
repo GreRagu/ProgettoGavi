@@ -132,7 +132,7 @@ private static void initQrel() {
 	    	fileName = line.substring(4,11)+".nxml";
 	    	rilevance = getRilevance(line);
 	    	
-	    	writer.println( qNum +"    0"+"    "+ fileName +"    "+ rilevance );
+	    	writer.println( qNum + "    0" + "    " + fileName + "    " + rilevance );
 	    	
 	    	//System.out.println(rilevance);
 	    	
@@ -170,7 +170,7 @@ public static void doGraph() {
 			System.out.println("Plotting precision graph");
 			//Precision
 			Plot plot = Plot.plot(Plot.plotOpts().
-					title("Precision graph").
+					title("Precision graph - ").
 					width(1000).
 					height(600).
 					legend(Plot.LegendFormat.TOP)).	

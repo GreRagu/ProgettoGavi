@@ -2,7 +2,7 @@
 
 1 Stats:
   Search Seconds:         0.036
-  DocName Seconds:        0.227
+  DocName Seconds:        0.228
   Num Points:         1,000.000
   Num Good Points:        3.000
   Max Good Points:    2,833.000
@@ -33,8 +33,8 @@
 2  -  (contents:8 contents:year contents:old contents:boy contents:2 contents:days contents:loose contents:stools contents:fever contents:cough contents:after contents:returning contents:from contents:trip contents:colorado contents:chest contents:x contents:ray contents:shows contents:bilateral contents:lung contents:infiltrates)
 
 2 Stats:
-  Search Seconds:         0.021
-  DocName Seconds:        0.173
+  Search Seconds:         0.019
+  DocName Seconds:        0.156
   Num Points:         1,000.000
   Num Good Points:        2.000
   Max Good Points:    2,370.000
@@ -65,8 +65,8 @@
 3  -  (contents:58 contents:year contents:old contents:female contents:non contents:smoker contents:left contents:lung contents:mass contents:x contents:ray contents:head contents:ct contents:shows contents:solitary contents:right contents:frontal contents:lobe contents:mass)
 
 3 Stats:
-  Search Seconds:         0.009
-  DocName Seconds:        0.193
+  Search Seconds:         0.011
+  DocName Seconds:        0.191
   Num Points:         1,000.000
   Num Good Points:       11.000
   Max Good Points:    2,783.000
@@ -97,8 +97,8 @@
 4  -  (contents:2 contents:year contents:old contents:boy contents:fever contents:irritability contents:5 contents:days contents:physical contents:exam contents:findings contents:include contents:conjunctivitis contents:strawberry contents:tongue contents:desquamation contents:fingers contents:toes contents:lab contents:results contents:include contents:low contents:albumin contents:elevated contents:white contents:blood contents:cell contents:count contents:c contents:reactive contents:protein contents:urine contents:leukocytes contents:echo contents:shows contents:moderate contents:dilation contents:coronary contents:arteries)
 
 4 Stats:
-  Search Seconds:         0.011
-  DocName Seconds:        0.176
+  Search Seconds:         0.012
+  DocName Seconds:        0.171
   Num Points:         1,000.000
   Num Good Points:        4.000
   Max Good Points:    2,580.000
@@ -129,8 +129,8 @@
 5  -  (contents:56 contents:year contents:old contents:woman contents:presents contents:shortness contents:breath contents:3 contents:weeks contents:after contents:surgical contents:mastectomy contents:physical contents:exam contents:significant contents:right contents:calf contents:tenderness contents:decreased contents:breath contents:sounds contents:right contents:base contents:her contents:d contents:dimer contents:level contents:elevated)
 
 5 Stats:
-  Search Seconds:         0.008
-  DocName Seconds:        0.174
+  Search Seconds:         0.009
+  DocName Seconds:        0.173
   Num Points:         1,000.000
   Num Good Points:        4.000
   Max Good Points:    2,838.000
@@ -161,8 +161,8 @@
 6  -  (contents:64 contents:year contents:old contents:woman contents:uncontrolled contents:diabetes contents:now contents:oozing contents:painful contents:skin contents:lesion contents:her contents:left contents:lower contents:leg)
 
 6 Stats:
-  Search Seconds:         0.006
-  DocName Seconds:        0.158
+  Search Seconds:         0.007
+  DocName Seconds:        0.159
   Num Points:         1,000.000
   Num Good Points:        1.000
   Max Good Points:    3,066.000
@@ -193,7 +193,7 @@
 7  -  (contents:26 contents:year contents:old contents:obese contents:woman contents:bipolar contents:disorder contents:zolpidem contents:lithium contents:recent contents:difficulty contents:sleeping contents:agitation contents:suicidal contents:ideation contents:irritability)
 
 7 Stats:
-  Search Seconds:         0.006
+  Search Seconds:         0.005
   DocName Seconds:        0.144
   Num Points:         1,000.000
   Num Good Points:        4.000
@@ -226,7 +226,7 @@
 
 8 Stats:
   Search Seconds:         0.005
-  DocName Seconds:        0.190
+  DocName Seconds:        0.185
   Num Points:         1,000.000
   Num Good Points:       41.000
   Max Good Points:    2,120.000
@@ -257,7 +257,7 @@
 9  -  (contents:43 contents:year contents:old contents:woman contents:soft contents:flesh contents:colored contents:pedunculated contents:lesions contents:her contents:neck)
 
 9 Stats:
-  Search Seconds:         0.003
+  Search Seconds:         0.004
   DocName Seconds:        0.150
   Num Points:         1,000.000
   Num Good Points:        4.000
@@ -290,7 +290,7 @@
 
 10 Stats:
   Search Seconds:         0.005
-  DocName Seconds:        0.195
+  DocName Seconds:        0.189
   Num Points:         1,000.000
   Num Good Points:        0.000
   Max Good Points:    1,917.000
@@ -322,7 +322,7 @@
 
 11 Stats:
   Search Seconds:         0.004
-  DocName Seconds:        0.153
+  DocName Seconds:        0.152
   Num Points:         1,000.000
   Num Good Points:        0.000
   Max Good Points:    2,828.000
@@ -353,8 +353,8 @@
 12  -  (contents:25 contents:year contents:old contents:woman contents:fatigue contents:hair contents:loss contents:weight contents:gain contents:cold contents:intolerance contents:6 contents:months)
 
 12 Stats:
-  Search Seconds:         0.004
-  DocName Seconds:        0.158
+  Search Seconds:         0.003
+  DocName Seconds:        0.157
   Num Points:         1,000.000
   Num Good Points:        1.000
   Max Good Points:    2,874.000
@@ -417,8 +417,8 @@
 14  -  (contents:85 contents:year contents:old contents:man contents:who contents:car contents:accident contents:3 contents:weeks contents:ago contents:now contents:3 contents:days contents:progressively contents:decreasing contents:level contents:consciousness contents:impaired contents:ability contents:perform contents:activities contents:daily contents:living)
 
 14 Stats:
-  Search Seconds:         0.005
-  DocName Seconds:        0.152
+  Search Seconds:         0.004
+  DocName Seconds:        0.151
   Num Points:         1,000.000
   Num Good Points:        0.000
   Max Good Points:    2,936.000
@@ -449,8 +449,8 @@
 15  -  (contents:36 contents:year contents:old contents:woman contents:amenorrhea contents:abdominal contents:tenderness contents:enlarged contents:uterus contents:cervical contents:dilation contents:urine contents:pregnancy contents:test contents:negative contents:ultrasound contents:reveals contents:enlarged contents:uterus contents:multiple contents:cystic contents:areas contents:which contents:could contents:consistent contents:vesicular contents:mole contents:fibroid contents:degeneration)
 
 15 Stats:
-  Search Seconds:         0.021
-  DocName Seconds:        0.130
+  Search Seconds:         0.004
+  DocName Seconds:        0.133
   Num Points:         1,000.000
   Num Good Points:        2.000
   Max Good Points:    1,973.000
@@ -482,7 +482,7 @@
 
 16 Stats:
   Search Seconds:         0.005
-  DocName Seconds:        0.156
+  DocName Seconds:        0.158
   Num Points:         1,000.000
   Num Good Points:        0.000
   Max Good Points:    2,279.000
@@ -513,8 +513,8 @@
 17  -  (contents:48 contents:year contents:old contents:man contents:common contents:variable contents:immunodeficiency contents:presents contents:abdominal contents:pain contents:fever contents:ultrasound contents:reveals contents:hepatomegaly contents:free contents:intraperitoneal contents:fluid contents:ruptured contents:liver contents:abscess contents:found contents:drained contents:during contents:exploratory contents:laparotomy)
 
 17 Stats:
-  Search Seconds:         0.003
-  DocName Seconds:        0.141
+  Search Seconds:         0.004
+  DocName Seconds:        0.144
   Num Points:         1,000.000
   Num Good Points:        0.000
   Max Good Points:    1,986.000
@@ -546,7 +546,7 @@
 
 18 Stats:
   Search Seconds:         0.004
-  DocName Seconds:        0.160
+  DocName Seconds:        0.161
   Num Points:         1,000.000
   Num Good Points:        0.000
   Max Good Points:    2,165.000
@@ -577,8 +577,8 @@
 19  -  (contents:52 contents:year contents:old contents:man contents:history contents:smoking contents:heavy contents:drinking contents:now contents:progressive contents:dysphagia contents:25 contents:pound contents:weight contents:loss)
 
 19 Stats:
-  Search Seconds:         0.003
-  DocName Seconds:        0.165
+  Search Seconds:         0.002
+  DocName Seconds:        0.168
   Num Points:         1,000.000
   Num Good Points:        0.000
   Max Good Points:    2,320.000
@@ -610,7 +610,7 @@
 
 20 Stats:
   Search Seconds:         0.003
-  DocName Seconds:        0.156
+  DocName Seconds:        0.158
   Num Points:         1,000.000
   Num Good Points:        0.000
   Max Good Points:    2,242.000
@@ -642,7 +642,7 @@
 
 21 Stats:
   Search Seconds:         0.003
-  DocName Seconds:        0.161
+  DocName Seconds:        0.165
   Num Points:         1,000.000
   Num Good Points:        0.000
   Max Good Points:    2,147.000
@@ -674,7 +674,7 @@
 
 22 Stats:
   Search Seconds:         0.003
-  DocName Seconds:        0.148
+  DocName Seconds:        0.150
   Num Points:         1,000.000
   Num Good Points:        0.000
   Max Good Points:    1,605.000
@@ -706,7 +706,7 @@
 
 23 Stats:
   Search Seconds:         0.003
-  DocName Seconds:        0.152
+  DocName Seconds:        0.155
   Num Points:         1,000.000
   Num Good Points:        0.000
   Max Good Points:    2,073.000
@@ -737,8 +737,8 @@
 24  -  (contents:33 contents:year contents:old contents:male contents:presents contents:severe contents:abdominal contents:pain contents:one contents:week contents:after contents:bike contents:accident contents:which contents:he contents:sustained contents:abdominal contents:trauma contents:he contents:hypotensive contents:tachycardic contents:imaging contents:reveals contents:ruptured contents:spleen contents:intraperitoneal contents:hemorrhage)
 
 24 Stats:
-  Search Seconds:         0.003
-  DocName Seconds:        0.143
+  Search Seconds:         0.004
+  DocName Seconds:        0.144
   Num Points:         1,000.000
   Num Good Points:        0.000
   Max Good Points:    1,791.000
@@ -834,7 +834,7 @@
 
 27 Stats:
   Search Seconds:         0.004
-  DocName Seconds:        0.151
+  DocName Seconds:        0.152
   Num Points:         1,000.000
   Num Good Points:        0.000
   Max Good Points:    1,563.000
@@ -866,7 +866,7 @@
 
 28 Stats:
   Search Seconds:         0.003
-  DocName Seconds:        0.149
+  DocName Seconds:        0.150
   Num Points:         1,000.000
   Num Good Points:        6.000
   Max Good Points:    2,172.000
@@ -898,7 +898,7 @@
 
 29 Stats:
   Search Seconds:         0.002
-  DocName Seconds:        0.144
+  DocName Seconds:        0.145
   Num Points:         1,000.000
   Num Good Points:        0.000
   Max Good Points:    2,109.000
@@ -930,7 +930,7 @@
 
 30 Stats:
   Search Seconds:         0.003
-  DocName Seconds:        0.155
+  DocName Seconds:        0.156
   Num Points:         1,000.000
   Num Good Points:        0.000
   Max Good Points:    2,421.000
@@ -962,7 +962,7 @@
 
 SUMMARY
   Search Seconds:         0.006
-  DocName Seconds:        0.160
+  DocName Seconds:        0.159
   Num Points:         1,000.000
   Num Good Points:        2.833
   Max Good Points:    2,330.300

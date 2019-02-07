@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JProgressBar;
 
 import org.apache.lucene.analysis.Analyzer;
-import org.apache.lucene.analysis.en.EnglishAnalyzer;
+import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
 import org.apache.lucene.document.TextField;
@@ -64,8 +64,7 @@ public class IndexWorker extends Thread {
 	
 	private int indexCreator() throws IOException {
 		dir = FSDirectory.open(Paths.get(indexDir));
-		//analyzer = new StandardAnalyzer();
-		analyzer = new EnglishAnalyzer();
+		analyzer = new StandardAnalyzer();
 		iwc = new IndexWriterConfig(analyzer);
 		iwc.setSimilarity(M.getModelSymilarity());
 		
@@ -179,7 +178,8 @@ public class IndexWorker extends Thread {
 			// se non è presente restituisce stringa nulla
 			if (result.indexOf("<body>") != -1) {
 				result = result.substring(result.indexOf("<body>") + 6, result.indexOf("</body>"));
-				
+				tokenizeStopStem tSS = new tokenizeStopStem(result);
+				result = tSS.output();
 				return result;
 			}
 			return " ";
