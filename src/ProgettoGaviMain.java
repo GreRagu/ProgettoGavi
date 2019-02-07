@@ -53,6 +53,7 @@ public class ProgettoGaviMain implements ActionListener {
 	private MyModel M;
 	private Vector<String> columnNames;
 	private JMenuItem mntmCalculateAndPlot;
+	private Integer futureModel = 0;
 
 	/**
 	 * Launch the application.
@@ -232,8 +233,8 @@ public class ProgettoGaviMain implements ActionListener {
 		}
 		
 		if ( e.getSource() == mntmCreateIndex) {
+			M = new MyModel(futureModel);
 			Index ind = new Index(frmHegregio, filenumber, IndexFile, M);
-			
 			try {
 				String[] app = ind.CreateGUI().split(" ");
 				if(!app[0].equals("null") && !app[1].equals(0) ) {
@@ -354,42 +355,34 @@ public class ProgettoGaviMain implements ActionListener {
 		//------------Model Selection--------------
 		
 		if ( e.getSource()  == mntmVectorSpaceModel ) {
-			modelUsed = 1;
-			M = new MyModel(modelUsed);
+			futureModel = 1;
+			MyModel temp = new MyModel(futureModel);
+			JOptionPane.showMessageDialog(frmHegregio, "Future index will be create with model: " + temp.getModelString(), "Loaded", JOptionPane.INFORMATION_MESSAGE);
+			temp = null;
 		}
 		
 		if ( e.getSource()  == mntmBooleanModel ) {
-			modelUsed = 2;
-			M = new MyModel(modelUsed);
+			futureModel = 2;
+			MyModel temp = new MyModel(futureModel);
+			JOptionPane.showMessageDialog(frmHegregio, "Future index will be create with model: " + temp.getModelString(), "Loaded", JOptionPane.INFORMATION_MESSAGE);
+			temp = null;
 		}
 		
 		if ( e.getSource()  == mntmFuzzyModel ) {
-			modelUsed = 3;
-			M = new MyModel(modelUsed);
+			futureModel = 3;
+			MyModel temp = new MyModel(futureModel);
+			JOptionPane.showMessageDialog(frmHegregio, "Future index will be create with model: " + temp.getModelString(), "Loaded", JOptionPane.INFORMATION_MESSAGE);
+			temp = null;
 		}
 		
 		if ( e.getSource()  == mntmProbabilisticModel ) {
-			modelUsed = 0;
-			M = new MyModel(modelUsed);
+			futureModel = 0;
+			MyModel temp = new MyModel(futureModel);
+			JOptionPane.showMessageDialog(frmHegregio, "Future index will be create with model: " + temp.getModelString(), "Loaded", JOptionPane.INFORMATION_MESSAGE);
+			temp = null;
 		}
 		
 		if( e.getSource() == mntmCalculateAndPlot) {
-			/*ReadXMLFile Rf = new ReadXMLFile(frmHegregio);
-			Integer num = Rf.queryNumber();
-			String line = Rf.SearchQuery(num);
-			System.out.println(num + " " + line);
-			if(indexDir != null) {
-				SearchFiles sf = new SearchFiles(line, indexDir, model, frmHegregio, M);
-				Integer totalFile;
-				try {
-					totalFile = sf.Search();
-					totalFound.setText("Files found: ");
-					totalFound.setText(totalFound.getText() + " " + totalFile + " for query: " + line);
-				} catch (Exception e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-			}*/
 		}
 		
 	}
