@@ -163,7 +163,8 @@ public static void doGraph() {
 			ArrayList<Double> num_queries = new ArrayList<Double>();
 						
 			for (int i = 0; i < precision.size(); i++) {
-				num_queries.add(i + 0.0);
+				//System.out.println("precision q "+i+" : "+precision.get(i));
+				num_queries.add(i + 1.0);
 			}
 			
 			System.out.println("Plotting precision graph");
@@ -368,8 +369,7 @@ private static void initVar() {
     String sub = "";
     int precisionOffset = 5;
     while (sc.hasNextLine()) {
-    	
-    	  line = sc.nextLine();
+  	  line = sc.nextLine();
     	  
     	  if ( line.contains( "SUMMARY" ) ) {
     		  summary = true;
