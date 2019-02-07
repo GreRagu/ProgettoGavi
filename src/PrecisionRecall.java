@@ -20,6 +20,7 @@ import org.apache.lucene.store.*;
 import plot.Plot;
 import plot.Plot.Line;
 
+import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.benchmark.quality.*;
 import org.apache.lucene.benchmark.quality.utils.*;
 import org.apache.lucene.benchmark.quality.trec.*;
@@ -36,6 +37,7 @@ public class PrecisionRecall {
 	private static ArrayList<Double> recall;
 	private static PrintWriter writer;
 	private static String qrelPath = "./dataset/clinical_dataset/Qrels/MyQrels/NewQrels-treceval-2014.txt";
+	private static MyModel m;
  
 public static void main(String[] args) throws Throwable {
  
@@ -53,7 +55,7 @@ public static void main(String[] args) throws Throwable {
 	File topicsFile = new File("./dataset/clinical_dataset/Topics/MyQuery/Topics2014.txt");
     File qrelsFile = new File("./dataset/clinical_dataset/Qrels/qrels-sampleval-2014.txt");
     
-    String s = "./index_pmc";
+    String s = "./index_prova";
     FSDirectory open = FSDirectory.open(Paths.get(s));
     
     IndexSearcher searcher = new IndexSearcher(DirectoryReader.open(open));
@@ -68,7 +70,12 @@ public static void main(String[] args) throws Throwable {
     
     String k = qqs[1].getValue("description");
     
-    System.out.println(k);
+    StandardAnalyzer analyzer = new StandardAnalyzer();
+    m = new MyModel(0);
+    Query query = m.getQuery(k, "contents", analyzer);
+    
+    
+    System.out.println(query.toString("contents"));
     
     System.out.println("numero componenti topic file: "+qqs.length);
     

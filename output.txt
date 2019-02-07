@@ -1,254 +1,254 @@
 1  -  (contents:58 contents:year contents:old contents:woman contents:hypertension contents:obesity contents:presents contents:exercise contents:related contents:episodic contents:chest contents:pain contents:radiating contents:back)
 
 1 Stats:
-  Search Seconds:         0.036
-  DocName Seconds:        0.228
+  Search Seconds:         0.060
+  DocName Seconds:        0.155
   Num Points:         1,000.000
-  Num Good Points:        3.000
-  Max Good Points:    2,833.000
-  Average Precision:      0.000
-  MRR:                    0.000
-  Recall:                 0.001
-  Precision At 1:         0.000
-  Precision At 2:         0.000
-  Precision At 3:         0.000
-  Precision At 4:         0.000
-  Precision At 5:         0.000
-  Precision At 6:         0.000
-  Precision At 7:         0.000
-  Precision At 8:         0.000
-  Precision At 9:         0.000
-  Precision At 10:        0.000
-  Precision At 11:        0.000
-  Precision At 12:        0.000
-  Precision At 13:        0.000
-  Precision At 14:        0.000
-  Precision At 15:        0.000
-  Precision At 16:        0.000
-  Precision At 17:        0.000
-  Precision At 18:        0.000
-  Precision At 19:        0.000
-  Precision At 20:        0.000
+  Num Good Points:      170.000
+  Max Good Points:    3,712.000
+  Average Precision:      0.014
+  MRR:                    1.000
+  Recall:                 0.046
+  Precision At 1:         1.000
+  Precision At 2:         1.000
+  Precision At 3:         0.667
+  Precision At 4:         0.750
+  Precision At 5:         0.600
+  Precision At 6:         0.667
+  Precision At 7:         0.714
+  Precision At 8:         0.625
+  Precision At 9:         0.667
+  Precision At 10:        0.600
+  Precision At 11:        0.636
+  Precision At 12:        0.583
+  Precision At 13:        0.615
+  Precision At 14:        0.571
+  Precision At 15:        0.533
+  Precision At 16:        0.500
+  Precision At 17:        0.529
+  Precision At 18:        0.556
+  Precision At 19:        0.579
+  Precision At 20:        0.600
 
 2  -  (contents:8 contents:year contents:old contents:boy contents:2 contents:days contents:loose contents:stools contents:fever contents:cough contents:after contents:returning contents:from contents:trip contents:colorado contents:chest contents:x contents:ray contents:shows contents:bilateral contents:lung contents:infiltrates)
 
 2 Stats:
-  Search Seconds:         0.019
-  DocName Seconds:        0.156
+  Search Seconds:         0.028
+  DocName Seconds:        0.077
   Num Points:         1,000.000
-  Num Good Points:        2.000
-  Max Good Points:    2,370.000
-  Average Precision:      0.000
-  MRR:                    0.000
-  Recall:                 0.001
-  Precision At 1:         0.000
-  Precision At 2:         0.000
-  Precision At 3:         0.000
-  Precision At 4:         0.000
-  Precision At 5:         0.000
-  Precision At 6:         0.000
-  Precision At 7:         0.000
-  Precision At 8:         0.000
-  Precision At 9:         0.000
-  Precision At 10:        0.000
-  Precision At 11:        0.000
-  Precision At 12:        0.000
-  Precision At 13:        0.000
-  Precision At 14:        0.000
-  Precision At 15:        0.067
-  Precision At 16:        0.062
-  Precision At 17:        0.059
-  Precision At 18:        0.056
-  Precision At 19:        0.053
-  Precision At 20:        0.050
+  Num Good Points:      222.000
+  Max Good Points:    3,150.000
+  Average Precision:      0.028
+  MRR:                    1.000
+  Recall:                 0.070
+  Precision At 1:         1.000
+  Precision At 2:         0.500
+  Precision At 3:         0.667
+  Precision At 4:         0.500
+  Precision At 5:         0.600
+  Precision At 6:         0.500
+  Precision At 7:         0.571
+  Precision At 8:         0.625
+  Precision At 9:         0.667
+  Precision At 10:        0.600
+  Precision At 11:        0.636
+  Precision At 12:        0.667
+  Precision At 13:        0.615
+  Precision At 14:        0.571
+  Precision At 15:        0.533
+  Precision At 16:        0.562
+  Precision At 17:        0.529
+  Precision At 18:        0.556
+  Precision At 19:        0.579
+  Precision At 20:        0.600
 
 3  -  (contents:58 contents:year contents:old contents:female contents:non contents:smoker contents:left contents:lung contents:mass contents:x contents:ray contents:head contents:ct contents:shows contents:solitary contents:right contents:frontal contents:lobe contents:mass)
 
 3 Stats:
-  Search Seconds:         0.011
-  DocName Seconds:        0.191
+  Search Seconds:         0.015
+  DocName Seconds:        0.087
   Num Points:         1,000.000
-  Num Good Points:       11.000
-  Max Good Points:    2,783.000
-  Average Precision:      0.000
-  MRR:                    0.000
-  Recall:                 0.004
-  Precision At 1:         0.000
-  Precision At 2:         0.000
-  Precision At 3:         0.000
-  Precision At 4:         0.000
-  Precision At 5:         0.000
-  Precision At 6:         0.167
-  Precision At 7:         0.143
-  Precision At 8:         0.125
-  Precision At 9:         0.111
-  Precision At 10:        0.100
-  Precision At 11:        0.091
-  Precision At 12:        0.083
-  Precision At 13:        0.077
-  Precision At 14:        0.071
-  Precision At 15:        0.067
-  Precision At 16:        0.062
-  Precision At 17:        0.059
-  Precision At 18:        0.056
-  Precision At 19:        0.053
-  Precision At 20:        0.050
+  Num Good Points:      189.000
+  Max Good Points:    3,668.000
+  Average Precision:      0.021
+  MRR:                    1.000
+  Recall:                 0.052
+  Precision At 1:         1.000
+  Precision At 2:         0.500
+  Precision At 3:         0.667
+  Precision At 4:         0.500
+  Precision At 5:         0.400
+  Precision At 6:         0.500
+  Precision At 7:         0.429
+  Precision At 8:         0.500
+  Precision At 9:         0.444
+  Precision At 10:        0.400
+  Precision At 11:        0.364
+  Precision At 12:        0.333
+  Precision At 13:        0.385
+  Precision At 14:        0.357
+  Precision At 15:        0.400
+  Precision At 16:        0.375
+  Precision At 17:        0.353
+  Precision At 18:        0.389
+  Precision At 19:        0.368
+  Precision At 20:        0.400
 
 4  -  (contents:2 contents:year contents:old contents:boy contents:fever contents:irritability contents:5 contents:days contents:physical contents:exam contents:findings contents:include contents:conjunctivitis contents:strawberry contents:tongue contents:desquamation contents:fingers contents:toes contents:lab contents:results contents:include contents:low contents:albumin contents:elevated contents:white contents:blood contents:cell contents:count contents:c contents:reactive contents:protein contents:urine contents:leukocytes contents:echo contents:shows contents:moderate contents:dilation contents:coronary contents:arteries)
 
 4 Stats:
-  Search Seconds:         0.012
-  DocName Seconds:        0.171
+  Search Seconds:         0.026
+  DocName Seconds:        0.087
   Num Points:         1,000.000
-  Num Good Points:        4.000
-  Max Good Points:    2,580.000
-  Average Precision:      0.001
+  Num Good Points:      116.000
+  Max Good Points:    3,224.000
+  Average Precision:      0.009
   MRR:                    1.000
-  Recall:                 0.002
+  Recall:                 0.036
   Precision At 1:         1.000
   Precision At 2:         0.500
-  Precision At 3:         0.333
-  Precision At 4:         0.250
+  Precision At 3:         0.667
+  Precision At 4:         0.500
+  Precision At 5:         0.400
+  Precision At 6:         0.333
+  Precision At 7:         0.429
+  Precision At 8:         0.500
+  Precision At 9:         0.444
+  Precision At 10:        0.500
+  Precision At 11:        0.455
+  Precision At 12:        0.417
+  Precision At 13:        0.385
+  Precision At 14:        0.429
+  Precision At 15:        0.400
+  Precision At 16:        0.375
+  Precision At 17:        0.353
+  Precision At 18:        0.333
+  Precision At 19:        0.316
+  Precision At 20:        0.350
+
+5  -  (contents:56 contents:year contents:old contents:woman contents:presents contents:shortness contents:breath contents:3 contents:weeks contents:after contents:surgical contents:mastectomy contents:physical contents:exam contents:significant contents:right contents:calf contents:tenderness contents:decreased contents:breath contents:sounds contents:right contents:base contents:her contents:d contents:dimer contents:level contents:elevated)
+
+5 Stats:
+  Search Seconds:         0.017
+  DocName Seconds:        0.092
+  Num Points:         1,000.000
+  Num Good Points:      100.000
+  Max Good Points:    3,735.000
+  Average Precision:      0.004
+  MRR:                    1.000
+  Recall:                 0.027
+  Precision At 1:         1.000
+  Precision At 2:         1.000
+  Precision At 3:         0.667
+  Precision At 4:         0.500
   Precision At 5:         0.400
   Precision At 6:         0.333
   Precision At 7:         0.286
   Precision At 8:         0.250
   Precision At 9:         0.222
   Precision At 10:        0.200
+  Precision At 11:        0.182
+  Precision At 12:        0.167
+  Precision At 13:        0.154
+  Precision At 14:        0.214
+  Precision At 15:        0.267
+  Precision At 16:        0.250
+  Precision At 17:        0.235
+  Precision At 18:        0.222
+  Precision At 19:        0.211
+  Precision At 20:        0.200
+
+6  -  (contents:64 contents:year contents:old contents:woman contents:uncontrolled contents:diabetes contents:now contents:oozing contents:painful contents:skin contents:lesion contents:her contents:left contents:lower contents:leg)
+
+6 Stats:
+  Search Seconds:         0.013
+  DocName Seconds:        0.089
+  Num Points:         1,000.000
+  Num Good Points:      134.000
+  Max Good Points:    3,989.000
+  Average Precision:      0.009
+  MRR:                    0.250
+  Recall:                 0.034
+  Precision At 1:         0.000
+  Precision At 2:         0.000
+  Precision At 3:         0.000
+  Precision At 4:         0.250
+  Precision At 5:         0.400
+  Precision At 6:         0.333
+  Precision At 7:         0.286
+  Precision At 8:         0.375
+  Precision At 9:         0.444
+  Precision At 10:        0.400
+  Precision At 11:        0.455
+  Precision At 12:        0.417
+  Precision At 13:        0.385
+  Precision At 14:        0.429
+  Precision At 15:        0.467
+  Precision At 16:        0.438
+  Precision At 17:        0.412
+  Precision At 18:        0.389
+  Precision At 19:        0.421
+  Precision At 20:        0.400
+
+7  -  (contents:26 contents:year contents:old contents:obese contents:woman contents:bipolar contents:disorder contents:zolpidem contents:lithium contents:recent contents:difficulty contents:sleeping contents:agitation contents:suicidal contents:ideation contents:irritability)
+
+7 Stats:
+  Search Seconds:         0.011
+  DocName Seconds:        0.102
+  Num Points:         1,000.000
+  Num Good Points:      176.000
+  Max Good Points:    2,615.000
+  Average Precision:      0.044
+  MRR:                    1.000
+  Recall:                 0.067
+  Precision At 1:         1.000
+  Precision At 2:         1.000
+  Precision At 3:         1.000
+  Precision At 4:         1.000
+  Precision At 5:         1.000
+  Precision At 6:         1.000
+  Precision At 7:         1.000
+  Precision At 8:         1.000
+  Precision At 9:         1.000
+  Precision At 10:        1.000
+  Precision At 11:        1.000
+  Precision At 12:        1.000
+  Precision At 13:        1.000
+  Precision At 14:        0.929
+  Precision At 15:        0.933
+  Precision At 16:        0.938
+  Precision At 17:        0.941
+  Precision At 18:        0.944
+  Precision At 19:        0.895
+  Precision At 20:        0.900
+
+8  -  (contents:62 contents:year contents:old contents:man contents:progressive contents:memory contents:loss contents:involuntary contents:leg contents:movements contents:brain contents:mri contents:reveals contents:cortical contents:atrophy contents:cortical contents:biopsy contents:shows contents:vacuolar contents:gray contents:matter contents:changes contents:reactive contents:astrocytosis)
+
+8 Stats:
+  Search Seconds:         0.011
+  DocName Seconds:        0.102
+  Num Points:         1,000.000
+  Num Good Points:      142.000
+  Max Good Points:    2,879.000
+  Average Precision:      0.012
+  MRR:                    1.000
+  Recall:                 0.049
+  Precision At 1:         1.000
+  Precision At 2:         0.500
+  Precision At 3:         0.333
+  Precision At 4:         0.500
+  Precision At 5:         0.600
+  Precision At 6:         0.500
+  Precision At 7:         0.429
+  Precision At 8:         0.375
+  Precision At 9:         0.333
+  Precision At 10:        0.300
   Precision At 11:        0.273
   Precision At 12:        0.250
   Precision At 13:        0.231
   Precision At 14:        0.214
   Precision At 15:        0.200
   Precision At 16:        0.188
-  Precision At 17:        0.176
-  Precision At 18:        0.167
-  Precision At 19:        0.158
-  Precision At 20:        0.150
-
-5  -  (contents:56 contents:year contents:old contents:woman contents:presents contents:shortness contents:breath contents:3 contents:weeks contents:after contents:surgical contents:mastectomy contents:physical contents:exam contents:significant contents:right contents:calf contents:tenderness contents:decreased contents:breath contents:sounds contents:right contents:base contents:her contents:d contents:dimer contents:level contents:elevated)
-
-5 Stats:
-  Search Seconds:         0.009
-  DocName Seconds:        0.173
-  Num Points:         1,000.000
-  Num Good Points:        4.000
-  Max Good Points:    2,838.000
-  Average Precision:      0.000
-  MRR:                    0.000
-  Recall:                 0.001
-  Precision At 1:         0.000
-  Precision At 2:         0.000
-  Precision At 3:         0.000
-  Precision At 4:         0.000
-  Precision At 5:         0.000
-  Precision At 6:         0.000
-  Precision At 7:         0.000
-  Precision At 8:         0.000
-  Precision At 9:         0.000
-  Precision At 10:        0.000
-  Precision At 11:        0.000
-  Precision At 12:        0.000
-  Precision At 13:        0.000
-  Precision At 14:        0.000
-  Precision At 15:        0.000
-  Precision At 16:        0.000
-  Precision At 17:        0.000
-  Precision At 18:        0.000
-  Precision At 19:        0.000
-  Precision At 20:        0.000
-
-6  -  (contents:64 contents:year contents:old contents:woman contents:uncontrolled contents:diabetes contents:now contents:oozing contents:painful contents:skin contents:lesion contents:her contents:left contents:lower contents:leg)
-
-6 Stats:
-  Search Seconds:         0.007
-  DocName Seconds:        0.159
-  Num Points:         1,000.000
-  Num Good Points:        1.000
-  Max Good Points:    3,066.000
-  Average Precision:      0.000
-  MRR:                    0.000
-  Recall:                 0.000
-  Precision At 1:         0.000
-  Precision At 2:         0.000
-  Precision At 3:         0.000
-  Precision At 4:         0.000
-  Precision At 5:         0.000
-  Precision At 6:         0.000
-  Precision At 7:         0.000
-  Precision At 8:         0.000
-  Precision At 9:         0.000
-  Precision At 10:        0.000
-  Precision At 11:        0.000
-  Precision At 12:        0.000
-  Precision At 13:        0.000
-  Precision At 14:        0.000
-  Precision At 15:        0.000
-  Precision At 16:        0.000
-  Precision At 17:        0.000
-  Precision At 18:        0.000
-  Precision At 19:        0.000
-  Precision At 20:        0.000
-
-7  -  (contents:26 contents:year contents:old contents:obese contents:woman contents:bipolar contents:disorder contents:zolpidem contents:lithium contents:recent contents:difficulty contents:sleeping contents:agitation contents:suicidal contents:ideation contents:irritability)
-
-7 Stats:
-  Search Seconds:         0.005
-  DocName Seconds:        0.144
-  Num Points:         1,000.000
-  Num Good Points:        4.000
-  Max Good Points:    1,970.000
-  Average Precision:      0.000
-  MRR:                    0.500
-  Recall:                 0.002
-  Precision At 1:         0.000
-  Precision At 2:         0.500
-  Precision At 3:         0.333
-  Precision At 4:         0.250
-  Precision At 5:         0.200
-  Precision At 6:         0.167
-  Precision At 7:         0.143
-  Precision At 8:         0.125
-  Precision At 9:         0.111
-  Precision At 10:        0.100
-  Precision At 11:        0.091
-  Precision At 12:        0.167
-  Precision At 13:        0.154
-  Precision At 14:        0.143
-  Precision At 15:        0.133
-  Precision At 16:        0.125
-  Precision At 17:        0.118
-  Precision At 18:        0.111
-  Precision At 19:        0.105
-  Precision At 20:        0.100
-
-8  -  (contents:62 contents:year contents:old contents:man contents:progressive contents:memory contents:loss contents:involuntary contents:leg contents:movements contents:brain contents:mri contents:reveals contents:cortical contents:atrophy contents:cortical contents:biopsy contents:shows contents:vacuolar contents:gray contents:matter contents:changes contents:reactive contents:astrocytosis)
-
-8 Stats:
-  Search Seconds:         0.005
-  DocName Seconds:        0.185
-  Num Points:         1,000.000
-  Num Good Points:       41.000
-  Max Good Points:    2,120.000
-  Average Precision:      0.002
-  MRR:                    0.200
-  Recall:                 0.019
-  Precision At 1:         0.000
-  Precision At 2:         0.000
-  Precision At 3:         0.000
-  Precision At 4:         0.000
-  Precision At 5:         0.200
-  Precision At 6:         0.167
-  Precision At 7:         0.286
-  Precision At 8:         0.250
-  Precision At 9:         0.333
-  Precision At 10:        0.400
-  Precision At 11:        0.364
-  Precision At 12:        0.333
-  Precision At 13:        0.308
-  Precision At 14:        0.286
-  Precision At 15:        0.267
-  Precision At 16:        0.250
   Precision At 17:        0.235
   Precision At 18:        0.222
   Precision At 19:        0.211
@@ -257,46 +257,46 @@
 9  -  (contents:43 contents:year contents:old contents:woman contents:soft contents:flesh contents:colored contents:pedunculated contents:lesions contents:her contents:neck)
 
 9 Stats:
-  Search Seconds:         0.004
-  DocName Seconds:        0.150
+  Search Seconds:         0.008
+  DocName Seconds:        0.072
   Num Points:         1,000.000
-  Num Good Points:        4.000
-  Max Good Points:    2,698.000
-  Average Precision:      0.000
-  MRR:                    0.000
-  Recall:                 0.001
-  Precision At 1:         0.000
-  Precision At 2:         0.000
-  Precision At 3:         0.000
-  Precision At 4:         0.000
-  Precision At 5:         0.000
-  Precision At 6:         0.000
-  Precision At 7:         0.000
-  Precision At 8:         0.000
-  Precision At 9:         0.000
-  Precision At 10:        0.000
-  Precision At 11:        0.000
-  Precision At 12:        0.000
-  Precision At 13:        0.000
-  Precision At 14:        0.000
-  Precision At 15:        0.000
-  Precision At 16:        0.000
-  Precision At 17:        0.000
-  Precision At 18:        0.000
-  Precision At 19:        0.000
-  Precision At 20:        0.000
+  Num Good Points:      146.000
+  Max Good Points:    3,571.000
+  Average Precision:      0.013
+  MRR:                    1.000
+  Recall:                 0.041
+  Precision At 1:         1.000
+  Precision At 2:         1.000
+  Precision At 3:         0.667
+  Precision At 4:         0.500
+  Precision At 5:         0.400
+  Precision At 6:         0.500
+  Precision At 7:         0.429
+  Precision At 8:         0.500
+  Precision At 9:         0.444
+  Precision At 10:        0.500
+  Precision At 11:        0.455
+  Precision At 12:        0.500
+  Precision At 13:        0.462
+  Precision At 14:        0.429
+  Precision At 15:        0.400
+  Precision At 16:        0.375
+  Precision At 17:        0.353
+  Precision At 18:        0.389
+  Precision At 19:        0.368
+  Precision At 20:        0.400
 
 10  -  (contents:67 contents:year contents:old contents:woman contents:status contents:post contents:cardiac contents:catheterization contents:via contents:right contents:femoral contents:artery contents:now contents:cool contents:pulseless contents:right contents:foot contents:right contents:femoral contents:bruit)
 
 10 Stats:
-  Search Seconds:         0.005
-  DocName Seconds:        0.189
+  Search Seconds:         0.009
+  DocName Seconds:        0.082
   Num Points:         1,000.000
-  Num Good Points:        0.000
-  Max Good Points:    1,917.000
+  Num Good Points:       24.000
+  Max Good Points:    2,687.000
   Average Precision:      0.000
   MRR:                    0.000
-  Recall:                 0.000
+  Recall:                 0.009
   Precision At 1:         0.000
   Precision At 2:         0.000
   Precision At 3:         0.000
@@ -321,430 +321,430 @@
 11  -  (contents:40 contents:year contents:old contents:woman contents:severe contents:right contents:arm contents:pain contents:hypotension contents:she contents:has contents:history contents:trauma contents:right contents:arm contents:exam contents:reveals contents:significant contents:findings)
 
 11 Stats:
-  Search Seconds:         0.004
-  DocName Seconds:        0.152
+  Search Seconds:         0.009
+  DocName Seconds:        0.085
   Num Points:         1,000.000
-  Num Good Points:        0.000
-  Max Good Points:    2,828.000
-  Average Precision:      0.000
-  MRR:                    0.000
-  Recall:                 0.000
+  Num Good Points:      129.000
+  Max Good Points:    4,031.000
+  Average Precision:      0.006
+  MRR:                    0.333
+  Recall:                 0.032
   Precision At 1:         0.000
   Precision At 2:         0.000
-  Precision At 3:         0.000
-  Precision At 4:         0.000
-  Precision At 5:         0.000
-  Precision At 6:         0.000
-  Precision At 7:         0.000
-  Precision At 8:         0.000
-  Precision At 9:         0.000
-  Precision At 10:        0.000
-  Precision At 11:        0.000
-  Precision At 12:        0.000
-  Precision At 13:        0.000
-  Precision At 14:        0.000
-  Precision At 15:        0.000
-  Precision At 16:        0.000
-  Precision At 17:        0.000
-  Precision At 18:        0.000
-  Precision At 19:        0.000
-  Precision At 20:        0.000
+  Precision At 3:         0.333
+  Precision At 4:         0.250
+  Precision At 5:         0.200
+  Precision At 6:         0.167
+  Precision At 7:         0.143
+  Precision At 8:         0.125
+  Precision At 9:         0.111
+  Precision At 10:        0.100
+  Precision At 11:        0.091
+  Precision At 12:        0.083
+  Precision At 13:        0.077
+  Precision At 14:        0.071
+  Precision At 15:        0.067
+  Precision At 16:        0.125
+  Precision At 17:        0.118
+  Precision At 18:        0.111
+  Precision At 19:        0.158
+  Precision At 20:        0.150
 
 12  -  (contents:25 contents:year contents:old contents:woman contents:fatigue contents:hair contents:loss contents:weight contents:gain contents:cold contents:intolerance contents:6 contents:months)
 
 12 Stats:
-  Search Seconds:         0.003
-  DocName Seconds:        0.157
+  Search Seconds:         0.014
+  DocName Seconds:        0.099
   Num Points:         1,000.000
-  Num Good Points:        1.000
-  Max Good Points:    2,874.000
-  Average Precision:      0.000
-  MRR:                    0.000
-  Recall:                 0.000
-  Precision At 1:         0.000
-  Precision At 2:         0.000
-  Precision At 3:         0.000
-  Precision At 4:         0.000
-  Precision At 5:         0.000
-  Precision At 6:         0.000
-  Precision At 7:         0.000
-  Precision At 8:         0.000
-  Precision At 9:         0.000
-  Precision At 10:        0.000
-  Precision At 11:        0.000
-  Precision At 12:        0.000
-  Precision At 13:        0.000
-  Precision At 14:        0.000
-  Precision At 15:        0.000
-  Precision At 16:        0.000
-  Precision At 17:        0.000
-  Precision At 18:        0.000
-  Precision At 19:        0.000
-  Precision At 20:        0.000
+  Num Good Points:      101.000
+  Max Good Points:    3,893.000
+  Average Precision:      0.007
+  MRR:                    1.000
+  Recall:                 0.026
+  Precision At 1:         1.000
+  Precision At 2:         1.000
+  Precision At 3:         1.000
+  Precision At 4:         1.000
+  Precision At 5:         1.000
+  Precision At 6:         0.833
+  Precision At 7:         0.714
+  Precision At 8:         0.625
+  Precision At 9:         0.556
+  Precision At 10:        0.500
+  Precision At 11:        0.455
+  Precision At 12:        0.500
+  Precision At 13:        0.538
+  Precision At 14:        0.500
+  Precision At 15:        0.467
+  Precision At 16:        0.500
+  Precision At 17:        0.471
+  Precision At 18:        0.444
+  Precision At 19:        0.421
+  Precision At 20:        0.450
 
 13  -  (contents:30 contents:year contents:old contents:woman contents:who contents:3 contents:weeks contents:post contents:partum contents:presents contents:shortness contents:breath contents:tachypnea contents:hypoxia)
 
 13 Stats:
-  Search Seconds:         0.004
-  DocName Seconds:        0.147
+  Search Seconds:         0.012
+  DocName Seconds:        0.088
   Num Points:         1,000.000
-  Num Good Points:        0.000
-  Max Good Points:    2,715.000
-  Average Precision:      0.000
-  MRR:                    0.000
-  Recall:                 0.000
-  Precision At 1:         0.000
-  Precision At 2:         0.000
-  Precision At 3:         0.000
-  Precision At 4:         0.000
-  Precision At 5:         0.000
-  Precision At 6:         0.000
-  Precision At 7:         0.000
-  Precision At 8:         0.000
-  Precision At 9:         0.000
-  Precision At 10:        0.000
-  Precision At 11:        0.000
-  Precision At 12:        0.000
-  Precision At 13:        0.000
-  Precision At 14:        0.000
-  Precision At 15:        0.000
-  Precision At 16:        0.000
-  Precision At 17:        0.000
-  Precision At 18:        0.000
-  Precision At 19:        0.000
-  Precision At 20:        0.000
+  Num Good Points:      195.000
+  Max Good Points:    3,775.000
+  Average Precision:      0.025
+  MRR:                    1.000
+  Recall:                 0.052
+  Precision At 1:         1.000
+  Precision At 2:         1.000
+  Precision At 3:         1.000
+  Precision At 4:         1.000
+  Precision At 5:         1.000
+  Precision At 6:         1.000
+  Precision At 7:         1.000
+  Precision At 8:         1.000
+  Precision At 9:         1.000
+  Precision At 10:        1.000
+  Precision At 11:        0.909
+  Precision At 12:        0.917
+  Precision At 13:        0.923
+  Precision At 14:        0.929
+  Precision At 15:        0.867
+  Precision At 16:        0.812
+  Precision At 17:        0.765
+  Precision At 18:        0.778
+  Precision At 19:        0.789
+  Precision At 20:        0.800
 
 14  -  (contents:85 contents:year contents:old contents:man contents:who contents:car contents:accident contents:3 contents:weeks contents:ago contents:now contents:3 contents:days contents:progressively contents:decreasing contents:level contents:consciousness contents:impaired contents:ability contents:perform contents:activities contents:daily contents:living)
 
 14 Stats:
-  Search Seconds:         0.004
-  DocName Seconds:        0.151
+  Search Seconds:         0.014
+  DocName Seconds:        0.089
   Num Points:         1,000.000
-  Num Good Points:        0.000
-  Max Good Points:    2,936.000
-  Average Precision:      0.000
-  MRR:                    0.000
-  Recall:                 0.000
+  Num Good Points:       79.000
+  Max Good Points:    4,080.000
+  Average Precision:      0.002
+  MRR:                    0.250
+  Recall:                 0.019
   Precision At 1:         0.000
   Precision At 2:         0.000
   Precision At 3:         0.000
-  Precision At 4:         0.000
-  Precision At 5:         0.000
-  Precision At 6:         0.000
-  Precision At 7:         0.000
-  Precision At 8:         0.000
-  Precision At 9:         0.000
-  Precision At 10:        0.000
-  Precision At 11:        0.000
-  Precision At 12:        0.000
-  Precision At 13:        0.000
-  Precision At 14:        0.000
-  Precision At 15:        0.000
-  Precision At 16:        0.000
-  Precision At 17:        0.000
-  Precision At 18:        0.000
-  Precision At 19:        0.000
-  Precision At 20:        0.000
+  Precision At 4:         0.250
+  Precision At 5:         0.200
+  Precision At 6:         0.167
+  Precision At 7:         0.143
+  Precision At 8:         0.125
+  Precision At 9:         0.111
+  Precision At 10:        0.100
+  Precision At 11:        0.091
+  Precision At 12:        0.167
+  Precision At 13:        0.154
+  Precision At 14:        0.214
+  Precision At 15:        0.200
+  Precision At 16:        0.188
+  Precision At 17:        0.235
+  Precision At 18:        0.222
+  Precision At 19:        0.211
+  Precision At 20:        0.200
 
 15  -  (contents:36 contents:year contents:old contents:woman contents:amenorrhea contents:abdominal contents:tenderness contents:enlarged contents:uterus contents:cervical contents:dilation contents:urine contents:pregnancy contents:test contents:negative contents:ultrasound contents:reveals contents:enlarged contents:uterus contents:multiple contents:cystic contents:areas contents:which contents:could contents:consistent contents:vesicular contents:mole contents:fibroid contents:degeneration)
 
 15 Stats:
-  Search Seconds:         0.004
-  DocName Seconds:        0.133
+  Search Seconds:         0.010
+  DocName Seconds:        0.071
   Num Points:         1,000.000
-  Num Good Points:        2.000
-  Max Good Points:    1,973.000
-  Average Precision:      0.000
-  MRR:                    0.000
-  Recall:                 0.001
-  Precision At 1:         0.000
-  Precision At 2:         0.000
-  Precision At 3:         0.000
-  Precision At 4:         0.000
-  Precision At 5:         0.000
-  Precision At 6:         0.000
-  Precision At 7:         0.000
-  Precision At 8:         0.000
-  Precision At 9:         0.000
-  Precision At 10:        0.000
-  Precision At 11:        0.000
-  Precision At 12:        0.000
-  Precision At 13:        0.000
-  Precision At 14:        0.000
-  Precision At 15:        0.000
-  Precision At 16:        0.000
-  Precision At 17:        0.000
-  Precision At 18:        0.000
-  Precision At 19:        0.000
-  Precision At 20:        0.000
+  Num Good Points:      123.000
+  Max Good Points:    2,734.000
+  Average Precision:      0.015
+  MRR:                    1.000
+  Recall:                 0.045
+  Precision At 1:         1.000
+  Precision At 2:         0.500
+  Precision At 3:         0.333
+  Precision At 4:         0.500
+  Precision At 5:         0.600
+  Precision At 6:         0.667
+  Precision At 7:         0.714
+  Precision At 8:         0.625
+  Precision At 9:         0.556
+  Precision At 10:        0.500
+  Precision At 11:        0.545
+  Precision At 12:        0.583
+  Precision At 13:        0.615
+  Precision At 14:        0.643
+  Precision At 15:        0.667
+  Precision At 16:        0.625
+  Precision At 17:        0.647
+  Precision At 18:        0.611
+  Precision At 19:        0.632
+  Precision At 20:        0.600
 
 16  -  (contents:28 contents:year contents:old contents:female contents:neck contents:pain contents:left contents:arm contents:numbness contents:3 contents:weeks contents:after contents:working contents:stray contents:animals contents:physical contents:exam contents:initially contents:remarkable contents:slight contents:left contents:arm contents:tremor contents:spasticity contents:three contents:days contents:later contents:she contents:presented contents:significant contents:arm contents:spasticity contents:diaphoresis contents:agitation contents:difficulty contents:swallowing contents:hydrophobia)
 
 16 Stats:
-  Search Seconds:         0.005
-  DocName Seconds:        0.158
+  Search Seconds:         0.014
+  DocName Seconds:        0.091
   Num Points:         1,000.000
-  Num Good Points:        0.000
-  Max Good Points:    2,279.000
-  Average Precision:      0.000
-  MRR:                    0.000
-  Recall:                 0.000
-  Precision At 1:         0.000
-  Precision At 2:         0.000
-  Precision At 3:         0.000
-  Precision At 4:         0.000
-  Precision At 5:         0.000
-  Precision At 6:         0.000
-  Precision At 7:         0.000
-  Precision At 8:         0.000
-  Precision At 9:         0.000
-  Precision At 10:        0.000
-  Precision At 11:        0.000
-  Precision At 12:        0.000
-  Precision At 13:        0.000
-  Precision At 14:        0.000
-  Precision At 15:        0.000
-  Precision At 16:        0.000
-  Precision At 17:        0.000
-  Precision At 18:        0.000
-  Precision At 19:        0.000
-  Precision At 20:        0.000
+  Num Good Points:      157.000
+  Max Good Points:    3,206.000
+  Average Precision:      0.018
+  MRR:                    1.000
+  Recall:                 0.049
+  Precision At 1:         1.000
+  Precision At 2:         1.000
+  Precision At 3:         1.000
+  Precision At 4:         0.750
+  Precision At 5:         0.800
+  Precision At 6:         0.667
+  Precision At 7:         0.571
+  Precision At 8:         0.625
+  Precision At 9:         0.556
+  Precision At 10:        0.600
+  Precision At 11:        0.636
+  Precision At 12:        0.583
+  Precision At 13:        0.615
+  Precision At 14:        0.643
+  Precision At 15:        0.600
+  Precision At 16:        0.625
+  Precision At 17:        0.647
+  Precision At 18:        0.611
+  Precision At 19:        0.579
+  Precision At 20:        0.600
 
 17  -  (contents:48 contents:year contents:old contents:man contents:common contents:variable contents:immunodeficiency contents:presents contents:abdominal contents:pain contents:fever contents:ultrasound contents:reveals contents:hepatomegaly contents:free contents:intraperitoneal contents:fluid contents:ruptured contents:liver contents:abscess contents:found contents:drained contents:during contents:exploratory contents:laparotomy)
 
 17 Stats:
-  Search Seconds:         0.004
-  DocName Seconds:        0.144
+  Search Seconds:         0.014
+  DocName Seconds:        0.065
   Num Points:         1,000.000
-  Num Good Points:        0.000
-  Max Good Points:    1,986.000
-  Average Precision:      0.000
-  MRR:                    0.000
-  Recall:                 0.000
+  Num Good Points:      177.000
+  Max Good Points:    2,831.000
+  Average Precision:      0.026
+  MRR:                    0.500
+  Recall:                 0.063
   Precision At 1:         0.000
-  Precision At 2:         0.000
-  Precision At 3:         0.000
-  Precision At 4:         0.000
-  Precision At 5:         0.000
-  Precision At 6:         0.000
-  Precision At 7:         0.000
-  Precision At 8:         0.000
-  Precision At 9:         0.000
-  Precision At 10:        0.000
-  Precision At 11:        0.000
-  Precision At 12:        0.000
-  Precision At 13:        0.000
-  Precision At 14:        0.000
-  Precision At 15:        0.000
-  Precision At 16:        0.000
-  Precision At 17:        0.000
-  Precision At 18:        0.000
-  Precision At 19:        0.000
-  Precision At 20:        0.000
+  Precision At 2:         0.500
+  Precision At 3:         0.667
+  Precision At 4:         0.750
+  Precision At 5:         0.600
+  Precision At 6:         0.667
+  Precision At 7:         0.571
+  Precision At 8:         0.625
+  Precision At 9:         0.556
+  Precision At 10:        0.600
+  Precision At 11:        0.545
+  Precision At 12:        0.500
+  Precision At 13:        0.538
+  Precision At 14:        0.571
+  Precision At 15:        0.600
+  Precision At 16:        0.562
+  Precision At 17:        0.529
+  Precision At 18:        0.556
+  Precision At 19:        0.579
+  Precision At 20:        0.600
 
 18  -  (contents:6 contents:month contents:old contents:male contents:decreased contents:urine contents:output contents:edema contents:several contents:hours contents:after contents:surgery contents:he contents:hypertensive contents:tachycardic contents:has contents:high contents:bun contents:creatinine contents:urine contents:microscopy contents:reveals contents:red contents:blood contents:cells contents:granular contents:casts)
 
 18 Stats:
-  Search Seconds:         0.004
-  DocName Seconds:        0.161
+  Search Seconds:         0.013
+  DocName Seconds:        0.090
   Num Points:         1,000.000
-  Num Good Points:        0.000
-  Max Good Points:    2,165.000
-  Average Precision:      0.000
-  MRR:                    0.000
-  Recall:                 0.000
-  Precision At 1:         0.000
-  Precision At 2:         0.000
-  Precision At 3:         0.000
-  Precision At 4:         0.000
-  Precision At 5:         0.000
-  Precision At 6:         0.000
-  Precision At 7:         0.000
-  Precision At 8:         0.000
-  Precision At 9:         0.000
-  Precision At 10:        0.000
-  Precision At 11:        0.000
-  Precision At 12:        0.000
-  Precision At 13:        0.000
-  Precision At 14:        0.000
-  Precision At 15:        0.000
-  Precision At 16:        0.000
-  Precision At 17:        0.000
-  Precision At 18:        0.000
-  Precision At 19:        0.000
-  Precision At 20:        0.000
+  Num Good Points:      120.000
+  Max Good Points:    3,050.000
+  Average Precision:      0.011
+  MRR:                    1.000
+  Recall:                 0.039
+  Precision At 1:         1.000
+  Precision At 2:         1.000
+  Precision At 3:         1.000
+  Precision At 4:         0.750
+  Precision At 5:         0.800
+  Precision At 6:         0.833
+  Precision At 7:         0.714
+  Precision At 8:         0.625
+  Precision At 9:         0.556
+  Precision At 10:        0.500
+  Precision At 11:        0.455
+  Precision At 12:        0.417
+  Precision At 13:        0.462
+  Precision At 14:        0.500
+  Precision At 15:        0.467
+  Precision At 16:        0.500
+  Precision At 17:        0.471
+  Precision At 18:        0.500
+  Precision At 19:        0.526
+  Precision At 20:        0.550
 
 19  -  (contents:52 contents:year contents:old contents:man contents:history contents:smoking contents:heavy contents:drinking contents:now contents:progressive contents:dysphagia contents:25 contents:pound contents:weight contents:loss)
 
 19 Stats:
-  Search Seconds:         0.002
-  DocName Seconds:        0.168
+  Search Seconds:         0.011
+  DocName Seconds:        0.088
   Num Points:         1,000.000
-  Num Good Points:        0.000
-  Max Good Points:    2,320.000
-  Average Precision:      0.000
-  MRR:                    0.000
-  Recall:                 0.000
+  Num Good Points:      179.000
+  Max Good Points:    3,249.000
+  Average Precision:      0.024
+  MRR:                    0.500
+  Recall:                 0.055
   Precision At 1:         0.000
-  Precision At 2:         0.000
-  Precision At 3:         0.000
-  Precision At 4:         0.000
-  Precision At 5:         0.000
-  Precision At 6:         0.000
-  Precision At 7:         0.000
-  Precision At 8:         0.000
-  Precision At 9:         0.000
-  Precision At 10:        0.000
-  Precision At 11:        0.000
-  Precision At 12:        0.000
-  Precision At 13:        0.000
-  Precision At 14:        0.000
-  Precision At 15:        0.000
-  Precision At 16:        0.000
-  Precision At 17:        0.000
-  Precision At 18:        0.000
-  Precision At 19:        0.000
-  Precision At 20:        0.000
+  Precision At 2:         0.500
+  Precision At 3:         0.333
+  Precision At 4:         0.500
+  Precision At 5:         0.600
+  Precision At 6:         0.667
+  Precision At 7:         0.714
+  Precision At 8:         0.625
+  Precision At 9:         0.556
+  Precision At 10:        0.600
+  Precision At 11:        0.636
+  Precision At 12:        0.667
+  Precision At 13:        0.692
+  Precision At 14:        0.714
+  Precision At 15:        0.733
+  Precision At 16:        0.750
+  Precision At 17:        0.765
+  Precision At 18:        0.778
+  Precision At 19:        0.789
+  Precision At 20:        0.800
 
 20  -  (contents:32 contents:year contents:old contents:unbelted contents:driver contents:status contents:post contents:car contents:accident contents:has contents:multiple contents:extremity contents:fractures contents:severe contents:abdominal contents:pain contents:rebound contents:guarding)
 
 20 Stats:
-  Search Seconds:         0.003
-  DocName Seconds:        0.158
+  Search Seconds:         0.009
+  DocName Seconds:        0.086
   Num Points:         1,000.000
-  Num Good Points:        0.000
-  Max Good Points:    2,242.000
-  Average Precision:      0.000
-  MRR:                    0.000
-  Recall:                 0.000
+  Num Good Points:      131.000
+  Max Good Points:    3,163.000
+  Average Precision:      0.012
+  MRR:                    0.500
+  Recall:                 0.041
   Precision At 1:         0.000
-  Precision At 2:         0.000
-  Precision At 3:         0.000
-  Precision At 4:         0.000
-  Precision At 5:         0.000
-  Precision At 6:         0.000
-  Precision At 7:         0.000
-  Precision At 8:         0.000
-  Precision At 9:         0.000
-  Precision At 10:        0.000
-  Precision At 11:        0.000
-  Precision At 12:        0.000
-  Precision At 13:        0.000
-  Precision At 14:        0.000
-  Precision At 15:        0.000
-  Precision At 16:        0.000
-  Precision At 17:        0.000
-  Precision At 18:        0.000
-  Precision At 19:        0.000
-  Precision At 20:        0.000
+  Precision At 2:         0.500
+  Precision At 3:         0.667
+  Precision At 4:         0.500
+  Precision At 5:         0.400
+  Precision At 6:         0.500
+  Precision At 7:         0.571
+  Precision At 8:         0.625
+  Precision At 9:         0.556
+  Precision At 10:        0.600
+  Precision At 11:        0.545
+  Precision At 12:        0.583
+  Precision At 13:        0.615
+  Precision At 14:        0.643
+  Precision At 15:        0.600
+  Precision At 16:        0.562
+  Precision At 17:        0.529
+  Precision At 18:        0.556
+  Precision At 19:        0.579
+  Precision At 20:        0.550
 
 21  -  (contents:21 contents:year contents:old contents:female contents:progressive contents:arthralgias contents:fatigue contents:butterfly contents:shaped contents:facial contents:rash contents:labs contents:significant contents:positive contents:ana contents:anti contents:double contents:stranded contents:dna contents:well contents:proteinuria contents:rbc contents:casts)
 
 21 Stats:
-  Search Seconds:         0.003
-  DocName Seconds:        0.165
+  Search Seconds:         0.010
+  DocName Seconds:        0.098
   Num Points:         1,000.000
-  Num Good Points:        0.000
-  Max Good Points:    2,147.000
-  Average Precision:      0.000
-  MRR:                    0.000
-  Recall:                 0.000
-  Precision At 1:         0.000
-  Precision At 2:         0.000
-  Precision At 3:         0.000
-  Precision At 4:         0.000
-  Precision At 5:         0.000
-  Precision At 6:         0.000
-  Precision At 7:         0.000
-  Precision At 8:         0.000
-  Precision At 9:         0.000
-  Precision At 10:        0.000
-  Precision At 11:        0.000
-  Precision At 12:        0.000
-  Precision At 13:        0.000
-  Precision At 14:        0.000
-  Precision At 15:        0.000
-  Precision At 16:        0.000
-  Precision At 17:        0.000
-  Precision At 18:        0.000
-  Precision At 19:        0.000
-  Precision At 20:        0.000
+  Num Good Points:      197.000
+  Max Good Points:    2,997.000
+  Average Precision:      0.038
+  MRR:                    1.000
+  Recall:                 0.066
+  Precision At 1:         1.000
+  Precision At 2:         1.000
+  Precision At 3:         1.000
+  Precision At 4:         1.000
+  Precision At 5:         1.000
+  Precision At 6:         1.000
+  Precision At 7:         1.000
+  Precision At 8:         1.000
+  Precision At 9:         1.000
+  Precision At 10:        1.000
+  Precision At 11:        1.000
+  Precision At 12:        1.000
+  Precision At 13:        1.000
+  Precision At 14:        1.000
+  Precision At 15:        1.000
+  Precision At 16:        1.000
+  Precision At 17:        1.000
+  Precision At 18:        1.000
+  Precision At 19:        1.000
+  Precision At 20:        1.000
 
 22  -  (contents:15 contents:year contents:old contents:girl contents:right contents:lower contents:quadrant contents:abdominal contents:pain contents:decreased contents:appetite contents:enlarged contents:appendix contents:abdominal contents:ultrasound)
 
 22 Stats:
-  Search Seconds:         0.003
-  DocName Seconds:        0.150
+  Search Seconds:         0.011
+  DocName Seconds:        0.078
   Num Points:         1,000.000
-  Num Good Points:        0.000
-  Max Good Points:    1,605.000
-  Average Precision:      0.000
-  MRR:                    0.000
-  Recall:                 0.000
-  Precision At 1:         0.000
-  Precision At 2:         0.000
-  Precision At 3:         0.000
-  Precision At 4:         0.000
-  Precision At 5:         0.000
-  Precision At 6:         0.000
-  Precision At 7:         0.000
-  Precision At 8:         0.000
-  Precision At 9:         0.000
-  Precision At 10:        0.000
-  Precision At 11:        0.000
-  Precision At 12:        0.000
-  Precision At 13:        0.000
-  Precision At 14:        0.000
-  Precision At 15:        0.000
-  Precision At 16:        0.000
-  Precision At 17:        0.000
-  Precision At 18:        0.000
-  Precision At 19:        0.000
-  Precision At 20:        0.000
+  Num Good Points:      130.000
+  Max Good Points:    2,324.000
+  Average Precision:      0.023
+  MRR:                    1.000
+  Recall:                 0.056
+  Precision At 1:         1.000
+  Precision At 2:         1.000
+  Precision At 3:         0.667
+  Precision At 4:         0.750
+  Precision At 5:         0.800
+  Precision At 6:         0.833
+  Precision At 7:         0.857
+  Precision At 8:         0.875
+  Precision At 9:         0.778
+  Precision At 10:        0.800
+  Precision At 11:        0.818
+  Precision At 12:        0.833
+  Precision At 13:        0.846
+  Precision At 14:        0.786
+  Precision At 15:        0.800
+  Precision At 16:        0.812
+  Precision At 17:        0.765
+  Precision At 18:        0.722
+  Precision At 19:        0.684
+  Precision At 20:        0.700
 
 23  -  (contents:63 contents:year contents:old contents:heavy contents:smoker contents:productive contents:cough contents:shortness contents:breath contents:tachypnea contents:oxygen contents:requirement contents:chest contents:x contents:ray contents:shows contents:hyperinflation contents:consolidation)
 
 23 Stats:
-  Search Seconds:         0.003
-  DocName Seconds:        0.155
+  Search Seconds:         0.007
+  DocName Seconds:        0.078
   Num Points:         1,000.000
-  Num Good Points:        0.000
-  Max Good Points:    2,073.000
-  Average Precision:      0.000
-  MRR:                    0.000
-  Recall:                 0.000
-  Precision At 1:         0.000
-  Precision At 2:         0.000
-  Precision At 3:         0.000
-  Precision At 4:         0.000
-  Precision At 5:         0.000
-  Precision At 6:         0.000
-  Precision At 7:         0.000
-  Precision At 8:         0.000
-  Precision At 9:         0.000
-  Precision At 10:        0.000
-  Precision At 11:        0.000
-  Precision At 12:        0.000
-  Precision At 13:        0.000
-  Precision At 14:        0.000
-  Precision At 15:        0.000
-  Precision At 16:        0.000
-  Precision At 17:        0.000
-  Precision At 18:        0.000
-  Precision At 19:        0.000
-  Precision At 20:        0.000
+  Num Good Points:      267.000
+  Max Good Points:    3,037.000
+  Average Precision:      0.046
+  MRR:                    1.000
+  Recall:                 0.088
+  Precision At 1:         1.000
+  Precision At 2:         1.000
+  Precision At 3:         1.000
+  Precision At 4:         1.000
+  Precision At 5:         1.000
+  Precision At 6:         1.000
+  Precision At 7:         1.000
+  Precision At 8:         1.000
+  Precision At 9:         1.000
+  Precision At 10:        0.900
+  Precision At 11:        0.909
+  Precision At 12:        0.917
+  Precision At 13:        0.846
+  Precision At 14:        0.857
+  Precision At 15:        0.867
+  Precision At 16:        0.875
+  Precision At 17:        0.882
+  Precision At 18:        0.833
+  Precision At 19:        0.842
+  Precision At 20:        0.800
 
 24  -  (contents:33 contents:year contents:old contents:male contents:presents contents:severe contents:abdominal contents:pain contents:one contents:week contents:after contents:bike contents:accident contents:which contents:he contents:sustained contents:abdominal contents:trauma contents:he contents:hypotensive contents:tachycardic contents:imaging contents:reveals contents:ruptured contents:spleen contents:intraperitoneal contents:hemorrhage)
 
 24 Stats:
-  Search Seconds:         0.004
-  DocName Seconds:        0.144
+  Search Seconds:         0.009
+  DocName Seconds:        0.086
   Num Points:         1,000.000
-  Num Good Points:        0.000
-  Max Good Points:    1,791.000
-  Average Precision:      0.000
+  Num Good Points:       74.000
+  Max Good Points:    2,575.000
+  Average Precision:      0.002
   MRR:                    0.000
-  Recall:                 0.000
+  Recall:                 0.029
   Precision At 1:         0.000
   Precision At 2:         0.000
   Precision At 3:         0.000
@@ -760,87 +760,87 @@
   Precision At 13:        0.000
   Precision At 14:        0.000
   Precision At 15:        0.000
-  Precision At 16:        0.000
-  Precision At 17:        0.000
-  Precision At 18:        0.000
-  Precision At 19:        0.000
-  Precision At 20:        0.000
+  Precision At 16:        0.062
+  Precision At 17:        0.059
+  Precision At 18:        0.056
+  Precision At 19:        0.053
+  Precision At 20:        0.050
 
 25  -  (contents:8 contents:year contents:old contents:boy contents:decreased contents:level contents:consciousness contents:30 contents:minutes contents:after contents:falling contents:from contents:his contents:bike contents:hitting contents:his contents:head contents:he contents:wearing contents:helmet contents:er contents:he contents:bradycardic contents:hypertensive contents:neurosurgeon contents:strongly contents:advised contents:immediate contents:treatment)
 
 25 Stats:
-  Search Seconds:         0.004
-  DocName Seconds:        0.154
+  Search Seconds:         0.015
+  DocName Seconds:        0.095
   Num Points:         1,000.000
-  Num Good Points:        0.000
-  Max Good Points:    2,608.000
-  Average Precision:      0.000
-  MRR:                    0.000
-  Recall:                 0.000
+  Num Good Points:       67.000
+  Max Good Points:    3,632.000
+  Average Precision:      0.001
+  MRR:                    0.200
+  Recall:                 0.018
   Precision At 1:         0.000
   Precision At 2:         0.000
   Precision At 3:         0.000
   Precision At 4:         0.000
-  Precision At 5:         0.000
-  Precision At 6:         0.000
-  Precision At 7:         0.000
-  Precision At 8:         0.000
-  Precision At 9:         0.000
-  Precision At 10:        0.000
-  Precision At 11:        0.000
-  Precision At 12:        0.000
-  Precision At 13:        0.000
-  Precision At 14:        0.000
-  Precision At 15:        0.000
-  Precision At 16:        0.000
-  Precision At 17:        0.000
-  Precision At 18:        0.000
-  Precision At 19:        0.000
-  Precision At 20:        0.000
+  Precision At 5:         0.200
+  Precision At 6:         0.167
+  Precision At 7:         0.143
+  Precision At 8:         0.125
+  Precision At 9:         0.111
+  Precision At 10:        0.100
+  Precision At 11:        0.091
+  Precision At 12:        0.083
+  Precision At 13:        0.077
+  Precision At 14:        0.071
+  Precision At 15:        0.067
+  Precision At 16:        0.062
+  Precision At 17:        0.059
+  Precision At 18:        0.056
+  Precision At 19:        0.053
+  Precision At 20:        0.050
 
 26  -  (contents:group contents:traveling contents:amazon contents:rainforest contents:including contents:3 contents:pregnant contents:women contents:all contents:members contents:immunizations contents:up contents:date contents:require contents:malaria contents:prophylaxis)
 
 26 Stats:
-  Search Seconds:         0.003
-  DocName Seconds:        0.146
+  Search Seconds:         0.010
+  DocName Seconds:        0.098
   Num Points:         1,000.000
-  Num Good Points:        2.000
-  Max Good Points:    1,927.000
-  Average Precision:      0.000
-  MRR:                    0.000
-  Recall:                 0.001
-  Precision At 1:         0.000
-  Precision At 2:         0.000
-  Precision At 3:         0.000
-  Precision At 4:         0.000
-  Precision At 5:         0.000
-  Precision At 6:         0.000
-  Precision At 7:         0.000
-  Precision At 8:         0.000
-  Precision At 9:         0.000
-  Precision At 10:        0.000
-  Precision At 11:        0.000
-  Precision At 12:        0.000
-  Precision At 13:        0.000
-  Precision At 14:        0.000
-  Precision At 15:        0.000
-  Precision At 16:        0.000
-  Precision At 17:        0.000
-  Precision At 18:        0.000
-  Precision At 19:        0.000
-  Precision At 20:        0.000
+  Num Good Points:      247.000
+  Max Good Points:    2,711.000
+  Average Precision:      0.052
+  MRR:                    1.000
+  Recall:                 0.091
+  Precision At 1:         1.000
+  Precision At 2:         1.000
+  Precision At 3:         1.000
+  Precision At 4:         1.000
+  Precision At 5:         1.000
+  Precision At 6:         1.000
+  Precision At 7:         0.857
+  Precision At 8:         0.875
+  Precision At 9:         0.889
+  Precision At 10:        0.800
+  Precision At 11:        0.818
+  Precision At 12:        0.833
+  Precision At 13:        0.769
+  Precision At 14:        0.786
+  Precision At 15:        0.800
+  Precision At 16:        0.750
+  Precision At 17:        0.765
+  Precision At 18:        0.722
+  Precision At 19:        0.737
+  Precision At 20:        0.750
 
 27  -  (contents:21 contents:year contents:old contents:male contents:dozens contents:small contents:polyps contents:found contents:colonoscopy contents:family contents:history contents:significant contents:both contents:older contents:siblings contents:having contents:total contents:colectomies contents:after contents:colonoscopy contents:revealed contents:hundreds contents:adenomas)
 
 27 Stats:
-  Search Seconds:         0.004
-  DocName Seconds:        0.152
+  Search Seconds:         0.015
+  DocName Seconds:        0.097
   Num Points:         1,000.000
-  Num Good Points:        0.000
-  Max Good Points:    1,563.000
+  Num Good Points:        5.000
+  Max Good Points:    2,206.000
   Average Precision:      0.000
   MRR:                    0.000
-  Recall:                 0.000
+  Recall:                 0.002
   Precision At 1:         0.000
   Precision At 2:         0.000
   Precision At 3:         0.000
@@ -865,129 +865,129 @@
 28  -  (contents:31 contents:year contents:old contents:female contents:amenorrhea contents:milky contents:nipple contents:discharge contents:negative contents:urine contents:pregnancy contents:test contents:elevated contents:prolactin contents:level)
 
 28 Stats:
-  Search Seconds:         0.003
-  DocName Seconds:        0.150
+  Search Seconds:         0.011
+  DocName Seconds:        0.091
   Num Points:         1,000.000
-  Num Good Points:        6.000
-  Max Good Points:    2,172.000
-  Average Precision:      0.000
-  MRR:                    0.000
-  Recall:                 0.003
-  Precision At 1:         0.000
-  Precision At 2:         0.000
-  Precision At 3:         0.000
-  Precision At 4:         0.000
-  Precision At 5:         0.000
-  Precision At 6:         0.000
-  Precision At 7:         0.000
-  Precision At 8:         0.000
-  Precision At 9:         0.000
-  Precision At 10:        0.000
-  Precision At 11:        0.000
-  Precision At 12:        0.000
-  Precision At 13:        0.000
-  Precision At 14:        0.000
-  Precision At 15:        0.000
-  Precision At 16:        0.000
-  Precision At 17:        0.000
-  Precision At 18:        0.000
-  Precision At 19:        0.000
-  Precision At 20:        0.000
+  Num Good Points:      129.000
+  Max Good Points:    2,967.000
+  Average Precision:      0.018
+  MRR:                    1.000
+  Recall:                 0.043
+  Precision At 1:         1.000
+  Precision At 2:         1.000
+  Precision At 3:         1.000
+  Precision At 4:         1.000
+  Precision At 5:         0.800
+  Precision At 6:         0.833
+  Precision At 7:         0.857
+  Precision At 8:         0.875
+  Precision At 9:         0.778
+  Precision At 10:        0.700
+  Precision At 11:        0.727
+  Precision At 12:        0.750
+  Precision At 13:        0.769
+  Precision At 14:        0.786
+  Precision At 15:        0.733
+  Precision At 16:        0.750
+  Precision At 17:        0.706
+  Precision At 18:        0.722
+  Precision At 19:        0.737
+  Precision At 20:        0.750
 
 29  -  (contents:51 contents:year contents:old contents:smoker contents:hypertension contents:diabetes contents:menopause contents:needs contents:recommendations contents:preventing contents:osteoporosis)
 
 29 Stats:
-  Search Seconds:         0.002
-  DocName Seconds:        0.145
+  Search Seconds:         0.005
+  DocName Seconds:        0.096
   Num Points:         1,000.000
-  Num Good Points:        0.000
-  Max Good Points:    2,109.000
-  Average Precision:      0.000
-  MRR:                    0.000
-  Recall:                 0.000
-  Precision At 1:         0.000
-  Precision At 2:         0.000
-  Precision At 3:         0.000
-  Precision At 4:         0.000
-  Precision At 5:         0.000
-  Precision At 6:         0.000
-  Precision At 7:         0.000
-  Precision At 8:         0.000
-  Precision At 9:         0.000
-  Precision At 10:        0.000
-  Precision At 11:        0.000
-  Precision At 12:        0.000
-  Precision At 13:        0.000
-  Precision At 14:        0.000
-  Precision At 15:        0.000
-  Precision At 16:        0.000
-  Precision At 17:        0.000
-  Precision At 18:        0.000
-  Precision At 19:        0.000
-  Precision At 20:        0.000
+  Num Good Points:       33.000
+  Max Good Points:    2,974.000
+  Average Precision:      0.001
+  MRR:                    1.000
+  Recall:                 0.011
+  Precision At 1:         1.000
+  Precision At 2:         1.000
+  Precision At 3:         0.667
+  Precision At 4:         0.500
+  Precision At 5:         0.400
+  Precision At 6:         0.333
+  Precision At 7:         0.286
+  Precision At 8:         0.250
+  Precision At 9:         0.222
+  Precision At 10:        0.200
+  Precision At 11:        0.182
+  Precision At 12:        0.167
+  Precision At 13:        0.154
+  Precision At 14:        0.143
+  Precision At 15:        0.133
+  Precision At 16:        0.125
+  Precision At 17:        0.118
+  Precision At 18:        0.111
+  Precision At 19:        0.105
+  Precision At 20:        0.100
 
 30  -  (contents:72 contents:year contents:old contents:man contents:calf contents:pain contents:while contents:walking contents:uphill contents:history contents:ischemic contents:heart contents:disease contents:worsening contents:hypertension contents:despite contents:medication contents:compliance contents:physical contents:exam contents:he contents:has contents:right contents:carotid contents:bruit contents:his contents:lower contents:extremities contents:cool contents:diminished contents:dorsalis contents:pedis contents:pulses)
 
 30 Stats:
-  Search Seconds:         0.003
-  DocName Seconds:        0.156
+  Search Seconds:         0.010
+  DocName Seconds:        0.085
   Num Points:         1,000.000
-  Num Good Points:        0.000
-  Max Good Points:    2,421.000
-  Average Precision:      0.000
-  MRR:                    0.000
-  Recall:                 0.000
-  Precision At 1:         0.000
-  Precision At 2:         0.000
-  Precision At 3:         0.000
-  Precision At 4:         0.000
-  Precision At 5:         0.000
-  Precision At 6:         0.000
-  Precision At 7:         0.000
-  Precision At 8:         0.000
-  Precision At 9:         0.000
-  Precision At 10:        0.000
-  Precision At 11:        0.000
-  Precision At 12:        0.000
-  Precision At 13:        0.000
-  Precision At 14:        0.000
-  Precision At 15:        0.000
-  Precision At 16:        0.000
-  Precision At 17:        0.000
-  Precision At 18:        0.000
-  Precision At 19:        0.000
-  Precision At 20:        0.000
+  Num Good Points:      117.000
+  Max Good Points:    3,362.000
+  Average Precision:      0.010
+  MRR:                    1.000
+  Recall:                 0.035
+  Precision At 1:         1.000
+  Precision At 2:         1.000
+  Precision At 3:         0.667
+  Precision At 4:         0.750
+  Precision At 5:         0.600
+  Precision At 6:         0.500
+  Precision At 7:         0.571
+  Precision At 8:         0.500
+  Precision At 9:         0.556
+  Precision At 10:        0.500
+  Precision At 11:        0.545
+  Precision At 12:        0.500
+  Precision At 13:        0.538
+  Precision At 14:        0.571
+  Precision At 15:        0.600
+  Precision At 16:        0.625
+  Precision At 17:        0.588
+  Precision At 18:        0.556
+  Precision At 19:        0.526
+  Precision At 20:        0.550
 
 
 
 SUMMARY
-  Search Seconds:         0.006
-  DocName Seconds:        0.159
+  Search Seconds:         0.014
+  DocName Seconds:        0.089
   Num Points:         1,000.000
-  Num Good Points:        2.833
-  Max Good Points:    2,330.300
-  Average Precision:      0.000
-  MRR:                    0.057
-  Recall:                 0.001
-  Precision At 1:         0.033
-  Precision At 2:         0.033
-  Precision At 3:         0.022
-  Precision At 4:         0.017
-  Precision At 5:         0.027
-  Precision At 6:         0.028
-  Precision At 7:         0.029
-  Precision At 8:         0.025
-  Precision At 9:         0.026
-  Precision At 10:        0.027
-  Precision At 11:        0.027
-  Precision At 12:        0.028
-  Precision At 13:        0.026
-  Precision At 14:        0.024
-  Precision At 15:        0.024
-  Precision At 16:        0.023
-  Precision At 17:        0.022
-  Precision At 18:        0.020
-  Precision At 19:        0.019
-  Precision At 20:        0.018
+  Num Good Points:      135.867
+  Max Good Points:    3,200.900
+  Average Precision:      0.016
+  MRR:                    0.751
+  Recall:                 0.043
+  Precision At 1:         0.667
+  Precision At 2:         0.633
+  Precision At 3:         0.589
+  Precision At 4:         0.575
+  Precision At 5:         0.560
+  Precision At 6:         0.550
+  Precision At 7:         0.533
+  Precision At 8:         0.529
+  Precision At 9:         0.504
+  Precision At 10:        0.487
+  Precision At 11:        0.482
+  Precision At 12:        0.481
+  Precision At 13:        0.482
+  Precision At 14:        0.486
+  Precision At 15:        0.480
+  Precision At 16:        0.477
+  Precision At 17:        0.469
+  Precision At 18:        0.465
+  Precision At 19:        0.465
+  Precision At 20:        0.470
 
 
