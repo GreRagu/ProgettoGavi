@@ -1,6 +1,5 @@
 
 
-import java.util.LinkedList;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.queryparser.flexible.core.QueryNodeException;
 import org.apache.lucene.queryparser.flexible.standard.StandardQueryParser;
@@ -18,17 +17,18 @@ public class BooleanModel extends Model{
 	 * (non-Javadoc)
 	 * @see irModels.Model#getQueryParsed(java.lang.String, java.util.LinkedList, org.apache.lucene.analysis.standard.StandardAnalyzer)
 	 */
-	public Query getQueryParsed(String query, LinkedList<String> fields, StandardAnalyzer analyzer) {
+	public Query getQueryParsed(String query, String field, StandardAnalyzer analyzer) {
 		
 		StandardQueryParser queryParser = null;
 		Query q = null;
 		Builder finalQuery = new BooleanQuery.Builder();
 		queryParser = new StandardQueryParser(analyzer);
 		
-		for(String field : fields) {
+
 			try {
 				q = queryParser.parse(query, field);
 			} catch (QueryNodeException e) {
+				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			
@@ -37,7 +37,6 @@ public class BooleanModel extends Model{
 			 * operator between queries
 			 */			
 			finalQuery.add(q, BooleanClause.Occur.SHOULD); 
-		}
 		
 		return finalQuery.build();
 	}

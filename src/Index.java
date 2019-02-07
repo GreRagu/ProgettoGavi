@@ -113,6 +113,8 @@ public class Index implements ActionListener{
 		start = new JButton("Start");
 		start.setSize(70, 50);
 		start.addActionListener(this);
+		dlgProgress.getRootPane().setDefaultButton(start);
+		start.requestFocus();
 		content.add(start, BorderLayout.EAST);
 		content.add(progressBar, BorderLayout.NORTH);
 		dlgProgress.setVisible(true);

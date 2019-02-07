@@ -209,6 +209,9 @@ public class ProgettoGaviMain implements ActionListener {
 		scrollPane.setBounds(15, 110, 580, 300);
 		frmHegregio.add(scrollPane, BorderLayout.CENTER);
 		
+		
+		frmHegregio.getRootPane().setDefaultButton(btnSearch);
+		btnSearch.requestFocus();
 		frmHegregio.setResizable(false);
 	}
 

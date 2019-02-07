@@ -1,7 +1,4 @@
 
-
-import java.util.LinkedList;
-
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.queryparser.flexible.standard.StandardQueryParser;
 import org.apache.lucene.search.Query;
@@ -16,7 +13,7 @@ public class BM25 extends Model {
 	 * (non-Javadoc)
 	 * @see irModels.Model#getQueryParsed(java.lang.String, java.util.LinkedList, org.apache.lucene.analysis.standard.StandardAnalyzer)
 	 */
-	public Query getQueryParsed(String query, LinkedList<String> fields, StandardAnalyzer analyzer) {
+	public Query getQueryParsed(String query, String field, StandardAnalyzer analyzer) {
 		
 		int maxEdits = 0;
 		StandardQueryParser sqp = new StandardQueryParser(analyzer);
@@ -46,9 +43,7 @@ public class BM25 extends Model {
 		
 		//Now, parsing is make on each field, creating the final query
 		try {
-			for(String field : fields) {
-				query_parsed += sqp.parse(query, field).toString() + " ";
-			}
+			query_parsed += sqp.parse(query, field).toString() + " ";
 			q = sqp.parse(query_parsed, "");
 		} catch (Exception e) {
 			e.printStackTrace();

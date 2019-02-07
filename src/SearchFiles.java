@@ -13,12 +13,10 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.index.DirectoryReader;
 import org.apache.lucene.index.IndexReader;
-import org.apache.lucene.queryparser.classic.QueryParser;
 import org.apache.lucene.search.IndexSearcher;
 import org.apache.lucene.search.Query;
 import org.apache.lucene.search.ScoreDoc;
@@ -56,14 +54,14 @@ public class SearchFiles implements ActionListener{
 		IndexReader reader = DirectoryReader.open(FSDirectory.open(Paths.get(index)));
 		IndexSearcher searcher = new IndexSearcher(reader);
 		searcher.setSimilarity(M.getModelSymilarity());
-		Analyzer analyzer = new StandardAnalyzer();
+		StandardAnalyzer analyzer = new StandardAnalyzer();
 		
 		tokenizeStopStem tSS = new tokenizeStopStem(queryString);
 		queryString = tSS.output();
+		
+		Query query = M.getQuery(queryString, field, analyzer);
 
-		QueryParser parser = new QueryParser(field, analyzer);
-
-		Query query = parser.parse(queryString);
+		
 		System.out.println(queryString);
 		System.out.println("Searching for: " + query.toString(field));
 	

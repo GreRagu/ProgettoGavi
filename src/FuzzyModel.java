@@ -1,6 +1,5 @@
 
 
-import java.util.LinkedList;
 
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.queryparser.flexible.standard.StandardQueryParser;
@@ -11,7 +10,7 @@ import org.apache.lucene.search.similarities.Similarity;
 public class FuzzyModel extends Model {
 
 	@Override
-	public Query getQueryParsed(String query, LinkedList<String> fields, StandardAnalyzer analyzer) {
+	public Query getQueryParsed(String query, String field, StandardAnalyzer analyzer) {
 		
 		int maxEdits = 0;
 		/*
@@ -41,10 +40,7 @@ public class FuzzyModel extends Model {
 		String query_parsed = "";
 		Query q = null;
 			try {
-				for (String field : fields) {
-					//b.add(queryParser.parse(query, field), BooleanClause.Occur.SHOULD);
-					query_parsed += queryParser.parse(query, field).toString() + " ";
-				}
+				query_parsed += queryParser.parse(query, field).toString() + " ";
 				q = queryParser.parse(query_parsed, "");
 			} catch (Exception e) {
 				e.printStackTrace();

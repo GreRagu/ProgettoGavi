@@ -35,7 +35,7 @@ public class IndexWorker extends Thread {
 	private String indexDir;
 	private boolean append;
 	private Directory dir;
-	private Analyzer analyzer;
+	private StandardAnalyzer analyzer;
 	private IndexWriterConfig iwc;
 	private IndexWriter writer;
 	private JProgressBar pb;
@@ -80,7 +80,7 @@ public class IndexWorker extends Thread {
 		}
 
 		// buffer ram
-		iwc.setRAMBufferSizeMB(512.0);
+		iwc.setRAMBufferSizeMB(2048.0);
 
 		writer = new IndexWriter(dir, iwc);
 
@@ -141,7 +141,7 @@ public class IndexWorker extends Thread {
 		
 
 		// index file name
-		TextField fileNameField = new TextField(FILE_NAME, file.getName(), Field.Store.YES);
+		TextField fileNameField = new TextField(FILE_NAME, file.getName().substring(0, file.getName().length() - 5), Field.Store.YES);
 
 		// index file path
 		TextField filePathField = new TextField(FILE_PATH, file.getCanonicalPath(), Field.Store.YES);
