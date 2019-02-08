@@ -381,8 +381,18 @@ public class ProgettoGaviMain implements ActionListener {
 		}
 		
 		if( e.getSource() == mntmCalculateAndPlot) {
-			
-			PrecisionRecall pr = new PrecisionRecall();			
+			if(indexDir != null) {
+				PrecisionRecall pr = new PrecisionRecall(indexDir);
+				try {
+					pr.start();
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+			else {
+				JOptionPane.showMessageDialog(frmHegregio,	"Select the index folder or create one", "Error", JOptionPane.ERROR_MESSAGE);
+			}
 		}
 		
 	}
