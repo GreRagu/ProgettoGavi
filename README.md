@@ -19,26 +19,26 @@ lucene-suggest-7.4.0.jar
 ```
 
 ## How to use 
-The GUI structure is based on a menu bar.
+The GUI structure is based on a menu bar.  
 The first menu element that is going to be used is "Index"
 
-`Create Index Path` creates a file that lists all the document the user wants to index  
-`Create Index` Start indexing the document listed on the IndexPath file with the selected model  
-`Load Index` Load an existing index
+**Create Index Path** creates a file that lists all the document the user wants to index  
+**Create Index** Start indexing the document listed on the IndexPath file with the selected model  
+**Load Index** Load an existing index
 
-`Models` In this menu the user can select what model prefers to apply  
-The default one is the standard model.
-Other choises are: 
-Vector Space Model
-Boolean Model
-Fuzzy Model
+**Models** In this menu the user can select what model prefers to apply  
+The default one is the standard model.  
+Other choices are:  
+⋅⋅* Vector Space Model  
+⋅⋅* Boolean Model  
+⋅⋅* Fuzzy Model 
 
-`Efficiency` Calulates and plots graphs about precision and recall about the benchmark queries
+**Efficiency** Calculates and plots graphs about precision and recall about the benchmark queries
 
-In the saerch bar the user can insert the query who wants to search.
+In the search bar the user can insert the query who wants to search.
 Wildcard queries are supported.
 Before the search it is offered a "Did you mean..?" feature with a suggestion for
 an alternative search.
 
-The results are dislayed in the table below with a default limit of 100 rows (editable during the search).
+The results are displayed in the table below with a default limit of 100 rows (editable during the search).
 It is possible to open and view the selected document directly from the table.
