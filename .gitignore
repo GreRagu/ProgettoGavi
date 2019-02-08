@@ -1,6 +1,5 @@
-/index_pmc/*
-/index_prova/*
-/dataset/clinical_dataset/pmc-text-00/*
+/index_*/*
+/dataset/clinical_dataset/pmc*/*
 /bin/*
 /src/*.class
 .classpath
