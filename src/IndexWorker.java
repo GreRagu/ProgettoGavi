@@ -53,6 +53,11 @@ public class IndexWorker extends Thread {
 	private String indexFile;
 	private Integer Number;
 	private Integer FileNotFound;
+	private Document document;
+	private BufferedReader reader;
+	private TextField contentField;
+	private TextField fileNameField;
+	private TextField filePathField;
 	
 	public IndexWorker(String indexDir, boolean append, JProgressBar pb, JDialog parent, JFrame parentFrame, MyModel M, String indexFile, Integer Number) {
 		this.indexDir = indexDir;
@@ -160,17 +165,17 @@ public class IndexWorker extends Thread {
 	 * @throws IOException
 	 */
 	private Document getDocument(File file) throws IOException {
-		Document document = new Document();
+		document = new Document();
 
 		// index file contents
-		TextField contentField = new TextField(CONTENTS, fileToBody(file), Field.Store.YES);
+		contentField = new TextField(CONTENTS, fileToBody(file), Field.Store.YES);
 		
 
 		// index file name
-		TextField fileNameField = new TextField(FILE_NAME, file.getName().substring(0, file.getName().length() - 5), Field.Store.YES);
+		fileNameField = new TextField(FILE_NAME, file.getName().substring(0, file.getName().length() - 5), Field.Store.YES);
 
 		// index file path
-		TextField filePathField = new TextField(FILE_PATH, file.getCanonicalPath(), Field.Store.YES);
+		filePathField = new TextField(FILE_PATH, file.getCanonicalPath(), Field.Store.YES);
 
 		//System.out.println(contentField + " " + fileNameField + " " + filePathField);
 		document.add(contentField);
@@ -189,7 +194,7 @@ public class IndexWorker extends Thread {
 	 * @throws ParseException 
 	 */
 	public String fileToBody(File file) throws IOException {
-		BufferedReader reader = new BufferedReader(new FileReader(file));
+		reader = new BufferedReader(new FileReader(file));
 		String line = null;
 		StringBuilder stringBuilder = new StringBuilder();
 		String ls = System.getProperty("line.separator");
