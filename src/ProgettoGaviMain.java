@@ -385,7 +385,7 @@ public class ProgettoGaviMain implements ActionListener {
 			if(indexDir != null) {
 				
 				PrecisionRecall pr = new PrecisionRecall(indexDir);
-				JOptionPane.showMessageDialog(null,"Al termine del lotting verranno visualizzati i risultati");
+				JOptionPane.showMessageDialog(frmHegregio,"At the end of the plotting, the results folder will be opened");
 
 				try {
 					pr.start();
