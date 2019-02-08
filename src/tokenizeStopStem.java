@@ -11,6 +11,10 @@ import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
 import org.apache.lucene.analysis.tokenattributes.OffsetAttribute;
 
+/**Classe che si occupa di dividere in token una stringa (che sia da indicizzare o una query da ricercare),
+* rimuovere le stopword (lista fornita manualmente),
+* e applicare lo stemming.
+*/
 public class tokenizeStopStem {
 
 	private String text;
@@ -22,9 +26,7 @@ public class tokenizeStopStem {
 	public String output() {
 
 		Collection<String> c = new ArrayList<String>() {
-			/**
-			 * 
-			 */
+			//lista di stopwords
 			private static final long serialVersionUID = 1L;
 
 			{
@@ -557,11 +559,15 @@ public class tokenizeStopStem {
 			}
 		};
 		CharArraySet stop = new CharArraySet(c, false);
-
+		
+		//Lo standard analyzer viene inizializzato con la lista di stopwords
 		StandardAnalyzer analyzer = new StandardAnalyzer(stop);
+		//la stringa in input vine tokenizzata
 		TokenStream tokenStream = analyzer.tokenStream("", text);
 
+		//vengono rimosse le stopwords
 		tokenStream = new StopFilter(tokenStream, stop);
+		//applicazione dello stemming
 		tokenStream = new PorterStemFilter(tokenStream);
 
 		StringBuilder sb = new StringBuilder();
