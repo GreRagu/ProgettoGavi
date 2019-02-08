@@ -259,10 +259,10 @@ public class ProgettoGaviMain implements ActionListener {
 			if(returnVal == JFileChooser.APPROVE_OPTION) {
 			    yourFolder = fc.getSelectedFile();
 			    indexPath = yourFolder.getAbsolutePath();
-			    indexPath = "." + indexPath.substring(basePath.length());
+			    //indexPath = "." + indexPath.substring(basePath.length());
 				
 				try {
-						ObjectInputStream in = new ObjectInputStream(new FileInputStream(M.getPaht()));
+						ObjectInputStream in = new ObjectInputStream(new FileInputStream(indexPath + M.getPaht()));
 						modelUsed = (Integer) in.readObject();
 						filenumber = (Integer) in.readObject();
 						in.close();

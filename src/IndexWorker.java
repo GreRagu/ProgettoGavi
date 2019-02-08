@@ -142,7 +142,9 @@ public class IndexWorker extends Thread {
 		writer.close();
 		
 		
-		ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(M.getPaht()));
+		File modelFile = new File(indexDir, "Model.ser");
+		modelFile.createNewFile();
+		ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(modelFile));
 		out.writeObject(M.getModel());
 		out.writeObject(Number - FileNotFound);
 		out.close();

@@ -1,6 +1,5 @@
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
@@ -56,7 +55,7 @@ public class CreateIndexPath {
 		    File yourFolder = fc.getSelectedFile();
 		    docsPath = yourFolder.getAbsolutePath();
 		    
-			docsPath = "." + docsPath.substring(ProgettoGaviMain.basePath.length());
+			//docsPath = "." + docsPath.substring(ProgettoGaviMain.basePath.length());
 			System.out.println(docsPath);
 		}
 		if (returnVal==JFileChooser.CANCEL_OPTION) return 0;
@@ -108,11 +107,13 @@ public class CreateIndexPath {
 	 * @param file - file IndexPath
 	 * @param append - booleano per decidere se aprire il file in modalità append
 	 * @return
-	 * @throws FileNotFoundException
+	 * @throws IOException 
 	 */
-	private int writeDocPath(String docsPath, String ext, String file, Boolean append) throws FileNotFoundException {
+	private int writeDocPath(String docsPath, String ext, String file, Boolean append) throws IOException {
 
-	    PrintStream write = new PrintStream(new FileOutputStream(file, append));
+		File indexPathfile = new File(file);
+		indexPathfile.createNewFile();
+	    PrintStream write = new PrintStream(new FileOutputStream(indexPathfile, append));
 		try {
 			Files.walk(Paths.get(docsPath)).filter(p -> p.toString().endsWith(ext)).forEach(write::println);
 		} catch (IOException e1) {

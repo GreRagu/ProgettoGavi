@@ -81,7 +81,7 @@ public class Index implements ActionListener{
 			yourFolder = fc.getSelectedFile();
 			indexDir = yourFolder.getAbsolutePath();
 
-			indexDir = "." + indexDir.substring(ProgettoGaviMain.basePath.length());
+			//indexDir = "." + indexDir.substring(ProgettoGaviMain.basePath.length());
 			System.out.println(indexDir);
 		}
 		if (returnVal == JFileChooser.CANCEL_OPTION)

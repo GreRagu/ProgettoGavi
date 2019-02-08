@@ -13,7 +13,7 @@ public class MyModel {
 	private String[] Model = {"Probabilistic(BM25) Model", "Vector Space Model (TFIDF)", "Boolean Model", "Fuzzy Model"};
 	private Integer modelUsed;
 	private Similarity Sim;
-	private String Path = "./dataset/clinical_dataset/Model.ser";
+	private String Path = "/Model.ser";
 	private Query Q;
 	
 	public MyModel(Integer modelUsed) {
