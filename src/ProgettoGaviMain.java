@@ -139,15 +139,13 @@ public class ProgettoGaviMain implements ActionListener {
 		group.add(mntmFuzzyModel);
 		mnModels.addSeparator();
 		
-		JMenu mnTolerantRetriaval = new JMenu("Tolerant retriaval");
-		menuBar.add(mnTolerantRetriaval);
-		
 		JMenu mnEfficiency = new JMenu("Efficiency");
 		menuBar.add(mnEfficiency);
 		
 		mntmCalculateAndPlot = new JMenuItem("Calculate and plot");
 		mntmCalculateAndPlot.addActionListener(this);
 		mnEfficiency.add(mntmCalculateAndPlot);
+		
 		
 		btnHelp = new JButton("? Help");
 		btnHelp.setBounds(540, 0, 70, 20);
@@ -259,10 +257,10 @@ public class ProgettoGaviMain implements ActionListener {
 			if(returnVal == JFileChooser.APPROVE_OPTION) {
 			    yourFolder = fc.getSelectedFile();
 			    indexPath = yourFolder.getAbsolutePath();
-			    //indexPath = "." + indexPath.substring(basePath.length());
+			    indexPath = "." + indexPath.substring(basePath.length());
 				
 				try {
-						ObjectInputStream in = new ObjectInputStream(new FileInputStream(indexPath + M.getPaht()));
+						ObjectInputStream in = new ObjectInputStream(new FileInputStream(M.getPaht()));
 						modelUsed = (Integer) in.readObject();
 						filenumber = (Integer) in.readObject();
 						in.close();
@@ -383,6 +381,8 @@ public class ProgettoGaviMain implements ActionListener {
 		}
 		
 		if( e.getSource() == mntmCalculateAndPlot) {
+			
+			PrecisionRecall pr = new PrecisionRecall();			
 		}
 		
 	}
