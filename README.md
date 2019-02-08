@@ -1,3 +1,7 @@
+<p align="center">
+<img src="https://www.dropbox.com/s/zps3jf72744mumh/lucene.png?dl=0">
+</p>    
+
 # Hegregio
 
 **Hegregio** is a Lucene based information retrieval tool developed in Java (Eclipse workspace)  
@@ -40,5 +44,11 @@ Wildcard queries are supported.
 Before the search it is offered a "Did you mean..?" feature with a suggestion for
 an alternative search.
 
-The results are displayed in the table below with a default limit of 100 rows (editable during the search).
+The results are displayed in the table below with a default limit of 100 rows (editable during the search).  
 It is possible to open and view the selected document directly from the table.
+
+## Contributors
+
+Giovanni Gambigliani Zoccoli
+Greta Rausa
+Andrea Helmi
