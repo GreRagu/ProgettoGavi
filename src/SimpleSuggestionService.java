@@ -27,8 +27,7 @@ public class SimpleSuggestionService {
     
     public String DidYouMean() throws IOException {
     	
-	//per il servizio "Did you mean" è stato utilizzato un dizionario di lingua inglese specifico
-	//per l'ambito medico
+	//per il servizio "Did you mean" è stato utilizzato un dizionario di lingua inglese specifico per l'ambito medico
         dir = Paths.get("./dictionary");
         dict = Paths.get("./dictionary.txt");
         directory = FSDirectory.open(dir);
