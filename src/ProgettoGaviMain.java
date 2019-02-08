@@ -1,4 +1,5 @@
 import java.awt.BorderLayout;
+import java.awt.Desktop;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -382,9 +383,14 @@ public class ProgettoGaviMain implements ActionListener {
 		
 		if( e.getSource() == mntmCalculateAndPlot) {
 			if(indexDir != null) {
+				
 				PrecisionRecall pr = new PrecisionRecall(indexDir);
+				JOptionPane.showMessageDialog(null,"Al termine del lotting verranno visualizzati i risultati");
+
 				try {
 					pr.start();
+					Desktop.getDesktop().open(new File("./results"));
+					
 				} catch (Exception e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -393,6 +399,7 @@ public class ProgettoGaviMain implements ActionListener {
 			else {
 				JOptionPane.showMessageDialog(frmHegregio,	"Select the index folder or create one", "Error", JOptionPane.ERROR_MESSAGE);
 			}
+			
 		}
 		
 	}
