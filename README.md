@@ -29,14 +29,14 @@ The first menu element that is going to be used is "Index"
 **Models** In this menu the user can select what model prefers to apply  
 The default one is the standard model.  
 Other choices are:  
-⋅⋅* Vector Space Model  
-⋅⋅* Boolean Model  
-⋅⋅* Fuzzy Model 
+* Vector Space Model  
+* Boolean Model  
+* Fuzzy Model 
 
 **Efficiency** Calculates and plots graphs about precision and recall about the benchmark queries
 
-In the search bar the user can insert the query who wants to search.
-Wildcard queries are supported.
+In the search bar the user can insert the query who wants to search.  
+Wildcard queries are supported.  
 Before the search it is offered a "Did you mean..?" feature with a suggestion for
 an alternative search.
 
