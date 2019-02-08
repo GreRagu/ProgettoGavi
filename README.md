@@ -26,9 +26,9 @@ The first menu element that is going to be used is "Index"
 **Create Index** Start indexing the document listed on the IndexPath file with the selected model  
 **Load Index** Load an existing index
 
-**Models** In this menu the user can select what model prefers to apply  
-The default one is the standard model.  
-Other choices are:  
+**Models** In this menu the user can select what model prefers to apply    
+The choices are:  
+* Standard model(Default)
 * Vector Space Model  
 * Boolean Model  
 * Fuzzy Model 
