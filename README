@@ -1,0 +1,18 @@
+Hegregio
+Hegregio is a Lucene based information retrieval tool.
+It offer the possibility of searching within the TREC dataset using different 
+ir Models and different Tolerant Retrieval functions.
+
+How to install
+the src directory contains the code of the project and the lib directory contains
+all the lucene libs necessary for compiling the code.
+Specifically, the jar libraries used for the project are
+ 
+lucene-analyzers-common-7.4.0.jar
+lucene-benchmark-7.4.0.jar 	
+lucene-core-7.4.0.jar 	
+lucene-demo-7.4.0.jar 	
+lucene-queryparser-7.4.0.jar 	
+lucene-suggest-7.4.0.jar 	
+
+How to use 
