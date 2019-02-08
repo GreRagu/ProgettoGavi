@@ -27,6 +27,8 @@ public class SimpleSuggestionService {
     
     public String DidYouMean() throws IOException {
     	
+	//per il servizio "Did you mean" è stato utilizzato un dizionario di lingua inglese specifico
+	//per l'ambito medico
         dir = Paths.get("./dictionary");
         dict = Paths.get("./dictionary.txt");
         directory = FSDirectory.open(dir);
@@ -42,6 +44,7 @@ public class SimpleSuggestionService {
         
         int suggestionsNumber = 1;
         
+	//per ogni stringa ne suggerisce una composta dalle parole del dizionario
         for(int i = 0; i < text.length; i++) {
         	String[] suggestions = spellChecker.suggestSimilar(text[i], suggestionsNumber);
 
