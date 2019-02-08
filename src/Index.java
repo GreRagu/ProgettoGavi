@@ -124,7 +124,7 @@ public class Index implements ActionListener{
 		dlgProgress.setLocationRelativeTo(ParentFrame);
 		dlgProgress.setResizable(false);
 		dlgProgress.setSize(500, 110);
-		dlgProgress.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+		dlgProgress.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
 		Container content = dlgProgress.getContentPane();
 		Border border = BorderFactory
 				.createTitledBorder("Indexing to directory " + indexDir + "...");
