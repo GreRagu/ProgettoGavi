@@ -1,5 +1,5 @@
 Hegregio
-Hegregio is a Lucene based information retrieval tool.
+Hegregio is a Lucene based information retrieval tool developed in Java (Eclipse workspace).
 It offer the possibility of searching within the TREC dataset using different 
 ir Models and different Tolerant Retrieval functions.
 
