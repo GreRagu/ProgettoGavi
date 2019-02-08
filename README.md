@@ -1,8 +1,7 @@
 # Hegregio
 
 **Hegregio** is a Lucene based information retrieval tool developed in Java (Eclipse workspace)  
-It offer the possibility of searching within the TREC dataset using different 
-ir Models and different Tolerant Retrieval functions.
+It offer the possibility of searching within the [TREC](hhttp://www.trec-cds.org/2016.html) dataset using different ir Models and different Tolerant Retrieval functions.
 
 ## How to install
 
@@ -23,18 +22,18 @@ lucene-suggest-7.4.0.jar
 The GUI structure is based on a menu bar.
 The first menu element that is going to be used is "Index"
 
-`-Create Index Path-` creates a file that lists all the document the user wants to index  
-`-Create Index-` Start indexing the document listed on the IndexPath file with the selected model  
-`-Load Index-` Load an existing index
+`Create Index Path` creates a file that lists all the document the user wants to index  
+`Create Index` Start indexing the document listed on the IndexPath file with the selected model  
+`Load Index` Load an existing index
 
-`-Models-` In this menu the user can select what model prefers to apply  
+`Models` In this menu the user can select what model prefers to apply  
 The default one is the standard model.
 Other choises are: 
 Vector Space Model
 Boolean Model
 Fuzzy Model
 
-`-Efficiency-` Calulates and plots graphs about precision and recall about the benchmark queries
+`Efficiency` Calulates and plots graphs about precision and recall about the benchmark queries
 
 In the saerch bar the user can insert the query who wants to search.
 Wildcard queries are supported.
