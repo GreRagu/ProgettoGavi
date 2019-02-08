@@ -28,6 +28,7 @@ class ButtonEditor extends DefaultCellEditor {
 		protected JButton button;
 		private String label;
 		private boolean isPushed;
+		private File file;
 
 		public ButtonEditor(JCheckBox checkBox) {
 			super(checkBox);
@@ -56,10 +57,16 @@ class ButtonEditor extends DefaultCellEditor {
 
 		public Object getCellEditorValue() {
 			if (isPushed) {
-	            try {
-					Desktop.getDesktop().open(new File(label.toString()));
-				} catch (IOException e1) {
-					// TODO Auto-generated catch block
+				file = new File(label.toString());
+				if(file.exists()) {
+					try {
+						Desktop.getDesktop().open(new File(label.toString()));
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						JOptionPane.showMessageDialog(null,	"File not found", "Error", JOptionPane.ERROR_MESSAGE);
+					}
+				}else {
+					System.out.println(label.toString());
 					JOptionPane.showMessageDialog(null,	"File not found", "Error", JOptionPane.ERROR_MESSAGE);
 				}
 			}
