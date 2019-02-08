@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://www.dropbox.com/s/zps3jf72744mumh/lucene.png?dl=0">
+<img src="https://o8jyqa.db.files.1drv.com/y4mWQhouanKpJ45V5KFOCGiE1Ir2bUQABO_S4DEpp0-BWQyGDOiJiDUv248bPcn_lKWaF0EF89JA7vVfVhA1fePWFInPWjVEJgv0QeiP43DqauVWOx5wKaeiiKxbvmXRnQy19s1nEpXZoaT9X2w1O_mqgGCNsL9KTGRRYhe9Cx318zmu11qBK0A5yXXmdI9RxpZlGDs2phJlhYJ7V_l9JXYRQ?width=1223&height=224&cropmode=none">
 </p>    
 
 # Hegregio
@@ -49,6 +49,6 @@ It is possible to open and view the selected document directly from the table.
 
 ## Contributors
 
-Giovanni Gambigliani Zoccoli
-Greta Rausa
-Andrea Helmi
+Giovanni Gambigliani Zoccoli  
+Greta Rausa  
+Andrea Helmi  
