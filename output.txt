@@ -1,7 +1,7 @@
 1  -  (contents:58 contents:year contents:old contents:woman contents:hypertension contents:obesity contents:presents contents:exercise contents:related contents:episodic contents:chest contents:pain contents:radiating contents:back)
 
 1 Stats:
-  Search Seconds:         0.060
+  Search Seconds:         0.069
   DocName Seconds:        0.155
   Num Points:         1,000.000
   Num Good Points:      170.000
@@ -33,8 +33,8 @@
 2  -  (contents:8 contents:year contents:old contents:boy contents:2 contents:days contents:loose contents:stools contents:fever contents:cough contents:after contents:returning contents:from contents:trip contents:colorado contents:chest contents:x contents:ray contents:shows contents:bilateral contents:lung contents:infiltrates)
 
 2 Stats:
-  Search Seconds:         0.028
-  DocName Seconds:        0.077
+  Search Seconds:         0.027
+  DocName Seconds:        0.076
   Num Points:         1,000.000
   Num Good Points:      222.000
   Max Good Points:    3,150.000
@@ -65,8 +65,8 @@
 3  -  (contents:58 contents:year contents:old contents:female contents:non contents:smoker contents:left contents:lung contents:mass contents:x contents:ray contents:head contents:ct contents:shows contents:solitary contents:right contents:frontal contents:lobe contents:mass)
 
 3 Stats:
-  Search Seconds:         0.015
-  DocName Seconds:        0.087
+  Search Seconds:         0.016
+  DocName Seconds:        0.085
   Num Points:         1,000.000
   Num Good Points:      189.000
   Max Good Points:    3,668.000
@@ -98,7 +98,7 @@
 
 4 Stats:
   Search Seconds:         0.026
-  DocName Seconds:        0.087
+  DocName Seconds:        0.086
   Num Points:         1,000.000
   Num Good Points:      116.000
   Max Good Points:    3,224.000
@@ -129,8 +129,8 @@
 5  -  (contents:56 contents:year contents:old contents:woman contents:presents contents:shortness contents:breath contents:3 contents:weeks contents:after contents:surgical contents:mastectomy contents:physical contents:exam contents:significant contents:right contents:calf contents:tenderness contents:decreased contents:breath contents:sounds contents:right contents:base contents:her contents:d contents:dimer contents:level contents:elevated)
 
 5 Stats:
-  Search Seconds:         0.017
-  DocName Seconds:        0.092
+  Search Seconds:         0.019
+  DocName Seconds:        0.090
   Num Points:         1,000.000
   Num Good Points:      100.000
   Max Good Points:    3,735.000
@@ -193,8 +193,8 @@
 7  -  (contents:26 contents:year contents:old contents:obese contents:woman contents:bipolar contents:disorder contents:zolpidem contents:lithium contents:recent contents:difficulty contents:sleeping contents:agitation contents:suicidal contents:ideation contents:irritability)
 
 7 Stats:
-  Search Seconds:         0.011
-  DocName Seconds:        0.102
+  Search Seconds:         0.012
+  DocName Seconds:        0.100
   Num Points:         1,000.000
   Num Good Points:      176.000
   Max Good Points:    2,615.000
@@ -226,7 +226,7 @@
 
 8 Stats:
   Search Seconds:         0.011
-  DocName Seconds:        0.102
+  DocName Seconds:        0.097
   Num Points:         1,000.000
   Num Good Points:      142.000
   Max Good Points:    2,879.000
@@ -257,8 +257,8 @@
 9  -  (contents:43 contents:year contents:old contents:woman contents:soft contents:flesh contents:colored contents:pedunculated contents:lesions contents:her contents:neck)
 
 9 Stats:
-  Search Seconds:         0.008
-  DocName Seconds:        0.072
+  Search Seconds:         0.009
+  DocName Seconds:        0.086
   Num Points:         1,000.000
   Num Good Points:      146.000
   Max Good Points:    3,571.000
@@ -289,8 +289,8 @@
 10  -  (contents:67 contents:year contents:old contents:woman contents:status contents:post contents:cardiac contents:catheterization contents:via contents:right contents:femoral contents:artery contents:now contents:cool contents:pulseless contents:right contents:foot contents:right contents:femoral contents:bruit)
 
 10 Stats:
-  Search Seconds:         0.009
-  DocName Seconds:        0.082
+  Search Seconds:         0.010
+  DocName Seconds:        0.083
   Num Points:         1,000.000
   Num Good Points:       24.000
   Max Good Points:    2,687.000
@@ -322,7 +322,7 @@
 
 11 Stats:
   Search Seconds:         0.009
-  DocName Seconds:        0.085
+  DocName Seconds:        0.084
   Num Points:         1,000.000
   Num Good Points:      129.000
   Max Good Points:    4,031.000
@@ -354,7 +354,7 @@
 
 12 Stats:
   Search Seconds:         0.014
-  DocName Seconds:        0.099
+  DocName Seconds:        0.098
   Num Points:         1,000.000
   Num Good Points:      101.000
   Max Good Points:    3,893.000
@@ -386,7 +386,7 @@
 
 13 Stats:
   Search Seconds:         0.012
-  DocName Seconds:        0.088
+  DocName Seconds:        0.087
   Num Points:         1,000.000
   Num Good Points:      195.000
   Max Good Points:    3,775.000
@@ -418,7 +418,7 @@
 
 14 Stats:
   Search Seconds:         0.014
-  DocName Seconds:        0.089
+  DocName Seconds:        0.090
   Num Points:         1,000.000
   Num Good Points:       79.000
   Max Good Points:    4,080.000
@@ -449,8 +449,8 @@
 15  -  (contents:36 contents:year contents:old contents:woman contents:amenorrhea contents:abdominal contents:tenderness contents:enlarged contents:uterus contents:cervical contents:dilation contents:urine contents:pregnancy contents:test contents:negative contents:ultrasound contents:reveals contents:enlarged contents:uterus contents:multiple contents:cystic contents:areas contents:which contents:could contents:consistent contents:vesicular contents:mole contents:fibroid contents:degeneration)
 
 15 Stats:
-  Search Seconds:         0.010
-  DocName Seconds:        0.071
+  Search Seconds:         0.011
+  DocName Seconds:        0.070
   Num Points:         1,000.000
   Num Good Points:      123.000
   Max Good Points:    2,734.000
@@ -482,7 +482,7 @@
 
 16 Stats:
   Search Seconds:         0.014
-  DocName Seconds:        0.091
+  DocName Seconds:        0.093
   Num Points:         1,000.000
   Num Good Points:      157.000
   Max Good Points:    3,206.000
@@ -513,8 +513,8 @@
 17  -  (contents:48 contents:year contents:old contents:man contents:common contents:variable contents:immunodeficiency contents:presents contents:abdominal contents:pain contents:fever contents:ultrasound contents:reveals contents:hepatomegaly contents:free contents:intraperitoneal contents:fluid contents:ruptured contents:liver contents:abscess contents:found contents:drained contents:during contents:exploratory contents:laparotomy)
 
 17 Stats:
-  Search Seconds:         0.014
-  DocName Seconds:        0.065
+  Search Seconds:         0.013
+  DocName Seconds:        0.064
   Num Points:         1,000.000
   Num Good Points:      177.000
   Max Good Points:    2,831.000
@@ -546,7 +546,7 @@
 
 18 Stats:
   Search Seconds:         0.013
-  DocName Seconds:        0.090
+  DocName Seconds:        0.089
   Num Points:         1,000.000
   Num Good Points:      120.000
   Max Good Points:    3,050.000
@@ -577,8 +577,8 @@
 19  -  (contents:52 contents:year contents:old contents:man contents:history contents:smoking contents:heavy contents:drinking contents:now contents:progressive contents:dysphagia contents:25 contents:pound contents:weight contents:loss)
 
 19 Stats:
-  Search Seconds:         0.011
-  DocName Seconds:        0.088
+  Search Seconds:         0.012
+  DocName Seconds:        0.085
   Num Points:         1,000.000
   Num Good Points:      179.000
   Max Good Points:    3,249.000
@@ -609,7 +609,7 @@
 20  -  (contents:32 contents:year contents:old contents:unbelted contents:driver contents:status contents:post contents:car contents:accident contents:has contents:multiple contents:extremity contents:fractures contents:severe contents:abdominal contents:pain contents:rebound contents:guarding)
 
 20 Stats:
-  Search Seconds:         0.009
+  Search Seconds:         0.008
   DocName Seconds:        0.086
   Num Points:         1,000.000
   Num Good Points:      131.000
@@ -642,7 +642,7 @@
 
 21 Stats:
   Search Seconds:         0.010
-  DocName Seconds:        0.098
+  DocName Seconds:        0.097
   Num Points:         1,000.000
   Num Good Points:      197.000
   Max Good Points:    2,997.000
@@ -705,8 +705,8 @@
 23  -  (contents:63 contents:year contents:old contents:heavy contents:smoker contents:productive contents:cough contents:shortness contents:breath contents:tachypnea contents:oxygen contents:requirement contents:chest contents:x contents:ray contents:shows contents:hyperinflation contents:consolidation)
 
 23 Stats:
-  Search Seconds:         0.007
-  DocName Seconds:        0.078
+  Search Seconds:         0.079
+  DocName Seconds:        1.687
   Num Points:         1,000.000
   Num Good Points:      267.000
   Max Good Points:    3,037.000
@@ -737,8 +737,8 @@
 24  -  (contents:33 contents:year contents:old contents:male contents:presents contents:severe contents:abdominal contents:pain contents:one contents:week contents:after contents:bike contents:accident contents:which contents:he contents:sustained contents:abdominal contents:trauma contents:he contents:hypotensive contents:tachycardic contents:imaging contents:reveals contents:ruptured contents:spleen contents:intraperitoneal contents:hemorrhage)
 
 24 Stats:
-  Search Seconds:         0.009
-  DocName Seconds:        0.086
+  Search Seconds:         0.142
+  DocName Seconds:        2.679
   Num Points:         1,000.000
   Num Good Points:       74.000
   Max Good Points:    2,575.000
@@ -769,8 +769,8 @@
 25  -  (contents:8 contents:year contents:old contents:boy contents:decreased contents:level contents:consciousness contents:30 contents:minutes contents:after contents:falling contents:from contents:his contents:bike contents:hitting contents:his contents:head contents:he contents:wearing contents:helmet contents:er contents:he contents:bradycardic contents:hypertensive contents:neurosurgeon contents:strongly contents:advised contents:immediate contents:treatment)
 
 25 Stats:
-  Search Seconds:         0.015
-  DocName Seconds:        0.095
+  Search Seconds:         0.144
+  DocName Seconds:        2.055
   Num Points:         1,000.000
   Num Good Points:       67.000
   Max Good Points:    3,632.000
@@ -801,8 +801,8 @@
 26  -  (contents:group contents:traveling contents:amazon contents:rainforest contents:including contents:3 contents:pregnant contents:women contents:all contents:members contents:immunizations contents:up contents:date contents:require contents:malaria contents:prophylaxis)
 
 26 Stats:
-  Search Seconds:         0.010
-  DocName Seconds:        0.098
+  Search Seconds:         0.191
+  DocName Seconds:        5.961
   Num Points:         1,000.000
   Num Good Points:      247.000
   Max Good Points:    2,711.000
@@ -833,8 +833,8 @@
 27  -  (contents:21 contents:year contents:old contents:male contents:dozens contents:small contents:polyps contents:found contents:colonoscopy contents:family contents:history contents:significant contents:both contents:older contents:siblings contents:having contents:total contents:colectomies contents:after contents:colonoscopy contents:revealed contents:hundreds contents:adenomas)
 
 27 Stats:
-  Search Seconds:         0.015
-  DocName Seconds:        0.097
+  Search Seconds:         0.116
+  DocName Seconds:        2.364
   Num Points:         1,000.000
   Num Good Points:        5.000
   Max Good Points:    2,206.000
@@ -865,8 +865,8 @@
 28  -  (contents:31 contents:year contents:old contents:female contents:amenorrhea contents:milky contents:nipple contents:discharge contents:negative contents:urine contents:pregnancy contents:test contents:elevated contents:prolactin contents:level)
 
 28 Stats:
-  Search Seconds:         0.011
-  DocName Seconds:        0.091
+  Search Seconds:         0.102
+  DocName Seconds:        2.076
   Num Points:         1,000.000
   Num Good Points:      129.000
   Max Good Points:    2,967.000
@@ -897,8 +897,8 @@
 29  -  (contents:51 contents:year contents:old contents:smoker contents:hypertension contents:diabetes contents:menopause contents:needs contents:recommendations contents:preventing contents:osteoporosis)
 
 29 Stats:
-  Search Seconds:         0.005
-  DocName Seconds:        0.096
+  Search Seconds:         0.050
+  DocName Seconds:        3.012
   Num Points:         1,000.000
   Num Good Points:       33.000
   Max Good Points:    2,974.000
@@ -929,8 +929,8 @@
 30  -  (contents:72 contents:year contents:old contents:man contents:calf contents:pain contents:while contents:walking contents:uphill contents:history contents:ischemic contents:heart contents:disease contents:worsening contents:hypertension contents:despite contents:medication contents:compliance contents:physical contents:exam contents:he contents:has contents:right contents:carotid contents:bruit contents:his contents:lower contents:extremities contents:cool contents:diminished contents:dorsalis contents:pedis contents:pulses)
 
 30 Stats:
-  Search Seconds:         0.010
-  DocName Seconds:        0.085
+  Search Seconds:         0.192
+  DocName Seconds:        1.418
   Num Points:         1,000.000
   Num Good Points:      117.000
   Max Good Points:    3,362.000
@@ -961,8 +961,8 @@
 
 
 SUMMARY
-  Search Seconds:         0.014
-  DocName Seconds:        0.089
+  Search Seconds:         0.054
+  DocName Seconds:        1.035
   Num Points:         1,000.000
   Num Good Points:      135.867
   Max Good Points:    3,200.900

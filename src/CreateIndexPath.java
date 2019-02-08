@@ -15,6 +15,15 @@ import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
+
+/**
+ * Classe che permette a partire da una cartella di creare un file, 
+ * nel percorso "./dataset/clinical_dataset/IndexPath.txt",
+ * in cui vengono registarti i path di tutti i documenti con
+ * estensione inserita da utente trovati all'interno della cartella impostata
+ * @author 
+ *
+ */
 public class CreateIndexPath {
 	private String file;
 	private String ext;
@@ -24,6 +33,17 @@ public class CreateIndexPath {
 	
 	public CreateIndexPath() {}
 	
+	/**
+	 * Funzione che permette di chiedere informazioni all'utente
+	 * per creare il file IndexPath:
+	 * - Cartella di partenza
+	 * - Estensione dei file
+	 * - Possibile append del file
+	 * 
+	 * @param Parent - JFrame per instanziare i JDialog correttamente
+	 * @return
+	 * @throws IOException
+	 */
 	public int CreateFile(JFrame Parent) throws IOException {
 
 		file = "./dataset/clinical_dataset/IndexPath.txt";
@@ -79,8 +99,17 @@ public class CreateIndexPath {
 		return 0;
 	}
 
-	// Write on IndexPath.txt the path of each document that is going to add at the
-	// index
+	/**
+	 * Funzione che effettivamente scrive il fil IndexPath,
+	 * esegue una scansiona apartire dalla cartella di root, in modalità deep first
+	 * e popula il file IndexPath con i percosri di ogni file trovato.
+	 * @param docsPath - Cartella di root
+	 * @param ext - Estesione dei file da ricercare
+	 * @param file - file IndexPath
+	 * @param append - booleano per decidere se aprire il file in modalità append
+	 * @return
+	 * @throws FileNotFoundException
+	 */
 	private int writeDocPath(String docsPath, String ext, String file, Boolean append) throws FileNotFoundException {
 
 	    PrintStream write = new PrintStream(new FileOutputStream(file, append));

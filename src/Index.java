@@ -18,6 +18,17 @@ import javax.swing.JProgressBar;
 import javax.swing.SwingUtilities;
 import javax.swing.border.Border;
 
+
+/**
+ * Classe che permette indicizzazione dei documenti,
+ * il costruttore riceve rispettivamente in ingresso i seguenti parametri:
+ * - Frame per la creazioen dei JDialog
+ * - Numero di file scritti su IndexPath
+ * - File IndexPath
+ * - Modello utilizzato
+ * @author
+ *
+ */
 public class Index implements ActionListener{
 
 	private String indexFile;
@@ -48,7 +59,18 @@ public class Index implements ActionListener{
 			}
 		});
 	}
-
+	/**
+	 * Creazione dell'interfaccia grafica per le informazioni richieste dall'utente,
+	 * viene richiesto:
+	 * - Cartella su cui creare l'indice
+	 * - Se si vuole appendere all'indice già presente
+	 * Viene creato un Jdialog in cui si mostra l'avanzamento dell'operazione di 
+	 * creazione dell'indice(operazione molto lunga), viene poi creato un 
+	 * thread per gestire la creazione dell'indice e permettere l'aggiornameto 
+	 * dell'interfaccia grafica
+	 * @return
+	 * @throws IOException
+	 */
 	public String CreateGUI() throws IOException {
 
 		JFileChooser fc = new JFileChooser();
@@ -122,7 +144,11 @@ public class Index implements ActionListener{
 		
 		return indexDir + " " + IW.getTotal();
 	}
-
+	
+	
+	/**
+	 * ActionListener per il tasto start
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub

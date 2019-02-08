@@ -2,6 +2,12 @@ import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.search.Query;
 import org.apache.lucene.search.similarities.Similarity;
 
+
+/**
+ * Classe per la gestione dei modelli
+ * @author giova
+ *
+ */
 public class MyModel {
 
 	private String[] Model = {"Probabilistic(BM25) Model", "Vector Space Model (TFIDF)", "Boolean Model", "Fuzzy Model"};
@@ -18,6 +24,13 @@ public class MyModel {
 		return Path;
 	}
 	
+	/**
+	 * Ritorna una query dopo aver effettuato parsing a seconda del modello usato 
+	 * @param query
+	 * @param field
+	 * @param analyzer
+	 * @return
+	 */
 	public Query getQuery(String query, String field, StandardAnalyzer analyzer) {
 		if(modelUsed == 1) {
 			VectorSpaceModel VSM = new VectorSpaceModel();
@@ -47,6 +60,10 @@ public class MyModel {
 		return Model[modelUsed];
 	}
 	
+	/**
+	 * Ritorna la similarità di ciascun modello 
+	 * @return
+	 */
 	public Similarity getModelSymilarity() {
 		if(modelUsed == 1) {
 			VectorSpaceModel VSM = new VectorSpaceModel();

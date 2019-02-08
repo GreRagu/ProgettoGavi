@@ -11,6 +11,14 @@ import javax.swing.JCheckBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 
+
+/**
+ * Classe che si occupa di gestire i bottoni presenti della tabella dei risultati,
+ * viene creato un bottone per ogni riga della tabella in modo da permettere l'apertura in modo rapido
+ * dei file che vengono recuperati dal sistema di ricerca
+ * @author 
+ *
+ */
 class ButtonEditor extends DefaultCellEditor {
 		/**
 		* 

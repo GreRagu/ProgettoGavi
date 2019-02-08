@@ -1,5 +1,11 @@
 import javax.swing.table.DefaultTableModel;
 
+
+/**
+ * Classe per la gestione della tabella che riporta i risultati della ricerca
+ * @author 
+ *
+ */
 public class MyTableModel extends DefaultTableModel {
 
 	/**

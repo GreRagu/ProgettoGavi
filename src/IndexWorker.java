@@ -14,7 +14,6 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JProgressBar;
 
-import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
@@ -26,6 +25,15 @@ import org.apache.lucene.queryparser.classic.ParseException;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
 
+
+/**
+ * Classe che implementa un Thread per la creazione dell'indice,
+ * effettuando parsing di ogni documento presente nell'IndexPath,
+ * riuscendo a ridurre le dimesioni iniziali del dataset 
+ * di circa 1/4
+ * @author
+ *
+ */
 public class IndexWorker extends Thread {
 
 	public static final String CONTENTS = "contents";
@@ -62,6 +70,15 @@ public class IndexWorker extends Thread {
 		return Number - FileNotFound;
 	}
 	
+	/**
+	 * Viene creato creato l'indice a partire dai path presenti nel file
+	 * IndexPath, dove sono presenti i path.
+	 * Viene inizializzato uno StandardAnalyzer e recuperato il modello selezionato per la creazione
+	 * (modello di default BM25)
+	 * Viene anche registrato il tempo di creazione dell'indice 
+	 * @return
+	 * @throws IOException
+	 */
 	private int indexCreator() throws IOException {
 		dir = FSDirectory.open(Paths.get(indexDir));
 		analyzer = new StandardAnalyzer();
@@ -80,14 +97,14 @@ public class IndexWorker extends Thread {
 		}
 
 		// buffer ram
-		iwc.setRAMBufferSizeMB(2048.0);
+		iwc.setRAMBufferSizeMB(512.0);
 
 		writer = new IndexWriter(dir, iwc);
 
 		// apre il file indexFile e per ogni riga(path di un 
 		// file da aggiungere all'indice)
 		// effettua parsing attraveso la funzione getDocument passandogli il path del
-		// file e successivamente l'aggiunge all'indice
+		// file e successivamente l'aggiunge all'indice, se trova path no esistenti vengono segnalati
 		Date start = new Date();
 		try (BufferedReader br = new BufferedReader(new FileReader(indexFile))) {
 			String line;
@@ -133,6 +150,13 @@ public class IndexWorker extends Thread {
 		return 1;
 	}
 	
+	/**
+	 * Riceve in ingresso un file e per ogni file preleva body, name e path
+	 * e crea un document con questi fields e lo ritorna
+	 * @param file - File con path presente nel file IndexPath
+	 * @return
+	 * @throws IOException
+	 */
 	private Document getDocument(File file) throws IOException {
 		Document document = new Document();
 
@@ -155,7 +179,9 @@ public class IndexWorker extends Thread {
 	}
 	
 	/**
-	 * Funzione che estrapola dal file xml il contenuto del body
+	 * Funzione che estrapola dal file nxml il contenuto del body
+	 * e attraverso la classe tokenizeStopStem effettua un parsing
+	 * approfondito
 	 * 
 	 * @throws IOException
 	 * @throws ParseException 

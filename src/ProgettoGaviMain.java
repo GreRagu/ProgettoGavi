@@ -237,7 +237,7 @@ public class ProgettoGaviMain implements ActionListener {
 			Index ind = new Index(frmHegregio, filenumber, IndexFile, M);
 			try {
 				String[] app = ind.CreateGUI().split(" ");
-				if(!app[0].equals("null") && !app[1].equals(0) ) {
+				if(!app[0].equals("null") && !app[1].equals("0") ) {
 					indexDir = app[0];
 					filenumber = Integer.parseInt(app[1]);
 				}

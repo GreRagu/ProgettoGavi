@@ -23,6 +23,12 @@ import org.apache.lucene.search.ScoreDoc;
 import org.apache.lucene.search.TopDocs;
 import org.apache.lucene.store.FSDirectory;
 
+
+/**
+ * Classe che effettua la ricerca della query all'interno dell'indice
+ * @author
+ *
+ */
 public class SearchFiles implements ActionListener{
 	
 	private String queryString;
@@ -48,6 +54,13 @@ public class SearchFiles implements ActionListener{
 		this.M = M;
 	}
 
+	/**
+	 * Viene chiesto quanti documenti collezzionare per la ricerca e successivamente
+	 * esegue il parse della query a seconda del modello usato per creare l'indice,
+	 * ricerca poi la query all'interno del dataset
+	 * @return
+	 * @throws Exception
+	 */
 	@SuppressWarnings("deprecation")
 	public int Search() throws Exception {
 		
@@ -84,7 +97,7 @@ public class SearchFiles implements ActionListener{
 		
 		
 		
-		total = doPagingSearch(searcher, query, model);//queries == null && queryString == null);
+		total = doSearch(searcher, query, model);//queries == null && queryString == null);
 		
 		reader.close();
 		
@@ -93,16 +106,15 @@ public class SearchFiles implements ActionListener{
 	}
 
 	/**
-	 * This demonstrates a typical paging search scenario, where the search engine
-	 * presents pages of size n to the user. The user can then go to the next page
-	 * if interested in the next hits.
-	 * 
-	 * When the query is executed for the first time, then only enough results are
-	 * collected to fill 5 result pages. If the user wants to page beyond this
-	 * limit, then the query is executed another time and all hits are collected.
-	 * 
+	 * Funzione che effettua la ricerca nel' indice e aggiunge alla tabella tante righe quanti
+	 * sono i documenti che l'utente ha deciso di collezzionare per la sua ricerca(default 100)
+	 * @param searcher
+	 * @param query
+	 * @param model
+	 * @return
+	 * @throws IOException
 	 */
-	private int doPagingSearch(IndexSearcher searcher, Query query, DefaultTableModel model) throws IOException {
+	private int doSearch(IndexSearcher searcher, Query query, DefaultTableModel model) throws IOException {
 		
 		TopDocs results = searcher.search(query, Hits);
 		ScoreDoc[] hits = results.scoreDocs;
