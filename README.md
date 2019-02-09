@@ -49,6 +49,6 @@ It is possible to open and view the selected document directly from the table.
 
 ## Contributors
 
-Giovanni Gambigliani Zoccoli  
-Greta Rausa  
-Andrea Helmi  
+[GGZ](https://github.com/GiovanniGambiglianiZoccoli)  
+[GreRagu](https://github.com/GreRagu)  
+[Andre96H](https://github.com/Andre96H)  
