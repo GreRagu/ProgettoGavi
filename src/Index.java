@@ -87,11 +87,17 @@ public class Index implements ActionListener{
 		if (returnVal == JFileChooser.CANCEL_OPTION)
 			return "null 0";
 
-		int dialogResult = JOptionPane.showConfirmDialog(null, "Would You Like to append to the index folder?", "",
-				JOptionPane.YES_NO_OPTION);
-		if (dialogResult == JOptionPane.YES_OPTION) {
-			append = true;
-		} else {
+		File tempFile = new File(indexDir);
+		if(tempFile.isDirectory() && tempFile.list().length > 0) {
+			int dialogResult = JOptionPane.showConfirmDialog(null, "Would You Like to append to the index folder?", "",
+					JOptionPane.YES_NO_OPTION);
+			if (dialogResult == JOptionPane.YES_OPTION) {
+				append = true;
+			} else {
+				append = false;
+			}
+		}
+		else {
 			append = false;
 		}
 		
