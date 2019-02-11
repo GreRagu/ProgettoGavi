@@ -48,8 +48,8 @@ public class PrecisionRecall {
 
 
 	public void start() throws Exception {
-		File topicsFile = new File("./dataset/clinical_dataset/Topics/MyQuery/Topics2014.txt");
-		File qrelsFile = new File("./dataset/clinical_dataset/Qrels/qrels-sampleval-2014.txt");
+		File topicsFile = new File("./dataset/clinical_dataset/Topics/MyQuery/Topics2015A.txt");
+		File qrelsFile = new File("./dataset/clinical_dataset/Qrels/qrels-sampleval-2015.txt");
 
 		FSDirectory open = FSDirectory.open(Paths.get(s));
 
@@ -117,7 +117,7 @@ public class PrecisionRecall {
 		System.out.println("Plotting precision graph");
 		// Precision
 		Plot plot = Plot
-				.plot(Plot.plotOpts().title("Precision graph - ").width(1000).height(600).legend(Plot.LegendFormat.TOP))
+				.plot(Plot.plotOpts().title("Precision graph").width(1000).height(600).legend(Plot.LegendFormat.TOP))
 				.xAxis("Query #", Plot.axisOpts().format(Plot.AxisFormat.NUMBER_INT).range(0, num_queries.size()))
 				.yAxis("Precision", Plot.axisOpts().range(0, getMax(precision)))
 				.series(".", Plot.data().xy(num_queries, precision), Plot.seriesOpts().line(Line.NONE)
