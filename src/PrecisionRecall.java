@@ -41,9 +41,12 @@ public class PrecisionRecall {
 	private ArrayList<Double> rprecision15;
 	private ArrayList<Double> rprecision5;
 	private String s;
+	private MyModel M;
 
-	public PrecisionRecall(String path) {
+	public PrecisionRecall(String path, MyModel M) {
 		this.s = path;
+		this.M = M;
+		System.out.println(M.getModelString());
 	}
 
 
@@ -54,6 +57,9 @@ public class PrecisionRecall {
 		FSDirectory open = FSDirectory.open(Paths.get(s));
 
 		IndexSearcher searcher = new IndexSearcher(DirectoryReader.open(open));
+		System.out.println(M.getModelSymilarity());
+		searcher.setSimilarity(M.getModelSymilarity());
+		System.out.println(searcher.getSimilarity(true));
 
 		String docNameField = "filename";
 

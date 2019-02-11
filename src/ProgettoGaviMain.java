@@ -402,7 +402,7 @@ public class ProgettoGaviMain implements ActionListener {
 		if( e.getSource() == mntmCalculateAndPlot) {
 			if(indexDir != null) {
 				
-				PrecisionRecall pr = new PrecisionRecall(indexDir);
+				PrecisionRecall pr = new PrecisionRecall(indexDir, M);
 				JOptionPane.showMessageDialog(frmHegregio,"At the end of the plotting, the results folder will be opened");
 
 				try {
