@@ -189,9 +189,23 @@ public class ProgettoGaviMain implements ActionListener {
 		columnNames = new Vector<>();
 		columnNames.addElement("#");
 		columnNames.addElement("Docnos");
-		columnNames.addElement("Path");
 		columnNames.addElement("Score");
-		model = new DefaultTableModel(columnNames, 0);
+		columnNames.addElement("Path");
+		model = new DefaultTableModel(columnNames, 0)
+		{
+		    /**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			public boolean isCellEditable(int row, int column) {
+				if(column == 3) {
+					return true;
+				}
+				else
+					return false;	//This causes all cells to be not editable
+		    }
+		 };
 		table = new JTable(model);
 		TableColumn col = table.getColumnModel().getColumn(0);
 		col.setPreferredWidth(40);
@@ -300,12 +314,12 @@ public class ProgettoGaviMain implements ActionListener {
 		
 		
 		if ( e.getSource() == btnHelp ) {   
-			JOptionPane.showMessageDialog(frmHegregio,	"Programma che si occupa di information retrieval\" \n"
-								+	"Procedimento: scrivere nel text field il testo che verrà cercato nel dataset preimpostato\n"
-								+	" e premere il tasto 'cerca', nella tabella sottostante verrà restituito il risultato della ricerca \n"
-								+ 	"\n\n"
-								+ 	"\n"
-								+   " \n"
+			JOptionPane.showMessageDialog(frmHegregio,	"<html> Programma che si occupa di information retrieval <br>"
+								+	"<li><u>Create IndexPath</u> : Crea un file contenente tutti i percorsi dei file presenti nel dataset <br></li>"
+								+	"<li><u>Load IndexPath</u> : Carica un index da una cartella <br></li>"
+								+ 	"<li><u>Create Index</u> : Crea un indice a parite dal file IndexPath <br></li>"
+								+ 	"<li><u>Model</u> : Scelta del modello da usare per la creazione dell'indice <br></li>"
+								+   "<li><u>Search</u> : Nel textfield inserire una stringa a piacre <br></li> </html>"
 								+   "");
 			
 		}
@@ -328,13 +342,16 @@ public class ProgettoGaviMain implements ActionListener {
 						SearchFiles sf;
 						if (result == JOptionPane.YES_OPTION) {
 							sf = new SearchFiles(CorrectQuery, indexDir, model, frmHegregio, M);
+							Integer totalFile = sf.Search();
+							totalFound.setText("Files found: ");
+							totalFound.setText(totalFound.getText() + " " + totalFile + " for query: " + CorrectQuery);
 						} else {
 							sf = new SearchFiles(txtSearch.getText(), indexDir, model, frmHegregio, M);
+							Integer totalFile = sf.Search();
+							totalFound.setText("Files found: ");
+							totalFound.setText(totalFound.getText() + " " + totalFile + " for query: " + txtSearch.getText());
 						}
 						
-						Integer totalFile = sf.Search();
-						totalFound.setText("Files found: ");
-						totalFound.setText(totalFound.getText() + " " + totalFile + " for query: " + CorrectQuery);
 						
 					} catch (Exception e1) {
 						// TODO Auto-generated catch block
