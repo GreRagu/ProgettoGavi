@@ -336,7 +336,6 @@ public class ProgettoGaviMain implements ActionListener {
 						model.setRowCount(0);
 						SimpleSuggestionService SSS = new SimpleSuggestionService(txtSearch.getText().split(" "));
 						String CorrectQuery = SSS.DidYouMean();
-						System.out.println("corretta: " + CorrectQuery);
 						
 						int result = JOptionPane.showConfirmDialog(frmHegregio, "Did you mean: " + CorrectQuery + "?", "", JOptionPane.YES_NO_OPTION);
 						SearchFiles sf;

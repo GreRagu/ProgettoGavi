@@ -13,10 +13,12 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
+import org.apache.lucene.analysis.core.KeywordAnalyzer;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.index.DirectoryReader;
 import org.apache.lucene.index.IndexReader;
+import org.apache.lucene.queryparser.classic.QueryParser;
 import org.apache.lucene.search.IndexSearcher;
 import org.apache.lucene.search.Query;
 import org.apache.lucene.search.ScoreDoc;
@@ -69,14 +71,24 @@ public class SearchFiles implements ActionListener{
 		searcher.setSimilarity(M.getModelSymilarity());
 		StandardAnalyzer analyzer = new StandardAnalyzer();
 		
-		tokenizeStopStem tSS = new tokenizeStopStem(queryString);
-		queryString = tSS.output();
+		System.out.println("mio: " + queryString);
 		
-		Query query = M.getQuery(queryString, field, analyzer);
-
+		Query query;
+		
+		if(!queryString.contains("?") && !queryString.contains("*")) {
+			tokenizeStopStem tSS = new tokenizeStopStem(queryString);
+			queryString = tSS.output();
+			System.out.println("query: " + queryString);
+			query = M.getQuery(queryString, field, analyzer);
+		}
+		else {
+			QueryParser parser = new QueryParser(field, new KeywordAnalyzer());
+			query = parser.parse(queryString);
+		}
+		
 		
 		System.out.println(queryString);
-		System.out.println("Searching for: " + query.toString(field));
+		System.out.println("Searching for: " + queryString);
 	
 		number = new JDialog(Parent, "Desired documents", true);
 		number.setSize(450, 150);
