@@ -129,7 +129,7 @@ public class PrecisionRecall {
 				.series(".", Plot.data().xy(num_queries, precision), Plot.seriesOpts().line(Line.NONE)
 						.marker(Plot.Marker.COLUMN).color(Color.BLUE).markerColor(Color.BLUE));
 		try {
-			plot.save(new java.io.File(".").getCanonicalPath() + "/results/precision", "png");
+			plot.save(new java.io.File(".").getCanonicalPath() + "/results/" + M.getModelString() + "/ precision", "png");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -143,7 +143,7 @@ public class PrecisionRecall {
 				.series(".", Plot.data().xy(num_queries, recall), Plot.seriesOpts().line(Line.NONE)
 						.marker(Plot.Marker.COLUMN).color(Color.BLUE).markerColor(Color.BLUE));
 		try {
-			plot.save(new java.io.File(".").getCanonicalPath() + "\\results\\recall", "png");
+			plot.save(new java.io.File(".").getCanonicalPath() + "/results/" + M.getModelString() + "/recall", "png");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -157,7 +157,7 @@ public class PrecisionRecall {
 				.series(".", Plot.data().xy(num_queries, rprecision5), Plot.seriesOpts().line(Line.NONE)
 						.marker(Plot.Marker.COLUMN).color(Color.BLUE).markerColor(Color.BLUE));
 		try {
-			plot.save(new java.io.File(".").getCanonicalPath() + "\\results\\rprecision5", "png");
+			plot.save(new java.io.File(".").getCanonicalPath() + "/results/" + M.getModelString() + "/rprecision5", "png");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -171,7 +171,7 @@ public class PrecisionRecall {
 				.series(".", Plot.data().xy(num_queries, rprecision10), Plot.seriesOpts().line(Line.NONE)
 						.marker(Plot.Marker.COLUMN).color(Color.BLUE).markerColor(Color.BLUE));
 		try {
-			plot.save(new java.io.File(".").getCanonicalPath() + "\\results\\rprecision10", "png");
+			plot.save(new java.io.File(".").getCanonicalPath() + "/results/" + M.getModelString() + "/rprecision10", "png");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -185,7 +185,7 @@ public class PrecisionRecall {
 				.series(".", Plot.data().xy(num_queries, rprecision15), Plot.seriesOpts().line(Line.NONE)
 						.marker(Plot.Marker.COLUMN).color(Color.BLUE).markerColor(Color.BLUE));
 		try {
-			plot.save(new java.io.File(".").getCanonicalPath() + "\\results\\rprecision15", "png");
+			plot.save(new java.io.File(".").getCanonicalPath() + "/results/" + M.getModelString() + "/rprecision15", "png");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -199,7 +199,7 @@ public class PrecisionRecall {
 				.series(".", Plot.data().xy(recallLevel, precision), Plot.seriesOpts().line(Line.NONE)
 						.marker(Plot.Marker.COLUMN).color(Color.BLUE).markerColor(Color.BLUE));
 		try {
-			plot.save(new java.io.File(".").getCanonicalPath() + "\\results\\Avg Precision", "png");
+			plot.save(new java.io.File(".").getCanonicalPath() + "/results/" + M.getModelString() + "/Avg Precision", "png");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
